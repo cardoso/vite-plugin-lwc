@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@lwc/rollup-plugin": "^8.3.0",
     "@types/node": "^22.8.0",
     "typescript": "~5.6.2",

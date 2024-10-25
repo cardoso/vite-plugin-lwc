@@ -1,0 +1,16 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+    "formatter": { "enabled": true, "indentStyle": "tab" },
+    "organizeImports": { "enabled": true },
+    "linter": {
+      "enabled": true,
+      "rules": { "all": true, "style": { "noInferrableTypes": "off", "noDefaultExport": "off" }, "correctness": { "noUndeclaredDependencies": "off"} }
+    },
+    "assists": { "enabled": true },
+    "overrides": [
+        {
+            "include": ["vite.config.mts"],
+            "linter": { "rules": { "correctness": { "noNodejsModules": "off" } } }
+        }
+    ]
+}

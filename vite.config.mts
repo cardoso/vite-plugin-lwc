@@ -3,19 +3,19 @@ import { defineConfig, type Plugin } from 'vite';
 import lwc, { type RollupLwcOptions } from '@lwc/rollup-plugin';
 import path from 'node:path';
 
-function disableCssPlugin(): Plugin {
+function patchPlugins(
+    options: Record<string, Partial<Plugin>>,
+): Plugin {
     return {
-        name: 'disable-css-plugin',
+        name: 'parch-plugins',
         enforce: 'pre',
         configResolved(config) {
-            ['vite:css', 'vite:css-post'].forEach((pluginName) => {
-                const plugin = config.plugins.find((plugin) => plugin.name === pluginName);
+            for (const [name, overrides] of Object.entries(options)) {
+                const plugin = config.plugins.find((plugin) => plugin.name === name);
                 if (plugin) {
-                    plugin.transform = function () {
-                        return;
-                    };
+                    Object.assign(plugin, overrides);
                 }
-            });
+            }
         }
     };
 }
@@ -61,7 +61,18 @@ function viteLwcPlugin(
 // https://vitejs.dev/config
 export default defineConfig({
     plugins: [
-        disableCssPlugin(),
+        patchPlugins({
+            'vite:css': {
+                transform: () => {
+                    // noop
+                }
+            },
+            'vite:css-post': {
+                transform: () => {
+                    // noop
+                }
+            }
+        }),
         viteLwcPlugin({
             rootDir: 'src',
             modules: [

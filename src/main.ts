@@ -1,6 +1,6 @@
 import '@lwc/synthetic-shadow';
 import { createElement } from 'lwc';
-import App from 'x/app';
+import App from 'c/app';
 
-const elm = createElement('x-app', { is: App });
+const elm = createElement('c-app', { is: App });
 document.body.appendChild(elm);
