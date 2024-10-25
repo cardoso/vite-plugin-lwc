@@ -17,9 +17,6 @@ importers:
       '@lwc/wire-service':
         specifier: ^8.3.0
         version: 8.3.0
-      '@salesforce-ux/design-system':
-        specifier: ^2.25.3
-        version: 2.25.3(postcss@8.4.47)
       lwc:
         specifier: ^8.3.0
         version: 8.3.0(@babel/core@7.25.8)(rollup@4.24.0)
@@ -561,11 +558,6 @@ packages:
     resolution: {integrity: sha512-fbMkAF7fufku0N2dE5TBXcNlg0pt0cJue4xBRE2Qc5Vqikxr4VCgKj/ht6SMdFcOacVA9rqF70APJ8RN/4vMJw==}
     cpu: [x64]
     os: [win32]
-
-  '@salesforce-ux/design-system@2.25.3':
-    resolution: {integrity: sha512-OeEvGlij84crJgWCBWUOkuJFvHUISt+EGTfob7qg2xTcDwt+DACxe8MZhrDXcnHqcaBTTmJvgnBPhavwL3y2UA==}
-    peerDependencies:
-      postcss: ^8.3.5
 
   '@types/estree-jsx@1.0.5':
     resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
@@ -1351,10 +1343,6 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.24.0':
     optional: true
-
-  '@salesforce-ux/design-system@2.25.3(postcss@8.4.47)':
-    dependencies:
-      postcss: 8.4.47
 
   '@types/estree-jsx@1.0.5':
     dependencies:
