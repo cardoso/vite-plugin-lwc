@@ -5,9 +5,8 @@ import path from "node:path";
 
 function patchPlugins(options: Record<string, Partial<Plugin>>): Plugin {
 	return {
-		name: "parch-plugins",
+		name: "patch-plugins",
 		enforce: "pre",
-		apply: "serve",
 		configResolved(config) {
 			for (const [name, overrides] of Object.entries(options)) {
 				const plugin = config.plugins.find((plugin) => plugin.name === name);
@@ -25,7 +24,6 @@ function viteLwcPlugin(options?: RollupLwcOptions): Plugin {
 	return {
 		name: "vite-plugin-lwc",
 		enforce: "post",
-		apply: "serve",
 		buildStart(options) {
 			// @ts-expect-error - `buildStart` is optional
 			return rollupPlugin.buildStart.call(this, options);
@@ -58,32 +56,13 @@ function viteLwcPlugin(options?: RollupLwcOptions): Plugin {
 
 // https://vitejs.dev/config
 export default defineConfig({
-	build: {
-		rollupOptions: {
-			plugins: [
-				lwc({
-					rootDir: "src",
-					modules: [
-						{
-							dir: "modules",
-						},
-					],
-					include: ["src/**/*"],
-				}),
-			],
-		},
-	},
 	plugins: [
 		patchPlugins({
 			"vite:css": {
-				transform: () => {
-					// noop
-				},
+				transform: undefined,
 			},
 			"vite:css-post": {
-				transform: () => {
-					// noop
-				},
+				transform: undefined,
 			},
 		}),
 		viteLwcPlugin({
