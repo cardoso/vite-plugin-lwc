@@ -39,7 +39,6 @@ function viteLwcPlugin(options?: RollupLwcOptions): Plugin {
 			if (id === path.resolve(__dirname, "index.html")) {
 				return;
 			}
-
 			// @ts-expect-error - `load` is optional
 			return rollupPlugin.load.call(this, id);
 		},
@@ -47,7 +46,6 @@ function viteLwcPlugin(options?: RollupLwcOptions): Plugin {
 			if (id === "@lwc/resources/empty_css.css") {
 				return 'export default "";';
 			}
-
 			// @ts-expect-error - `transform` is optional
 			return rollupPlugin.transform.call(this, code, id);
 		},
