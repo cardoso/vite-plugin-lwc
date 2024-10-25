@@ -1,9 +1,14 @@
 <template>
-    <div class="progress" title={title}>
-        <div class="slds-progress-bar" aria-valuemin={min} aria-valuemax={max} aria-valuenow={value} role="progressbar">
-            <span class="slds-progress-bar__value" style={valueStyle}>
-                <span class="slds-assistive-text">Progress: {percentage}%</span>
-            </span>
-        </div>
-    </div>
+  <div
+    class={computedClass}
+    title={title}
+    aria-valuemin={min}
+    aria-valuemax={max}
+    aria-valuenow={value}
+    role="progressbar"
+  >
+    <span class="slds-progress-bar__value" style={valueStyle}>
+      <span class="slds-assistive-text">Progress: {percentage}%</span>
+    </span>
+  </div>
 </template>

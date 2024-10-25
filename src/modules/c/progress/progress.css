@@ -1,4 +1,4 @@
-.progress {
-    border-radius: 100px;
+.slds-progress-bar {
     overflow: hidden;
+    border-radius: 50vh;
 }

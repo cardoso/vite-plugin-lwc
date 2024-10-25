@@ -1,43 +1,32 @@
-import { api, LightningElement } from 'lwc';
+import { api, LightningElement } from "lwc";
+
+type Column = string;
+type Cell = {
+	value: number;
+	max?: number;
+	formatStyle?: string;
+	currencyCode?: string;
+};
 
 export default class extends LightningElement {
-    @api columns = [
-        'Quota',
-        'Closed',
-        'Worst Case',
-        'Expected Case',
-        'Best Case'
-    ];
+	@api columns: Column[] = [];
 
-    @api rows = [
-        [
-            {
-                value: 426099
-            },
-            {
-                value: 0
-            },
-            {
-                value: 300000,
-                max: 426099
-            },
-            {
-                value: 390000,
-                max: 426099
-            },
-            {
-                value: 915000,
-            }
-        ]
-    ]
+	@api rows: Cell[][] = [];
 
-    get _rows() {
-        return this.rows.map((row, index) => ({
-            key: index,
-            cells: row.map((cell, index) => ({
-                key: index,
-                ...cell
-            }))
-        }));
-    }
+	get _rows() {
+		return this.rows.map((row, index) => ({
+			key: index,
+			cells: row.map((cell, index) => ({
+				key: index,
+				...cell,
+			})),
+		}));
+	}
+
+	get _columns() {
+		return this.columns.map((column, index) => ({
+			key: index,
+			label: column,
+		}));
+	}
 }

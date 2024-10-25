@@ -1,0 +1,8 @@
+.app {
+    width: 50%;
+    height: 100vh;
+    /* center vertically */
+    align-content: center;
+    /* center horizontally */
+    margin: 0 auto;
+}
