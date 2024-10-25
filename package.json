@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "@lwc/engine-dom": "^8.3.0",
+    "@lwc/shared": "^8.3.0",
+    "@lwc/ssr-runtime": "^8.3.0",
     "@lwc/synthetic-shadow": "^8.3.0",
     "@lwc/wire-service": "^8.3.0",
     "lwc": "^8.3.0"

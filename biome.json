@@ -11,7 +11,7 @@
     "overrides": [
         {
             "include": ["vite.config.mts"],
-            "linter": { "rules": { "correctness": { "noNodejsModules": "off" } } }
+            "linter": { "rules": { "correctness": { "noNodejsModules": "off" }, "style": { "useNamingConvention": "off" } } }
         }
     ]
 }

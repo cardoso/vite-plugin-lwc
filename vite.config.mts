@@ -18,7 +18,7 @@ function patchPlugins(options: Record<string, Partial<Plugin>>): Plugin {
 	};
 }
 
-function viteLwcPlugin(options?: RollupLwcOptions): Plugin {
+function viteLwc(options?: RollupLwcOptions): Plugin {
 	const rollupPlugin = lwc(options);
 
 	return {
@@ -32,13 +32,20 @@ function viteLwcPlugin(options?: RollupLwcOptions): Plugin {
 			if (options.isEntry) {
 				return;
 			}
+
+			let sourceId = source;
+
+			if (sourceId.endsWith(".tshtml")) {
+				sourceId = sourceId.replace(".tshtml", ".html");
+			}
 			// @ts-expect-error - `resolveId` is optional
-			return rollupPlugin.resolveId.call(this, source, importer, options);
+			return rollupPlugin.resolveId.call(this, sourceId, importer, options);
 		},
 		load(id) {
 			if (id === path.resolve(__dirname, "index.html")) {
 				return;
 			}
+
 			// @ts-expect-error - `load` is optional
 			return rollupPlugin.load.call(this, id);
 		},
@@ -63,7 +70,7 @@ export default defineConfig({
 				transform: undefined,
 			},
 		}),
-		viteLwcPlugin({
+		viteLwc({
 			rootDir: "src",
 			modules: [
 				{
