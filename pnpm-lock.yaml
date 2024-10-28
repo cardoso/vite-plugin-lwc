@@ -52,7 +52,7 @@ importers:
   packages/vite-plugin-lwc:
     dependencies:
       '@lwc/rollup-plugin':
-        specifier: 8.3.0
+        specifier: ^8.3.0
         version: 8.3.0(rollup@3.29.5)
     devDependencies:
       unbuild:

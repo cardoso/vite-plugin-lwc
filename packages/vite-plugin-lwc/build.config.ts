@@ -5,6 +5,7 @@ export default defineBuildConfig({
 	externals: ["vite"],
 	clean: true,
 	declaration: "compatible",
+	sourcemap: true,
 	rollup: {
 		emitCJS: true,
 		inlineDependencies: true,

@@ -20,7 +20,8 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
 		"resolveJsonModule": true,
-		"allowJs": true
+		"allowJs": true,
+		"strictFunctionTypes": true
 	},
 	"include": ["src"]
 }
