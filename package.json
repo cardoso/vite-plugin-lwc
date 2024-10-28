@@ -18,12 +18,12 @@
 		"vite-plugin-lwc": "workspace:*"
 	},
 	"dependencies": {
-		"@lwc/engine-dom": "^8.3.0",
-		"@lwc/shared": "^8.3.0",
-		"@lwc/ssr-runtime": "^8.3.0",
-		"@lwc/synthetic-shadow": "^8.3.0",
-		"@lwc/wire-service": "^8.3.0",
-		"lwc": "^8.3.0",
+		"@lwc/engine-dom": "^8.4.0",
+		"@lwc/shared": "^8.4.0",
+		"@lwc/ssr-runtime": "^8.4.0",
+		"@lwc/synthetic-shadow": "^8.4.0",
+		"@lwc/wire-service": "^8.4.0",
+		"lwc": "^8.4.0",
 		"components": "workspace:*",
 		"lightning-base-components": "^1.22.3-alpha"
 	},
