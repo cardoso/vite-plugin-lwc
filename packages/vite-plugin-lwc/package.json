@@ -1,0 +1,27 @@
+{
+	"name": "vite-plugin-lwc",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"files": ["dist"],
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"scripts": {
+		"dev": "unbuild --stub",
+		"build": "unbuild",
+		"prepublishOnly": "npm run build"
+	},
+	"dependencies": {
+		"@lwc/rollup-plugin": "8.3.0"
+	},
+	"devDependencies": {
+		"unbuild": "^2.0.0"
+	}
+}

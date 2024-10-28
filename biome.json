@@ -9,12 +9,12 @@
 			"style": { "noInferrableTypes": "off", "noDefaultExport": "off" },
 			"correctness": { "noUndeclaredDependencies": "off" }
 		},
-		"ignore": ["public", "node_modules"]
+		"ignore": ["public", "node_modules", "**/dist/**"]
 	},
 	"assists": { "enabled": true },
 	"overrides": [
 		{
-			"include": ["vite.config.mts"],
+			"include": ["vite.config.mts", "packages/vite-plugin-lwc"],
 			"linter": {
 				"rules": {
 					"correctness": { "noNodejsModules": "off" },
