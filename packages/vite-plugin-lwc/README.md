@@ -10,9 +10,9 @@ import lwc from 'vite-plugin-lwc'
 export default defineConfig({
   plugins: [
     lwc({
-		rootDir: ".",
-		exclude: ["**/vite/**", "./index.html"],
-	})
+      rootDir: ".",
+	  exclude: ["**/vite/**"],
+    })
   ],
 })
 ```

@@ -3,7 +3,7 @@ import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 
 export type ViteLwcOptions = RollupLwcOptions;
 
-export default function viteLwc(options?: ViteLwcOptions): Plugin {
+export default function viteLwc(options: ViteLwcOptions = {}): Plugin {
 	const rollupPlugin = lwc(options);
 
 	const buildStartHook = getHook(rollupPlugin, "buildStart");
