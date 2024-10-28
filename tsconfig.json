@@ -20,10 +20,7 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
 		"resolveJsonModule": true,
-		/* Type checking */
-		"paths": {
-			"c/app": ["./src/modules/c/app/app.ts"]
-		}
+		"allowJs": true
 	},
 	"include": ["src"]
 }

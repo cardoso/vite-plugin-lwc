@@ -1,30 +1,10 @@
 import { api, LightningElement } from "lwc";
 
-type FormatStyle = "decimal" | "currency" | "percent" | "percent-fixed";
-type CurrencyDisplayAs = "symbol" | "code" | "name";
-type SignificantDigits =
-	| 1
-	| 2
-	| 3
-	| 4
-	| 5
-	| 6
-	| 7
-	| 8
-	| 9
-	| 10
-	| 11
-	| 12
-	| 13
-	| 14
-	| 15
-	| 16
-	| 17
-	| 18
-	| 19
-	| 20
-	| 21;
-
+/**
+ * @typedef {"decimal" | "currency" | "percent" | "percent-fixed"} FormatStyle
+ * @typedef {"symbol" | "code" | "name"} CurrencyDisplayAs
+ * @typedef {1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21} SignificantDigits
+ */
 /**
  * Displays formatted numbers for decimals, currency, and percentages.
  */
@@ -34,7 +14,7 @@ export default class LightningFormattedNumber extends LightningElement {
 	 * @type {number}
 	 * @required
 	 */
-	@api value?: number;
+	@api value;
 
 	/**
 	 * The number formatting style to use. Possible values are decimal, currency,
@@ -42,7 +22,7 @@ export default class LightningFormattedNumber extends LightningElement {
 	 * @type {FormatStyle}
 	 * @default 'decimal'
 	 */
-	@api formatStyle: FormatStyle = "decimal";
+	@api formatStyle = "decimal";
 
 	/**
 	 * Only used if format-style='currency', this attribute determines which currency is
@@ -50,51 +30,53 @@ export default class LightningFormattedNumber extends LightningElement {
 	 * @type {string}
 	 *
 	 */
-	@api currencyCode?: string;
+	@api currencyCode;
 
 	/**
 	 * Determines how currency is displayed. Possible values are symbol, code, and name. This value defaults to symbol.
 	 * @type {CurrencyDisplayAs}
 	 * @default 'symbol'
 	 */
-	@api currencyDisplayAs: CurrencyDisplayAs = "symbol";
+	@api currencyDisplayAs = "symbol";
 
 	/**
 	 * The minimum number of integer digits that are required. Possible values are from 1 to 21.
 	 * @type {number}
 	 *
 	 */
-	@api minimumIntegerDigits?: number;
+	@api minimumIntegerDigits;
 
 	/**
 	 * The minimum number of fraction digits that are required.
 	 * @type {number}
 	 *
 	 */
-	@api minimumFractionDigits?: number;
+	@api minimumFractionDigits;
 
 	/**
 	 * The maximum number of fraction digits that are allowed.
 	 * @type {number}
 	 *
 	 */
-	@api maximumFractionDigits?: number;
+	@api maximumFractionDigits;
 
 	/**
 	 * The minimum number of significant digits that are required. Possible values are from 1 to 21.
-	 * @type {number}
-	 *
+	 * @type {SignificantDigits}
 	 */
-	@api minimumSignificantDigits?: SignificantDigits;
+	@api minimumSignificantDigits;
 
 	/**
 	 * The maximum number of significant digits that are allowed. Possible values are from 1 to 21.
-	 * @type {number}
-	 *
+	 * @type {SignificantDigits}
 	 */
-	@api maximumSignificantDigits?: SignificantDigits;
+	@api maximumSignificantDigits;
 
-	get formattedNumber(): string {
+	/**
+	 * The formatted number.
+	 * @type {string}
+	 */
+	get formattedNumber() {
 		if (this.value === undefined) {
 			return "";
 		}
@@ -113,10 +95,4 @@ export default class LightningFormattedNumber extends LightningElement {
 			this.formatStyle === "percent-fixed" ? this.value / 100 : this.value,
 		);
 	}
-
-	static interopMap = {
-		props: {
-			formatStyle: "style",
-		},
-	};
 }

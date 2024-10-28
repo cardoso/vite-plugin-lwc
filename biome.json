@@ -18,7 +18,8 @@
 			"linter": {
 				"rules": {
 					"correctness": { "noNodejsModules": "off" },
-					"style": { "useNamingConvention": "off" }
+					"style": { "useNamingConvention": "off" },
+					"suspicious": { "noConsole": "off" }
 				}
 			}
 		}

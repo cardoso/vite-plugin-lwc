@@ -25,42 +25,68 @@ function viteLwc(options?: RollupLwcOptions): Plugin {
 		name: "vite-plugin-lwc",
 		enforce: "post",
 		buildStart(options) {
-			// @ts-expect-error - `buildStart` is optional
-			return rollupPlugin.buildStart.call(this, options);
+			try {
+				// @ts-expect-error - `buildStart` is optional
+				return rollupPlugin.buildStart.call(this, options);
+			} catch (e) {
+				console.error(e);
+			}
 		},
 		resolveId(source, importer, options) {
-			if (options.isEntry) {
-				return;
+			try {
+				// @ts-expect-error - `resolveId` is optional
+				return rollupPlugin.resolveId.call(this, source, importer, options);
+			} catch (e) {
+				console.error(e);
 			}
-
-			let sourceId = source;
-
-			if (sourceId.endsWith(".tshtml")) {
-				sourceId = sourceId.replace(".tshtml", ".html");
-			}
-			// @ts-expect-error - `resolveId` is optional
-			return rollupPlugin.resolveId.call(this, sourceId, importer, options);
 		},
 		load(id) {
 			if (id === path.resolve(__dirname, "index.html")) {
 				return;
 			}
 
-			// @ts-expect-error - `load` is optional
-			return rollupPlugin.load.call(this, id);
+			try {
+				// @ts-expect-error - `load` is optional
+				return rollupPlugin.load.call(this, id);
+			} catch (e) {
+				console.error(e);
+			}
 		},
 		transform(code, id) {
+			if (id === path.resolve(__dirname, "index.html")) {
+				return;
+			}
+
 			if (id === "@lwc/resources/empty_css.css") {
 				return 'export default "";';
 			}
-			// @ts-expect-error - `transform` is optional
-			return rollupPlugin.transform.call(this, code, id);
+
+			try {
+				// @ts-expect-error - `transform` is optional
+				return rollupPlugin.transform.call(this, code, id);
+			} catch (e) {
+				console.error(e);
+			}
 		},
 	};
 }
 
 // https://vitejs.dev/config
 export default defineConfig({
+	build: {
+		rollupOptions: {
+			input: "./src/main.js",
+			external: [
+				"@lwc/engine-dom",
+				"@lwc/shared",
+				"@lwc/ssr-runtime",
+				"@lwc/synthetic-shadow",
+				"@lwc/wire-service",
+				"lwc",
+			],
+		},
+		modulePreload: false,
+	},
 	plugins: [
 		patchPlugins({
 			"vite:css": {
@@ -71,13 +97,14 @@ export default defineConfig({
 			},
 		}),
 		viteLwc({
-			rootDir: "src",
+			rootDir: ".",
 			modules: [
 				{
-					dir: "modules",
+					dir: "src/modules",
 				},
 			],
-			include: ["src/**/*"],
+
+			exclude: ["**/node_modules/**"],
 		}),
 	],
 });

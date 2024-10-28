@@ -1,17 +1,22 @@
 import { api, LightningElement } from "lwc";
 
-type Column = string;
-type Cell = {
-	value: number;
-	max?: number;
-	formatStyle?: string;
-	currencyCode?: string;
-};
+/**
+ * @typedef {string} Column
+ * @typedef {{ value: number; max?: number; formatStyle?: string; currencyCode?: string;}} Cell
+ */
 
 export default class extends LightningElement {
-	@api columns: Column[] = [];
+	/**
+	 * The columns of the table.
+	 * @type {Column[]}
+	 */
+	@api columns = [];
 
-	@api rows: Cell[][] = [];
+	/**
+	 * The rows of the table.
+	 * @type {Cell[][]}
+	 */
+	@api rows = [];
 
 	get _rows() {
 		return this.rows.map((row, index) => ({
