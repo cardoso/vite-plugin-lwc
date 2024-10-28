@@ -23,12 +23,16 @@
 		"@lwc/ssr-runtime": "^8.3.0",
 		"@lwc/synthetic-shadow": "^8.3.0",
 		"@lwc/wire-service": "^8.3.0",
-		"lwc": "^8.3.0"
+		"lwc": "^8.3.0",
+		"components": "workspace:*"
 	},
 	"lwc": {
 		"modules": [
 			{
 				"dir": "src/modules"
+			},
+			{
+				"npm": "components"
 			}
 		]
 	}

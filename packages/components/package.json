@@ -1,0 +1,14 @@
+{
+	"name": "components",
+	"version": "2.0.0",
+	"main": "index.js",
+	"lwc": {
+		"modules": [
+			{
+				"name": "ui/button",
+				"path": "src/modules/ui/button/button.ts"
+			}
+		],
+		"expose": ["ui/button"]
+	}
+}

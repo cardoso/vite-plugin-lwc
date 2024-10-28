@@ -23,6 +23,9 @@ importers:
       '@lwc/wire-service':
         specifier: ^8.3.0
         version: 8.3.0
+      components:
+        specifier: workspace:*
+        version: link:packages/components
       lwc:
         specifier: ^8.3.0
         version: 8.3.0(@babel/core@7.25.8)(rollup@4.24.2)
@@ -48,6 +51,8 @@ importers:
       vite-plugin-lwc:
         specifier: workspace:*
         version: link:packages/vite-plugin-lwc
+
+  packages/components: {}
 
   packages/vite-plugin-lwc:
     dependencies:
