@@ -7,7 +7,7 @@ export default defineConfig({
 	plugins: [
 		lwc({
 			rootDir: ".",
-			exclude: ["**/node_modules/**"],
+			exclude: ["**/vite/**", "./index.html"],
 		}),
 	],
 });

@@ -21,7 +21,8 @@
 		"noUncheckedSideEffectImports": true,
 		"resolveJsonModule": true,
 		"allowJs": true,
-		"strictFunctionTypes": true
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true
 	},
 	"include": ["src"]
 }

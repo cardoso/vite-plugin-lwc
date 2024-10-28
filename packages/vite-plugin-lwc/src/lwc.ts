@@ -13,7 +13,6 @@ export default function viteLwc(options?: ViteLwcOptions): Plugin {
 
 	return {
 		name: "vite-plugin-lwc",
-		enforce: "post",
 		buildStart(options) {
 			try {
 				return buildStartHook.call(this, options);
@@ -23,23 +22,19 @@ export default function viteLwc(options?: ViteLwcOptions): Plugin {
 		},
 		resolveId(source, importer, options) {
 			try {
-				return resolveIdHook.call(rollupPlugin, source, importer, options);
+				return resolveIdHook.call(this, source, importer, options);
 			} catch (e) {
 				console.error(e);
 			}
 		},
-		load(id) {
+		load(id, options) {
 			try {
 				return loadHook.call(this, id);
 			} catch (e) {
-				console.error(e);
+				console.error(e, options);
 			}
 		},
 		transform(code, id) {
-			if (id === "@lwc/resources/empty_css.css") {
-				return 'export default "";';
-			}
-
 			try {
 				return transformHook.call(this, code, id);
 			} catch (e) {
@@ -49,17 +44,17 @@ export default function viteLwc(options?: ViteLwcOptions): Plugin {
 	};
 }
 
-function getHook<T, K extends string & keyof T>(rollupPlugin: T, hookName: K) {
+function getHook<T, K extends keyof T>(rollupPlugin: T, hookName: K) {
 	const hook = rollupPlugin[hookName];
 
 	if (typeof hook === "undefined") {
 		throw new Error(
-			`The hook "${hookName}" is not supported by the LWC plugin.`,
+			`The hook "${String(hookName)}" is not supported by the LWC plugin.`,
 		);
 	}
 
 	if (typeof hook !== "function") {
-		throw new Error(`The hook "${hookName}" is not a function.`);
+		throw new Error(`The hook "${String(hookName)}" is not a function.`);
 	}
 
 	return hook;
