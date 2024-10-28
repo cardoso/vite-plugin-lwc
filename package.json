@@ -24,7 +24,8 @@
 		"@lwc/synthetic-shadow": "^8.3.0",
 		"@lwc/wire-service": "^8.3.0",
 		"lwc": "^8.3.0",
-		"components": "workspace:*"
+		"components": "workspace:*",
+		"lightning-base-components": "^1.22.3-alpha"
 	},
 	"lwc": {
 		"modules": [
@@ -33,6 +34,9 @@
 			},
 			{
 				"npm": "components"
+			},
+			{
+				"npm": "lightning-base-components"
 			}
 		]
 	}

@@ -26,6 +26,9 @@ importers:
       components:
         specifier: workspace:*
         version: link:packages/components
+      lightning-base-components:
+        specifier: ^1.22.3-alpha
+        version: 1.22.3-alpha
       lwc:
         specifier: ^8.3.0
         version: 8.3.0(@babel/core@7.25.8)(rollup@4.24.2)
@@ -1367,6 +1370,11 @@ packages:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
     hasBin: true
+
+  lightning-base-components@1.22.3-alpha:
+    resolution: {integrity: sha512-aKeYTnBLxs96330nf1hivGKha/0Sq3FwRISCBQTMyET7wUghnSan2apuKZmJyHNIUcZx/eTG1REt2TyqDemhpg==}
+    engines: {node: '>=14.18.2'}
+    deprecated: Publishing of the package has been paused. Salesforce employees should use the internal package.
 
   lilconfig@3.1.2:
     resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
@@ -3002,6 +3010,8 @@ snapshots:
   jsesc@3.0.2: {}
 
   json5@2.2.3: {}
+
+  lightning-base-components@1.22.3-alpha: {}
 
   lilconfig@3.1.2: {}
 
