@@ -1,15 +1,38 @@
 <template>
   <div class="app">
-    <div class="slds-card">
-      <c-table columns={forecast.columns} rows={forecast.rows}></c-table>
-    </div>
-    <div class="slds-card">
-      <c-table columns={renewals.columns} rows={renewals.rows}></c-table>
-    </div>
-    <div class="slds-card">
-      <c-progress value="2000000" max="300000" size="large"></c-progress>
-    </div>
-    <ui-button></ui-button>
-    <lightning-button label="Hello"></lightning-button>
+    <lightning-tabset variant="scoped">
+      <lightning-tab label="Q4 Forecast">
+        <div class="slds-card">
+          <c-table columns={forecast.columns} rows={forecast.rows}></c-table>
+        </div>
+        <c-input label="October expected $"></c-input>
+        <c-input label="November expected $"></c-input>
+        <c-input label="December expected $"></c-input>
+        <c-textarea label="What deals get you to quota?"></c-textarea>
+      </lightning-tab>
+      <lightning-tab label="Q4 Renewals Forecast">
+        <div class="slds-card">
+          <c-table columns={renewals.columns} rows={renewals.rows}></c-table>
+        </div>
+        <div class="slds-grid slds-gutters">
+          <div class="slds-col slds-col-size_1-of-2">
+            Top 5 renewals
+            <c-table
+              columns={top5Renewals.columns}
+              rows={top5Renewals.rows}
+            ></c-table>
+          </div>
+          <div class="slds-col slds-col-size_1-of-2">
+            <c-textarea
+              label="High risk renewals and mitigation plan"
+            ></c-textarea>
+          </div>
+        </div>
+      </lightning-tab>
+      <lightning-tab label="Top 2 deals"> Top 2 deals </lightning-tab>
+      <lightning-tab label="Pipeline build plan">
+        Pipeline build plan
+      </lightning-tab>
+    </lightning-tabset>
   </div>
 </template>

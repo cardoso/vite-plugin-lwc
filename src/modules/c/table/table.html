@@ -17,12 +17,15 @@
           <template for:each={row.cells} for:item="cell">
             <td key={cell.key}>
               <b class="slds-align_absolute-center">
-                <lightning-formatted-number
-                  value={cell.value}
-                  format-style={cell.formatStyle}
-                  currency-code={cell.currencyCode}
-                  maximum-fraction-digits={cell.maximumFractionDigits}
-                ></lightning-formatted-number>
+                <template lwc:if={cell.isNumeric}>
+                  <lightning-formatted-number
+                    value={cell.value}
+                    format-style={cell.formatStyle}
+                    currency-code={cell.currencyCode}
+                    maximum-fraction-digits={cell.maximumFractionDigits}
+                  ></lightning-formatted-number>
+                </template>
+                <template lwc:else> {cell.value} </template>
               </b>
               <template lwc:if={cell.max}>
                 <c-progress

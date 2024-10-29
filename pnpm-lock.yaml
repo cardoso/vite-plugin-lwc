@@ -61,8 +61,11 @@ importers:
     dependencies:
       '@lwc/rollup-plugin':
         specifier: ^8.4.0
-        version: 8.4.0(rollup@3.29.5)
+        version: 8.4.0(rollup@4.24.2)
     devDependencies:
+      rollup:
+        specifier: ^4.24.2
+        version: 4.24.2
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.6.3)
@@ -2461,16 +2464,6 @@ snapshots:
       '@lwc/shared': 8.3.0
       '@rollup/pluginutils': 5.1.3(rollup@4.24.2)
       rollup: 4.24.2
-    transitivePeerDependencies:
-      - supports-color
-
-  '@lwc/rollup-plugin@8.4.0(rollup@3.29.5)':
-    dependencies:
-      '@lwc/compiler': 8.4.0
-      '@lwc/module-resolver': 8.4.0
-      '@lwc/shared': 8.4.0
-      '@rollup/pluginutils': 5.1.3(rollup@3.29.5)
-      rollup: 3.29.5
     transitivePeerDependencies:
       - supports-color
 

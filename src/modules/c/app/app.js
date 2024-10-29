@@ -86,4 +86,35 @@ export default class App extends LightningElement {
 			],
 		};
 	}
+
+	get top5Renewals() {
+		return {
+			columns: ["Name", "CRM Score", "Owner", "Split Amount", "Renewal ARR"],
+			rows: [
+				[
+					{
+						value: "Acme",
+					},
+					{
+						value: 100,
+					},
+					{
+						value: "Jane Doe",
+					},
+					{
+						value: 495000,
+						formatStyle: "currency",
+						currencyCode: "USD",
+						maximumFractionDigits: 0,
+					},
+					{
+						value: 495000,
+						formatStyle: "currency",
+						currencyCode: "USD",
+						maximumFractionDigits: 0,
+					},
+				],
+			],
+		};
+	}
 }

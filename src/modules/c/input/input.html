@@ -1,0 +1,19 @@
+<template>
+  <div class="slds-form-element">
+    <label class="slds-form-element__label" for="text-input-id-47">
+      <template lwc:if={required}>
+        <abbr class="slds-required" title="required">* </abbr>
+      </template>
+      {label}
+    </label>
+    <div class="slds-form-element__control">
+      <input
+        type="text"
+        id="text-input-id-47"
+        placeholder={placeholder}
+        required=""
+        class="slds-input"
+      />
+    </div>
+  </div>
+</template>

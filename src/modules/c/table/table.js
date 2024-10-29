@@ -23,6 +23,7 @@ export default class extends LightningElement {
 			key: index,
 			cells: row.map((cell, index) => ({
 				key: index,
+				isNumeric: typeof cell.value === "number",
 				...cell,
 			})),
 		}));
