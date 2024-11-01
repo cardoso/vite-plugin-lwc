@@ -15,16 +15,6 @@ const alias = {
 export default defineConfig((config) => ({
   appType: "spa",
   resolve: {
-    extensions: [
-      ".mjs",
-      ".js",
-      ".mts",
-      ".ts",
-      ".jsx",
-      ".tsx",
-      ".json",
-      ".html",
-    ],
     alias: alias[config.command],
   },
   build: {
@@ -36,10 +26,6 @@ export default defineConfig((config) => ({
     minify: false,
     target: "esnext",
     modulePreload: false,
-    // lib: {
-    //   entry: "src/main.js",
-    //   formats: ["es"],
-    // },
     rollupOptions: {
       treeshake: false,
       logLevel: "debug",
@@ -51,7 +37,6 @@ export default defineConfig((config) => ({
         entryFileNames: "[name].js",
         assetFileNames: "[name][extname]",
         chunkFileNames: "[name][extname]",
-        // sanitizeFileName: (fileName) => fileName.replace(".html", ".js"),
         inlineDynamicImports: true,
       },
     },
@@ -62,6 +47,7 @@ export default defineConfig((config) => ({
       rootDir: ".",
       exclude: ["**/vite/**"],
       sourcemap: "inline",
+      command: config.command,
     }),
   ],
 }));

@@ -1,10 +1,11 @@
 import type { Plugin } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import type { RollupError } from "rollup";
-export type ViteLwcOptions = RollupLwcOptions;
+export type ViteLwcOptions = RollupLwcOptions & {
+  command: "build" | "serve";
+}
 
-export default (command: "build" | "serve") =>
-  function viteLwc(config: ViteLwcOptions = {}): Plugin {
+export default function viteLwc({ command, ...config}: ViteLwcOptions): Plugin {
     const rollupPlugin = lwc(config);
     const buildStartHook = getHook(rollupPlugin, "buildStart");
     const resolveIdHook = getHook(rollupPlugin, "resolveId");

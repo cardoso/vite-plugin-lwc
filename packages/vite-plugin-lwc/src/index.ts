@@ -1,7 +1,7 @@
 import patch from "./patch.ts";
 import lwc, { type ViteLwcOptions } from "./lwc.ts";
 
-export default (options?: ViteLwcOptions) => [
+export default (options: ViteLwcOptions) => [
   patch({
     "vite:css": (p) => {
       p.transform = undefined;
@@ -10,6 +10,5 @@ export default (options?: ViteLwcOptions) => [
       p.transform = undefined;
     },
   }),
-  lwc("serve")(options),
-  lwc("build")(options),
+  lwc(options)
 ];
