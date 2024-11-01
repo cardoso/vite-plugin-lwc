@@ -1,59 +1,82 @@
-import type { Plugin } from "vite";
+import type { AliasOptions, Plugin } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import type { RollupError } from "rollup";
+
+type Command = "build" | "serve";
+
+const alias = {
+  build: [
+    {
+      find: /^(.*)\.html$/,
+      replacement: "$1.html?import",
+    },
+  ],
+  serve: [],
+} satisfies Record<Command, AliasOptions>;
+
 export type ViteLwcOptions = RollupLwcOptions & {
-  command: "build" | "serve";
-}
+  command: Command;
+};
 
-export default function viteLwc({ command, ...config}: ViteLwcOptions): Plugin {
-    const rollupPlugin = lwc(config);
-    const buildStartHook = getHook(rollupPlugin, "buildStart");
-    const resolveIdHook = getHook(rollupPlugin, "resolveId");
-    const loadHook = getHook(rollupPlugin, "load");
-    const transformHook = getHook(rollupPlugin, "transform");
+export default function viteLwc({
+  command,
+  ...config
+}: ViteLwcOptions): Plugin {
+  const rollupPlugin = lwc(config);
+  const buildStartHook = getHook(rollupPlugin, "buildStart");
+  const resolveIdHook = getHook(rollupPlugin, "resolveId");
+  const loadHook = getHook(rollupPlugin, "load");
+  const transformHook = getHook(rollupPlugin, "transform");
 
-    return {
-      name: `lwc:vite-${command}`,
-      enforce: command === "serve" ? "post" : "pre",
-      apply: command,
-      buildStart(options) {
-        try {
-          return buildStartHook.call(this, options);
-        } catch (e) {
-          this.error(getError(e));
-        }
-      },
-      resolveId(source, importer, options) {
-        if (options.isEntry) {
-          return;
-        }
+  return {
+    name: `lwc:vite-${command}`,
+    enforce: command === "serve" ? "post" : "pre",
+    apply: command,
+    config() {
+      return {
+        resolve: {
+          alias: alias[command],
+        },
+      };
+    },
+    buildStart(options) {
+      try {
+        return buildStartHook.call(this, options);
+      } catch (e) {
+        this.error(getError(e));
+      }
+    },
+    resolveId(source, importer, options) {
+      if (options.isEntry) {
+        return;
+      }
 
-        try {
-          return resolveIdHook.call(this, source, importer, options);
-        } catch (e) {
-          this.error(getError(e, source));
-        }
-      },
-      load(id) {
-        try {
-          return loadHook.call(this, id);
-        } catch (e) {
-          this.error(getError(e, id));
-        }
-      },
-      transform(code, id, options) {
-        if (id.includes("index.html")) {
-          return;
-        }
+      try {
+        return resolveIdHook.call(this, source, importer, options);
+      } catch (e) {
+        this.error(getError(e, source));
+      }
+    },
+    load(id) {
+      try {
+        return loadHook.call(this, id);
+      } catch (e) {
+        this.error(getError(e, id));
+      }
+    },
+    transform(code, id, options) {
+      if (id.includes("index.html")) {
+        return;
+      }
 
-        try {
-          return transformHook.call(this, code, id, options);
-        } catch (e) {
-          this.error(getError(e, id, code));
-        }
-      },
-    };
+      try {
+        return transformHook.call(this, code, id, options);
+      } catch (e) {
+        this.error(getError(e, id, code));
+      }
+    },
   };
+}
 
 function getHook<T, K extends keyof T>(rollupPlugin: T, hookName: K) {
   const hook = rollupPlugin[hookName];
