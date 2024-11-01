@@ -1,0 +1,22 @@
+{
+  "name": "lwc-devbox",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -r --filter='./packages/*' run dev && vite",
+    "build": "pnpm -r --filter='./packages/*' run build && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@lwc/engine-dom": "^8.5.0",
+    "@lwc/shared": "^8.5.0",
+    "@lwc/ssr-runtime": "^8.5.0",
+    "@lwc/synthetic-shadow": "^8.5.0",
+    "@lwc/wire-service": "^8.5.0",
+    "components": "workspace:*",
+    "lightning-base-components": "^1.22.3-alpha",
+    "lwc": "catalog:"
+  }
+}

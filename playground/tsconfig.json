@@ -1,0 +1,9 @@
+{
+    "include": ["**/*.ts", "**/__tests__/*.ts", "**/vite.config.mts"],
+    "exclude": ["**/dist/**"],
+    "compilerOptions": {
+        "noEmit": true,
+        "baseUrl": "${configDir}",
+        "types": ["@vitest/browser/providers/playwright"]
+    }
+}

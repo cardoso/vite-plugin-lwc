@@ -19,7 +19,10 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
 
   const filter = createFilter(config.include, [
     "**/vite/**",
+    "**/@vitest/**",
+    "**/.vite/**",
     "index.html",
+    "/__vitest_test__/**",
     ...(config.exclude
       ? Array.isArray(config.exclude)
         ? config.exclude

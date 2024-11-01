@@ -23,5 +23,5 @@
 		"allowJs": true,
 		"strictFunctionTypes": true
 	},
-	"include": ["src"]
+	"include": ["."]
 }
