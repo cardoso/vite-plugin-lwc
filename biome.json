@@ -14,12 +14,18 @@
   "assists": { "enabled": true, "ignore": ["node_modules"] },
   "overrides": [
     {
-      "include": ["vite.config.mts", "server.mts", "packages/vite-plugin-lwc"],
+      "include": [
+        "vite.config.mts",
+        "server.mts",
+        "packages/vite-plugin-lwc",
+        "playground/**"
+      ],
       "linter": {
         "rules": {
           "correctness": { "noNodejsModules": "off" },
           "style": { "useNamingConvention": "off" },
-          "suspicious": { "noConsole": "off" }
+          "suspicious": { "noConsole": "off" },
+          "performance": { "noBarrelFile": "off" }
         }
       }
     }

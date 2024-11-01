@@ -16,14 +16,17 @@ catalogs:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.9.4
+        version: 1.9.4
+      '@lwc/engine-core':
+        specifier: ^8.5.0
+        version: 8.5.0
       '@lwc/engine-dom':
         specifier: ^8.5.0
         version: 8.5.0
       '@lwc/shared':
-        specifier: ^8.5.0
-        version: 8.5.0
-      '@lwc/ssr-runtime':
         specifier: ^8.5.0
         version: 8.5.0
       '@lwc/synthetic-shadow':
@@ -32,19 +35,6 @@ importers:
       '@lwc/wire-service':
         specifier: ^8.5.0
         version: 8.5.0
-      components:
-        specifier: workspace:*
-        version: link:packages/components
-      lightning-base-components:
-        specifier: ^1.22.3-alpha
-        version: 1.22.3-alpha
-      lwc:
-        specifier: 'catalog:'
-        version: 8.5.0(@babel/core@7.26.0)(rollup@4.24.3)
-    devDependencies:
-      '@biomejs/biome':
-        specifier: ^1.9.4
-        version: 1.9.4
       '@types/node':
         specifier: ^22.8.6
         version: 22.8.6
@@ -69,6 +59,33 @@ importers:
       vitest:
         specifier: ^2.1.4
         version: 2.1.4(@types/node@22.8.6)(@vitest/browser@2.1.4)(msw@2.6.0(@types/node@22.8.6)(typescript@5.6.3))
+
+  example:
+    dependencies:
+      '@lwc/engine-dom':
+        specifier: ^8.5.0
+        version: 8.5.0
+      '@lwc/shared':
+        specifier: ^8.5.0
+        version: 8.5.0
+      '@lwc/ssr-runtime':
+        specifier: ^8.5.0
+        version: 8.5.0
+      '@lwc/synthetic-shadow':
+        specifier: ^8.5.0
+        version: 8.5.0
+      '@lwc/wire-service':
+        specifier: ^8.5.0
+        version: 8.5.0
+      components:
+        specifier: workspace:*
+        version: link:../packages/components
+      lightning-base-components:
+        specifier: ^1.22.3-alpha
+        version: 1.22.3-alpha
+      lwc:
+        specifier: 'catalog:'
+        version: 8.5.0(@babel/core@7.26.0)(rollup@4.24.3)
 
   packages/components: {}
 
@@ -2319,7 +2336,7 @@ snapshots:
 
   '@babel/generator@7.22.10':
     dependencies:
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
       jsesc: 2.5.2
@@ -2341,7 +2358,7 @@ snapshots:
 
   '@babel/helper-annotate-as-pure@7.25.9':
     dependencies:
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
 
   '@babel/helper-compilation-targets@7.25.9':
     dependencies:
@@ -2367,14 +2384,14 @@ snapshots:
   '@babel/helper-member-expression-to-functions@7.25.9':
     dependencies:
       '@babel/traverse': 7.25.9
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
     transitivePeerDependencies:
       - supports-color
 
   '@babel/helper-module-imports@7.25.9':
     dependencies:
       '@babel/traverse': 7.25.9
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
     transitivePeerDependencies:
       - supports-color
 
@@ -2399,7 +2416,7 @@ snapshots:
 
   '@babel/helper-optimise-call-expression@7.25.9':
     dependencies:
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
 
   '@babel/helper-plugin-utils@7.25.9': {}
 
@@ -2431,7 +2448,7 @@ snapshots:
   '@babel/helper-skip-transparent-expression-wrappers@7.25.9':
     dependencies:
       '@babel/traverse': 7.25.9
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
     transitivePeerDependencies:
       - supports-color
 
@@ -2445,7 +2462,7 @@ snapshots:
     dependencies:
       '@babel/template': 7.25.9
       '@babel/traverse': 7.25.9
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
     transitivePeerDependencies:
       - supports-color
 
@@ -2859,7 +2876,7 @@ snapshots:
       '@babel/core': 7.26.0
       '@babel/helper-module-imports': 7.25.9
       '@babel/traverse': 7.25.9
-      '@babel/types': 7.25.9
+      '@babel/types': 7.26.0
       '@lwc/errors': 8.5.0
       '@lwc/shared': 8.5.0
       line-column: 1.0.2

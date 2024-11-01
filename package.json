@@ -18,6 +18,11 @@
     "typescript": "^5.6.3",
     "vitest": "^2.1.4",
     "vite": "catalog:",
-    "vite-plugin-lwc": "workspace:*"
+    "vite-plugin-lwc": "workspace:*",
+    "@lwc/engine-core": "^8.5.0",
+    "@lwc/shared": "^8.5.0",
+    "@lwc/synthetic-shadow": "^8.5.0",
+    "@lwc/engine-dom": "^8.5.0",
+    "@lwc/wire-service": "^8.5.0"
   }
 }

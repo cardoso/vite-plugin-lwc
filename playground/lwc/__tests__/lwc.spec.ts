@@ -26,3 +26,8 @@ test("should update", async () => {
   await minus.click();
   await expect.element(counter).toHaveTextContent("0");
 });
+
+test("render dynamic template", async () => {
+  await expect.element(page.getByText("Template 1")).toBeVisible();
+  await expect.element(page.getByText("Template 2")).toBeVisible();
+});
