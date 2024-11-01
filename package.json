@@ -1,43 +1,42 @@
 {
-	"name": "lwc-devbox",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "pnpm -r --filter='./packages/*' run dev && vite",
-		"build": "pnpm -r --filter='./packages/*' run build && vite build",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"@lwc/rollup-plugin": "^8.3.0",
-		"@types/node": "^22.8.0",
-		"prettier": "^3.3.3",
-		"typescript": "~5.6.2",
-		"vite": "^5.4.9",
-		"vite-plugin-lwc": "workspace:*"
-	},
-	"dependencies": {
-		"@lwc/engine-dom": "^8.4.0",
-		"@lwc/shared": "^8.4.0",
-		"@lwc/ssr-runtime": "^8.4.0",
-		"@lwc/synthetic-shadow": "^8.4.0",
-		"@lwc/wire-service": "^8.4.0",
-		"lwc": "^8.4.0",
-		"components": "workspace:*",
-		"lightning-base-components": "^1.22.3-alpha"
-	},
-	"lwc": {
-		"modules": [
-			{
-				"dir": "src/modules"
-			},
-			{
-				"npm": "components"
-			},
-			{
-				"npm": "lightning-base-components"
-			}
-		]
-	}
+  "name": "lwc-devbox",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -r --filter='./packages/*' run dev && vite",
+    "build": "pnpm -r --filter='./packages/*' run build && vite build",
+    "preview": "pnpm -r --filter='./packages/*' run build && vite build && vite preview"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.8.6",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-lwc": "workspace:*"
+  },
+  "dependencies": {
+    "@lwc/engine-dom": "^8.5.0",
+    "@lwc/shared": "^8.5.0",
+    "@lwc/ssr-runtime": "^8.5.0",
+    "@lwc/synthetic-shadow": "^8.5.0",
+    "@lwc/wire-service": "^8.5.0",
+    "components": "workspace:*",
+    "lightning-base-components": "^1.22.3-alpha",
+    "lwc": "^8.5.0"
+  },
+  "lwc": {
+    "modules": [
+      {
+        "dir": "src/modules"
+      },
+      {
+        "npm": "components"
+      },
+      {
+        "npm": "lightning-base-components"
+      }
+    ]
+  }
 }

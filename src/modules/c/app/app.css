@@ -1,8 +1,8 @@
 .app {
-    width: 60%;
-    height: 100vh;
-    /* center vertically */
-    align-content: center;
-    /* center horizontally */
-    margin: 0 auto;
+  width: 60%;
+  height: 100vh;
+  /* center vertically */
+  align-content: center;
+  /* center horizontally */
+  margin: 0 auto;
 }

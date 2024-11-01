@@ -17,10 +17,12 @@
         <div class="slds-grid slds-gutters">
           <div class="slds-col slds-col-size_1-of-2">
             Top 5 renewals
-            <c-table
-              columns={top5Renewals.columns}
-              rows={top5Renewals.rows}
-            ></c-table>
+            <div class="slds-card">
+              <c-table
+                columns={top5Renewals.columns}
+                rows={top5Renewals.rows}
+              ></c-table>
+            </div>
           </div>
           <div class="slds-col slds-col-size_1-of-2">
             <c-textarea
