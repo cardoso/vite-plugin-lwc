@@ -1,4 +1,5 @@
 {
+    "extends": "../tsconfig.json",
     "include": ["**/*.ts", "**/__tests__/*.ts", "**/vite.config.mts"],
     "exclude": ["**/dist/**"],
     "compilerOptions": {

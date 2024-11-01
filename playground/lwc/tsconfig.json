@@ -1,7 +1,6 @@
 {
     "extends": "../tsconfig.json",
     "compilerOptions": {
-        "useDefineForClassFields": true,
         "paths": {
             "c/main": ["src/modules/c/main/main.ts"],
             "c/counter": ["src/modules/c/counter/counter.ts"]

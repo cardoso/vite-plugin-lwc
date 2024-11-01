@@ -3,15 +3,7 @@ import lwc from "vite-plugin-lwc";
 
 export default defineConfig({
   mode: "development",
-  plugins: [
-    lwc({
-      disableSyntheticShadowSupport: true,
-    }),
-  ],
-  build: {
-    minify: false,
-    target: "esnext",
-  },
+  plugins: [lwc()],
   test: {
     browser: {
       provider: "playwright", // or 'webdriverio'
