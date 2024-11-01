@@ -7,7 +7,6 @@ export default defineBuildConfig({
   sourcemap: true,
   declaration: "compatible",
   rollup: {
-    emitCJS: true,
     inlineDependencies: true,
   },
 });

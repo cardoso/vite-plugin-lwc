@@ -1,7 +1,9 @@
 import patch from "./patch.ts";
 import lwc, { type ViteLwcOptions } from "./lwc.ts";
+import alias from "./alias.ts";
+import type { Plugin } from "vite";
 
-export default (options: ViteLwcOptions) => [
+export default (options: ViteLwcOptions = {}): Plugin[] => [
   patch({
     "vite:css": (p) => {
       p.transform = undefined;
@@ -10,5 +12,15 @@ export default (options: ViteLwcOptions) => [
       p.transform = undefined;
     },
   }),
-  lwc(options)
+  alias(),
+  {
+    ...lwc(options),
+    enforce: "pre",
+    apply: "build",
+  },
+  {
+    ...lwc(options),
+    enforce: "post",
+    apply: "serve",
+  },
 ];

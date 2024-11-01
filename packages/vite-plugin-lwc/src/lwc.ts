@@ -1,44 +1,31 @@
-import type { AliasOptions, Plugin } from "vite";
+import { createFilter, type Plugin } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import type { RollupError } from "rollup";
 
-type Command = "build" | "serve";
+export type Command = "build" | "serve";
 
-const alias = {
-  build: [
-    {
-      find: /^(.*)\.html$/,
-      replacement: "$1.html?import",
-    },
-  ],
-  serve: [],
-} satisfies Record<Command, AliasOptions>;
+export type ViteLwcOptions = RollupLwcOptions;
 
-export type ViteLwcOptions = RollupLwcOptions & {
-  command: Command;
-};
+export default function lwcVite(config: ViteLwcOptions): Plugin {
+  config.rootDir = config.rootDir ?? ".";
 
-export default function viteLwc({
-  command,
-  ...config
-}: ViteLwcOptions): Plugin {
   const rollupPlugin = lwc(config);
   const buildStartHook = getHook(rollupPlugin, "buildStart");
   const resolveIdHook = getHook(rollupPlugin, "resolveId");
   const loadHook = getHook(rollupPlugin, "load");
   const transformHook = getHook(rollupPlugin, "transform");
 
+  const filter = createFilter(
+    config.include,
+    config.exclude
+      ? Array.isArray(config.exclude)
+        ? [...config.exclude, "**/vite/**"]
+        : [config.exclude, "**/vite/**"]
+      : "**/vite/**",
+  );
+
   return {
-    name: `lwc:vite-${command}`,
-    enforce: command === "serve" ? "post" : "pre",
-    apply: command,
-    config() {
-      return {
-        resolve: {
-          alias: alias[command],
-        },
-      };
-    },
+    name: "lwc:vite-plugin",
     buildStart(options) {
       try {
         return buildStartHook.call(this, options);
@@ -47,7 +34,7 @@ export default function viteLwc({
       }
     },
     resolveId(source, importer, options) {
-      if (options.isEntry) {
+      if (options.isEntry || !filter(source)) {
         return;
       }
 
@@ -58,6 +45,10 @@ export default function viteLwc({
       }
     },
     load(id) {
+      if (!filter(id)) {
+        return;
+      }
+
       try {
         return loadHook.call(this, id);
       } catch (e) {
@@ -65,7 +56,7 @@ export default function viteLwc({
       }
     },
     transform(code, id, options) {
-      if (id.includes("index.html")) {
+      if (id.includes("index.html") || !filter(id)) {
         return;
       }
 

@@ -1,24 +1,18 @@
-import { defineConfig } from "vite";
+import type { UserConfig } from "vite";
 import lwc from "vite-plugin-lwc";
 
-// https://vitejs.dev/config
-export default defineConfig((config) => ({
+export default {
   build: {
     copyPublicDir: true,
     assetsDir: "",
     rollupOptions: {
       input: ["src/main.js"],
+      preserveEntrySignatures: "strict",
       output: {
         entryFileNames: "[name].js",
-        compact: true,
+        preserveModules: true,
       },
     },
   },
-  plugins: [
-    lwc({
-      rootDir: ".",
-      exclude: ["**/vite/**"],
-      command: config.command,
-    }),
-  ],
-}));
+  plugins: [lwc()],
+} satisfies UserConfig;
