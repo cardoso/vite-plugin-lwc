@@ -3,19 +3,26 @@ import { page } from "@vitest/browser/context";
 import { LWC_VERSION } from "@lwc/shared";
 
 test("should render", async () => {
-  await expect
-    .element(page.getByRole("heading", { level: 1 }))
-    .toHaveTextContent(`LWC Version ${LWC_VERSION}`);
+  const h1 = page.getByRole("heading", { level: 1 });
+  await expect.element(h1).toHaveTextContent(`LWC Version ${LWC_VERSION}`);
 });
 
 test("should update", async () => {
-  await expect.element(page.getByTitle("counter")).toHaveTextContent("0");
+  const counter = page.getByTitle("counter");
+  const plus = page.getByRole("button", { name: "+" });
+  const minus = page.getByRole("button", { name: "-" });
 
-  await page.getByRole("button", { name: "+" }).click();
+  await expect.element(counter).toHaveTextContent("0");
 
-  await expect.element(page.getByTitle("counter")).toHaveTextContent("1");
+  await plus.click();
+  await expect.element(counter).toHaveTextContent("1");
 
-  await page.getByRole("button", { name: "+" }).click();
+  await plus.click();
+  await expect.element(counter).toHaveTextContent("2");
 
-  await expect.element(page.getByTitle("counter")).toHaveTextContent("2");
+  await minus.click();
+  await expect.element(counter).toHaveTextContent("1");
+
+  await minus.click();
+  await expect.element(counter).toHaveTextContent("0");
 });

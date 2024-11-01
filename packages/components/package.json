@@ -1,14 +1,15 @@
 {
-	"name": "components",
-	"version": "2.0.0",
-	"private": true,
-	"lwc": {
-		"modules": [
-			{
-				"name": "ui/button",
-				"path": "src/modules/ui/button/button.ts"
-			}
-		],
-		"expose": ["ui/button"]
-	}
+  "name": "components",
+  "version": "2.0.0",
+  "type": "module",
+  "private": true,
+  "lwc": {
+    "modules": [
+      {
+        "name": "ui/button",
+        "path": "src/modules/ui/button/button.ts"
+      }
+    ],
+    "expose": ["ui/button"]
+  }
 }
