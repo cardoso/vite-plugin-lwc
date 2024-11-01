@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "pnpm -r --filter='./packages/*' run dev && vite",
     "build": "pnpm -r --filter='./packages/*' run build && vite build",
-    "preview": "pnpm -r --filter='./packages/*' run build && vite build && vite preview"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

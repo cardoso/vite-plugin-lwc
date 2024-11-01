@@ -10,7 +10,6 @@ export type ViteLwcOptions = RollupLwcOptions;
 
 export default function lwcVite(config: ViteLwcOptions): Plugin {
   config.rootDir = config.rootDir ?? ".";
-  const rootDir = path.resolve(config.rootDir);
 
   const rollupPlugin = lwc(config);
   const buildStartHook = getHook(rollupPlugin, "buildStart");
@@ -18,27 +17,21 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
   const loadHook = getHook(rollupPlugin, "load");
   const transformHook = getHook(rollupPlugin, "transform");
 
-  const filter = createFilter(
-    config.include,
-    config.exclude
+  const filter = createFilter(config.include, [
+    "**/vite/**",
+    "index.html",
+    ...(config.exclude
       ? Array.isArray(config.exclude)
-        ? [...config.exclude, "**/vite/**"]
-        : [config.exclude, "**/vite/**"]
-      : "**/vite/**",
-  );
-
-  let input: string | undefined;
+        ? config.exclude
+        : [config.exclude]
+      : []),
+  ]);
 
   return {
     name: "lwc:vite-plugin",
     buildStart(options) {
-      input =
-        Array.isArray(options.input) && options.input.length > 0
-          ? options.input[0]
-          : undefined;
-
       try {
-        return buildStartHook.call(this, { input });
+        return buildStartHook.call(this, options);
       } catch (e) {
         this.error(getError(e));
       }
@@ -54,7 +47,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
         path.extname(source) !== "" &&
         !source.startsWith(".")
       ) {
-        return path.join(rootDir, source);
+        return path.join(process.cwd(), source);
       }
 
       try {
@@ -75,7 +68,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
     },
     transform(code, id, options) {
-      if (id.includes("index.html") || !filter(id)) {
+      if (!filter(id)) {
         return;
       }
 
