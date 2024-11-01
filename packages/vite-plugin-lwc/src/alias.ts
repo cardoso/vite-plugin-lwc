@@ -1,8 +1,9 @@
-import type { Plugin } from "vite";
+import type { AliasOptions, Plugin } from "vite";
 
-const alias = [
+const alias: AliasOptions = [
   {
-    find: /^(.*)\.html$/,
+    // Find all html imports and add ?import to the end of the import
+    find: /^(?!.*index)(.*)\.html$/,
     replacement: "$1.html?import",
   },
 ];

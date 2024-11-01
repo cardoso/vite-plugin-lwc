@@ -6,10 +6,10 @@ export default {
     copyPublicDir: true,
     assetsDir: "",
     rollupOptions: {
-      input: ["src/main.js"],
+      // input: ["src/main.js"],
       preserveEntrySignatures: "strict",
       output: {
-        entryFileNames: "[name].js",
+        // entryFileNames: "[name].js",
         preserveModules: true,
       },
     },

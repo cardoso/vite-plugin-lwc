@@ -1,6 +1,8 @@
 import { createFilter, type Plugin } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import type { RollupError } from "rollup";
+import {} from "@rollup/pluginutils";
+import path from "node:path";
 
 export type Command = "build" | "serve";
 
@@ -8,6 +10,7 @@ export type ViteLwcOptions = RollupLwcOptions;
 
 export default function lwcVite(config: ViteLwcOptions): Plugin {
   config.rootDir = config.rootDir ?? ".";
+  const rootDir = path.resolve(config.rootDir);
 
   const rollupPlugin = lwc(config);
   const buildStartHook = getHook(rollupPlugin, "buildStart");
@@ -24,18 +27,34 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       : "**/vite/**",
   );
 
+  let input: string | undefined;
+
   return {
     name: "lwc:vite-plugin",
     buildStart(options) {
+      input =
+        Array.isArray(options.input) && options.input.length > 0
+          ? options.input[0]
+          : undefined;
+
       try {
-        return buildStartHook.call(this, options);
+        return buildStartHook.call(this, { input });
       } catch (e) {
         this.error(getError(e));
       }
     },
     resolveId(source, importer, options) {
-      if (options.isEntry || !filter(source)) {
+      if (!filter(source)) {
         return;
+      }
+
+      if (
+        importer &&
+        path.extname(importer) === ".html" &&
+        path.extname(source) !== "" &&
+        !source.startsWith(".")
+      ) {
+        return path.join(rootDir, source);
       }
 
       try {
