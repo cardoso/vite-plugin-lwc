@@ -8,8 +8,7 @@
     "build": "pnpm build:client && pnpm build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.js",
-    "preview": "vite preview",
-    "test": "vitest"
+    "preview": "cross-env NODE_ENV=production node server.mjs"
   },
   "dependencies": {
     "@lwc/engine-dom": "^8.6.0",
@@ -20,5 +19,8 @@
     "@lwc/wire-service": "^8.6.0",
     "lwc": "^8.6.0",
     "express": "^5.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

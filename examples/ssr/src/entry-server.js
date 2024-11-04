@@ -5,5 +5,6 @@ export function render() {
   const html = renderComponent("c-app", App, {
     greeting: "Server",
   });
+
   return html;
 }
