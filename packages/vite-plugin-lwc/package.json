@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-lwc",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Matheus Cardoso <matheus@cardo.so>",
   "type": "module",
