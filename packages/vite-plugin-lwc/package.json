@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/vite-plugin-lwc#readme",
   "dependencies": {
-    "@lwc/rollup-plugin": "^8.5.0"
+    "@lwc/rollup-plugin": "^8.6.0"
   },
   "devDependencies": {
     "unbuild": "^2.0.0",
