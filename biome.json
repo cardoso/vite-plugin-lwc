@@ -16,7 +16,7 @@
     {
       "include": [
         "vite.config.mts",
-        "server.mts",
+        "server.mjs",
         "packages/vite-plugin-lwc",
         "playground/**"
       ],

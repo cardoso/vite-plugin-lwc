@@ -8,14 +8,22 @@ export type Command = "build" | "serve";
 
 export type ViteLwcOptions = RollupLwcOptions;
 
+function createRollupPlugin(options: ViteLwcOptions) {
+  const rollupPlugin = lwc(options);
+
+  return {
+    buildStart: getHook(rollupPlugin, "buildStart"),
+    resolveId: getHook(rollupPlugin, "resolveId"),
+    load: getHook(rollupPlugin, "load"),
+    transform: getHook(rollupPlugin, "transform"),
+  };
+}
+
 export default function lwcVite(config: ViteLwcOptions): Plugin {
   config.rootDir = config.rootDir ?? ".";
 
-  const rollupPlugin = lwc(config);
-  const buildStartHook = getHook(rollupPlugin, "buildStart");
-  const resolveIdHook = getHook(rollupPlugin, "resolveId");
-  const loadHook = getHook(rollupPlugin, "load");
-  const transformHook = getHook(rollupPlugin, "transform");
+  const rollupPlugin = createRollupPlugin(config);
+  const ssrPlugin = createRollupPlugin({ ...config, targetSSR: true });
 
   const filter = createFilter(config.include, [
     "**/vite/**",
@@ -34,7 +42,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
     name: "lwc:vite-plugin",
     buildStart(options) {
       try {
-        return buildStartHook.call(this, options);
+        return rollupPlugin.buildStart.call(this, options);
       } catch (e) {
         this.error(getError(e));
       }
@@ -54,18 +62,22 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        return resolveIdHook.call(this, source, importer, options);
+        return options.ssr
+          ? ssrPlugin.resolveId.call(this, source, importer, options)
+          : rollupPlugin.resolveId.call(this, source, importer, options);
       } catch (e) {
         this.error(getError(e, source));
       }
     },
-    load(id) {
+    load(id, options) {
       if (!filter(id)) {
         return;
       }
 
       try {
-        return loadHook.call(this, id);
+        return options?.ssr
+          ? ssrPlugin.load.call(this, id, options)
+          : rollupPlugin.load.call(this, id, options);
       } catch (e) {
         this.error(getError(e, id));
       }
@@ -76,7 +88,9 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        return transformHook.call(this, code, id, options);
+        return options?.ssr
+          ? ssrPlugin.transform.call(this, code, id, options)
+          : rollupPlugin.transform.call(this, code, id, options);
       } catch (e) {
         this.error(getError(e, id, code));
       }
