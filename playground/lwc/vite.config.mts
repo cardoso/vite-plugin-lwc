@@ -11,6 +11,7 @@ export default defineConfig({
       enabled: true,
       name: "chromium", // browser name is required
       testerHtmlPath: "./index.html",
+      headless: true,
     },
   },
 });

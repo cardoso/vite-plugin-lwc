@@ -1,4 +1,4 @@
-# Vite Plugin React
+# Vite Plugin LWC
 
 See [`vite-plugin-lwc` documentation](packages/vite-plugin-lwc/README.md)
 
