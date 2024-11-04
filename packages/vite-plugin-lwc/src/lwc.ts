@@ -1,7 +1,6 @@
 import { createFilter, type Plugin } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import type { RollupError } from "rollup";
-import {} from "@rollup/pluginutils";
 import path from "node:path";
 
 export type Command = "build" | "serve";

@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lwc": "^8.6.0"
+    "lwc": "catalog:"
   },
   "devDependencies": {
     "vite-plugin-lwc": "workspace:*"

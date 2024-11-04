@@ -1,13 +1,15 @@
 {
-  "name": "lwc-devbox",
+  "name": "vite-plugin-lwc-monorepo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "pnpm -r --filter='./packages/*' run dev",
-    "build": "pnpm -r --filter='./packages/*' run build",
+    "build": "pnpm -r build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "example:csr": "pnpm -r --filter='./examples/csr' run dev",
+    "example:ssr": "pnpm -r --filter='./examples/ssr' run dev"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -19,10 +21,10 @@
     "vitest": "^2.1.4",
     "vite": "catalog:",
     "vite-plugin-lwc": "workspace:*",
-    "@lwc/engine-core": "^8.6.0",
-    "@lwc/shared": "^8.6.0",
-    "@lwc/synthetic-shadow": "^8.6.0",
-    "@lwc/engine-dom": "^8.6.0",
-    "@lwc/wire-service": "^8.6.0"
+    "@lwc/engine-core": "catalog:",
+    "@lwc/shared": "catalog:",
+    "@lwc/synthetic-shadow": "catalog:",
+    "@lwc/engine-dom": "catalog:",
+    "@lwc/wire-service": "catalog:"
   }
 }
