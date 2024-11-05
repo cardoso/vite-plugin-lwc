@@ -1,6 +1,6 @@
 {
     "extends": "../tsconfig.json",
-    "include": ["**/*.ts", "**/__tests__/*.ts", "**/vite.config.mts"],
+    "include": ["**/*.ts", "**/__tests__/*.ts", "**/vite.config.mts", "lwc/src/modules/c/dynamicTemplate/dynamicTemplate.js"],
     "exclude": ["**/dist/**"],
     "compilerOptions": {
         "noEmit": true,
