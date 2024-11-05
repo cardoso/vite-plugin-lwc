@@ -1,4 +1,3 @@
-import "@lwc/synthetic-shadow";
 import { createElement } from "lwc";
 import Main from "c/main";
 

@@ -7,12 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "debug": "node --inspect-brk vite",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
-  "dependencies": {
-    "lwc": "catalog:"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "vite-plugin-lwc": "workspace:*"
+    "vite-plugin-lwc": "workspace:*",
+    "vite-plugin-inspect": "^0.8.7",
+    "lwc": "catalog:",
+    "@lwc/engine-dom": "catalog:",
+    "@lwc/shared": "catalog:",
+    "@lwc/synthetic-shadow": "catalog:"
   }
 }

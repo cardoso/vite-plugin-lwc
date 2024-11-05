@@ -1,9 +1,10 @@
 {
-    "extends": "../tsconfig.json",
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
+        "types": ["@vitest/browser/providers/playwright"],
         "paths": {
-            "c/main": ["src/modules/c/main/main.ts"],
-            "x/counter": ["src/modules/x/counter/counter.ts"]
+            "c/main": ["./src/modules/c/main/main.ts"],
+            "x/counter": ["./src/modules/x/counter/counter.ts"]
         }
     },
 }

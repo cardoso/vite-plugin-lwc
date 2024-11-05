@@ -1,10 +1,30 @@
 import { defineConfig } from "vite";
 import lwc from "vite-plugin-lwc";
+import inspect from "vite-plugin-inspect";
+
+const deps = ["lwc", "@lwc/engine-dom", "@lwc/synthetic-shadow", "@lwc/shared"];
 
 export default defineConfig({
-  mode: "development",
-  plugins: [lwc()],
-  esbuild: {},
+  plugins: [
+    lwc(),
+    process.env.INSPECT
+      ? inspect({
+          build: true,
+          open: true,
+          removeVersionQuery: true,
+        })
+      : null,
+  ],
+  esbuild: {
+    include: ["**/*.ts", "**/*.mts"],
+  },
+  optimizeDeps: {
+    exclude: deps,
+  },
+  build: {
+    modulePreload: false,
+    minify: false,
+  },
   test: {
     browser: {
       provider: "playwright", // or 'webdriverio'
