@@ -1,3 +1,6 @@
+# 0.3.1
+- fix absolute path resolution from html import
+
 # 0.3.0
 - expermental ssr support
 - remove unused @rollup/pluginutils dependency
