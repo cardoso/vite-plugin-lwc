@@ -15,6 +15,9 @@ catalogs:
     '@lwc/engine-server':
       specifier: ^8.6.0
       version: 8.6.0
+    '@lwc/features':
+      specifier: ^8.6.0
+      version: 8.6.0
     '@lwc/rollup-plugin':
       specifier: ^8.6.0
       version: 8.6.0
@@ -144,6 +147,9 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
     devDependencies:
+      '@lwc/features':
+        specifier: 'catalog:'
+        version: 8.6.0
       '@types/compression':
         specifier: ^1.7.5
         version: 1.7.5

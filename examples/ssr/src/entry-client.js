@@ -1,17 +1,6 @@
-// @ts-check
-import { hydrateComponent } from "lwc";
-import App from "c/app";
+import { setFeatureFlag, hydrateComponent, createElement } from "lwc";
+import { createMount } from "./main.mjs";
 
-const container = document.querySelector("#app");
+const mount = createMount({ setFeatureFlag, hydrateComponent, createElement });
 
-if (!container) {
-  throw new Error("No container element found");
-}
-
-if (!container.firstElementChild) {
-  throw new Error("No child element found in container");
-}
-
-hydrateComponent(container.firstElementChild, App, {
-  greeting: "Client",
-});
+mount();

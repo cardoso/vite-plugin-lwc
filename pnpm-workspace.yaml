@@ -15,3 +15,4 @@ catalog:
   '@lwc/synthetic-shadow': ^8.6.0
   '@lwc/wire-service': ^8.6.0
   '@lwc/rollup-plugin': ^8.6.0
+  '@lwc/features': ^8.6.0

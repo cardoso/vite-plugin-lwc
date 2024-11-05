@@ -3,5 +3,5 @@
 import "lwc";
 import "@lwc/ssr-runtime";
 declare module "lwc" {
-  export { serverSideRenderComponent as renderComponent } from "@lwc/ssr-runtime";
+  export { renderComponent } from "@lwc/ssr-runtime";
 }
