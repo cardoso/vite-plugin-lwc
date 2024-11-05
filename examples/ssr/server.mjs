@@ -20,7 +20,7 @@ const app = express();
 
 // Add Vite or respective production middlewares
 /**
- * @type {import("vite").ViteDevServer}
+ * @type {import("vite").ViteDevServer | undefined}
  */
 let vite;
 if (isProduction) {
@@ -52,6 +52,10 @@ app.use("*all", async (req, res) => {
       render = (await import("./dist/server/entry-server.js")).render;
     } else {
       // Always read fresh template in development
+      if (!vite) {
+        throw new Error("Vite should be defined in development");
+      }
+
       template = await fs.readFile("./index.html", "utf-8");
       template = await vite.transformIndexHtml(url, template);
       render = (await vite.ssrLoadModule("/src/entry-server.js")).render;
