@@ -21,6 +21,7 @@
     "express": "^5.0.1"
   },
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "cross-env": "^7.0.3"
   }
 }
