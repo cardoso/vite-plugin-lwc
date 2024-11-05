@@ -1,3 +1,6 @@
+# 0.3.2
+- fix: resolve absolute source relative to absolute html importer
+
 # 0.3.1
 - fix absolute path resolution from html import
 
