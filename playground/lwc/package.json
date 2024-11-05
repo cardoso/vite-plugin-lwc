@@ -17,6 +17,7 @@
     "lwc": "catalog:",
     "@lwc/engine-dom": "catalog:",
     "@lwc/shared": "catalog:",
-    "@lwc/synthetic-shadow": "catalog:"
+    "@lwc/synthetic-shadow": "catalog:",
+    "@lwc/wire-service": "catalog:"
   }
 }

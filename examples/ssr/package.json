@@ -12,6 +12,14 @@
     "preview:dev": "cross-env NODE_ENV=development node server.mjs"
   },
   "dependencies": {
+    "express": "^5.0.1",
+    "compression": "^1.7.5",
+    "sirv": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/express": "^5.0.0",
+    "@lwc/features": "catalog:",
     "@lwc/engine-dom": "catalog:",
     "@lwc/engine-server": "catalog:",
     "@lwc/shared": "catalog:",
@@ -19,14 +27,7 @@
     "@lwc/synthetic-shadow": "catalog:",
     "@lwc/wire-service": "catalog:",
     "lwc": "catalog:",
-    "express": "^5.0.1",
-    "compression": "^1.7.5",
-    "sirv": "^3.0.0"
-  },
-  "devDependencies": {
-    "@lwc/features": "catalog:",
-    "@types/compression": "^1.7.5",
-    "@types/express": "^5.0.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "vite-plugin-lwc": "workspace:*"
   }
 }

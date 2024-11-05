@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest"
   },
-  "dependencies": {
+  "devDependencies": {
+    "lwc": "catalog:",
     "@lwc/engine-dom": "catalog:",
     "@lwc/shared": "catalog:",
     "@lwc/ssr-runtime": "catalog:",
@@ -17,6 +18,6 @@
     "@lwc/wire-service": "catalog:",
     "components": "workspace:*",
     "lightning-base-components": "^1.22.3-alpha",
-    "lwc": "catalog:"
+    "vite-plugin-lwc": "workspace:*"
   }
 }

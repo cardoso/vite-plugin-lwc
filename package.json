@@ -19,12 +19,6 @@
     "playwright": "^1.48.2",
     "typescript": "^5.6.3",
     "vitest": "^2.1.4",
-    "vite": "catalog:",
-    "vite-plugin-lwc": "workspace:*",
-    "@lwc/engine-core": "catalog:",
-    "@lwc/shared": "catalog:",
-    "@lwc/synthetic-shadow": "catalog:",
-    "@lwc/engine-dom": "catalog:",
-    "@lwc/wire-service": "catalog:"
+    "vite": "catalog:"
   }
 }
