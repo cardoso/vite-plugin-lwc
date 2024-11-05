@@ -1,3 +1,4 @@
+// @ts-check
 import App from "c/app";
 
 /**
@@ -18,43 +19,49 @@ const noop = () => {
   /* do nothing */
 };
 
-// const error = import.meta.env.DEV ? console.error : noop;
+const error = import.meta.env.DEV ? console.error : noop;
 const log = import.meta.env.DEV ? console.log : noop;
 const warn = import.meta.env.DEV ? console.warn : noop;
 
 /**
- * @param {import('@lwc/engine-dom')}
- * @returns
+ * @param {Pick<import('@lwc/engine-dom'), 'setFeatureFlag' | 'hydrateComponent' | 'createElement'>} config
  */
 export const createMount = ({
   setFeatureFlag,
   hydrateComponent,
   createElement,
 }) => {
-  return function mount() {
-    const element = document.body.getElementsByTagName(tagName).item(0);
+  /**
+   * @param {HTMLElement} parent
+   */
+  const getElement = (parent) => {
+    const element = parent.getElementsByTagName(tagName).item(0);
+    if (element) {
+      return element;
+    }
+    error(`Element <${tagName}> not found.`);
+    warn(`Fallback to creating a new element <${tagName}>.`);
+    return parent.appendChild(
+      createElement(tagName, { is: App, mode: "open" }),
+    );
+  };
 
+  return function mount(parent = document.body) {
     for (const feature of features) {
       log(`Enabling feature flag: ${feature}`);
       setFeatureFlag(feature, true);
     }
-
-    if (element) {
-      hydrateComponent(element, App, props);
-      return element;
-    }
-
-    warn(`Element <${tagName}> not found, falling back to CSR.`);
-    document.body.append(createElement(tagName, { is: App, mode: "open" }));
+    const element = getElement(parent);
+    hydrateComponent(element, App, props);
+    log(`Hydrated component <${tagName}>`);
+    return element;
   };
 };
 
 /**
- *
- * @param {import('@lwc/ssr-runtime')['renderComponent']} renderComponent
- * @returns
+ * @param {Pick<import('@lwc/ssr-runtime'), 'renderComponent'>} config
  */
-export const createRenderer = (renderComponent) =>
+export const createRenderer = ({ renderComponent }) =>
   /**
    * @param {string} url
    * @param {string | undefined} ssrManifest
@@ -66,10 +73,14 @@ export const createRenderer = (renderComponent) =>
 
     const { searchParams } = new URL(url, "http://localhost");
 
-    // @ts-ignore
-    const html = await renderComponent(tagName, App, {
-      ...props,
-      ...Object.fromEntries(searchParams.entries()),
-    });
+    const html = await renderComponent(
+      tagName,
+      // @ts-ignore
+      App,
+      {
+        ...props,
+        ...Object.fromEntries(searchParams.entries()),
+      },
+    );
     return { html };
   };
