@@ -3,11 +3,15 @@ import App from "c/app";
 
 /**
  * @param {string} url
- * @returns
+ * @param {string | undefined} ssrManifest
+ * @returns {Promise<{ html?: string, head?: string }>}
  */
-export function render(url) {
+export async function render(url, ssrManifest) {
+  if (ssrManifest) {
+    console.log("SSR Manifest:", ssrManifest);
+  }
   const { searchParams } = new URL(url, "http://localhost");
   const props = searchParams.entries();
-  const html = renderComponent("c-app", App, Object.fromEntries(props));
-  return html;
+  const html = await renderComponent("c-app", App, Object.fromEntries(props));
+  return { html };
 }

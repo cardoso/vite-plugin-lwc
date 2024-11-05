@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
 import "lwc";
-import "@lwc/engine-server";
+import "@lwc/ssr-runtime";
 declare module "lwc" {
-  export { renderComponent } from "@lwc/engine-server";
+  export { serverSideRenderComponent as renderComponent } from "@lwc/ssr-runtime";
 }

@@ -2,7 +2,7 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "paths": {
-            "c/app": ["./src/modules/c/app/app.js"],
+            "c/app": ["./src/modules/c/app/app"],
         }
     }
 }

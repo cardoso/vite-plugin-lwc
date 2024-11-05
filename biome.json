@@ -16,7 +16,7 @@
     {
       "include": [
         "vite.config.mts",
-        "server.mjs",
+        "*server*",
         "packages/vite-plugin-lwc",
         "playground/**"
       ],
@@ -24,7 +24,7 @@
         "rules": {
           "correctness": { "noNodejsModules": "off" },
           "style": { "useNamingConvention": "off" },
-          "suspicious": { "noConsole": "off" },
+          "suspicious": { "noConsole": "off", "noConsoleLog": "off" },
           "performance": { "noBarrelFile": "off" }
         }
       }

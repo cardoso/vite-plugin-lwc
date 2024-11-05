@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "node server.mjs",
     "build": "pnpm build:client && pnpm build:server",
-    "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --outDir dist/server --ssr src/entry-server.js",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node server.mjs"
   },
   "dependencies": {
@@ -18,9 +18,12 @@
     "@lwc/synthetic-shadow": "catalog:",
     "@lwc/wire-service": "catalog:",
     "lwc": "catalog:",
-    "express": "^5.0.1"
+    "express": "^5.0.1",
+    "compression": "^1.7.5",
+    "sirv": "^3.0.0"
   },
   "devDependencies": {
+    "@types/compression": "^1.7.5",
     "@types/express": "^5.0.0",
     "cross-env": "^7.0.3"
   }

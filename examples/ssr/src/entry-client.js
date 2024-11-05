@@ -1,3 +1,4 @@
+// @ts-check
 import { hydrateComponent } from "lwc";
 import App from "c/app";
 
