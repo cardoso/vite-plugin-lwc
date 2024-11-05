@@ -1,5 +1,18 @@
 // @ts-check
 import { renderComponent } from "lwc";
-import { createRenderer } from "./main.mjs";
+import Main, { tagName } from "./main.mjs";
 
-export const render = createRenderer({ renderComponent });
+/**
+ * @param {string} url
+ * @param {string | undefined} ssrManifest
+ * @returns {Promise<{ html?: string, head?: string }>}
+ */
+export async function render(url, ssrManifest) {
+  const html = await renderComponent(
+    tagName,
+    // @ts-ignore
+    Main,
+    { path: url, ssrManifest },
+  );
+  return { html };
+}
