@@ -15,15 +15,13 @@ export default defineConfig({
         })
       : null,
   ],
-  esbuild: {
-    include: ["**/*.ts", "**/*.mts"],
-  },
   optimizeDeps: {
     exclude: deps,
   },
   build: {
     modulePreload: false,
     minify: false,
+    target: "esnext",
   },
   test: {
     browser: {
