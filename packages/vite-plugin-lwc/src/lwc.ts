@@ -55,7 +55,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
         importer &&
         path.extname(importer) === ".html" &&
         path.extname(source) !== "" &&
-        !source.startsWith(".")
+        source.startsWith("/")
       ) {
         return path.join(process.cwd(), source);
       }
