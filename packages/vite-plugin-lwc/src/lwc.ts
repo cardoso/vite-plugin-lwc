@@ -2,27 +2,25 @@ import { createFilter, type Plugin } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import type { RollupError } from "rollup";
 import path from "node:path";
-
 export type Command = "build" | "serve";
 
 export type ViteLwcOptions = RollupLwcOptions;
 
-function createRollupPlugin(options: ViteLwcOptions) {
-  const rollupPlugin = lwc(options);
+function createRollupPlugin(options: RollupLwcOptions) {
+  const plugin = lwc(options);
 
   return {
-    buildStart: getHook(rollupPlugin, "buildStart"),
-    resolveId: getHook(rollupPlugin, "resolveId"),
-    load: getHook(rollupPlugin, "load"),
-    transform: getHook(rollupPlugin, "transform"),
+    buildStart: getHook(plugin, "buildStart"),
+    resolveId: getHook(plugin, "resolveId"),
+    load: getHook(plugin, "load"),
+    transform: getHook(plugin, "transform"),
   };
 }
 
 export default function lwcVite(config: ViteLwcOptions): Plugin {
-  config.rootDir = config.rootDir ?? ".";
-
-  const rollupPlugin = createRollupPlugin(config);
-  const ssrPlugin = createRollupPlugin({ ...config, targetSSR: true });
+  config.rootDir ??= ".";
+  const csr = createRollupPlugin(config);
+  const ssr = createRollupPlugin({ ...config, targetSSR: true });
 
   const filter = createFilter(config.include, [
     "**/vite/**",
@@ -41,7 +39,8 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
     name: "lwc:vite-plugin",
     buildStart(options) {
       try {
-        return rollupPlugin.buildStart.call(this, options);
+        csr.buildStart.call(this, options);
+        ssr.buildStart.call(this, options);
       } catch (e) {
         this.error(getError(e));
       }
@@ -54,16 +53,21 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       if (
         importer &&
         path.extname(importer) === ".html" &&
+        path.isAbsolute(importer) &&
         path.extname(source) !== "" &&
-        source.startsWith("/")
+        path.isAbsolute(source)
       ) {
-        return path.join(process.cwd(), source);
+        const dir = path.dirname(importer);
+        return path.join(dir, source);
       }
 
       try {
-        return options.ssr
-          ? ssrPlugin.resolveId.call(this, source, importer, options)
-          : rollupPlugin.resolveId.call(this, source, importer, options);
+        return (options.ssr ? ssr : csr).resolveId.call(
+          this,
+          source,
+          importer,
+          options,
+        );
       } catch (e) {
         this.error(getError(e, source));
       }
@@ -74,9 +78,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        return options?.ssr
-          ? ssrPlugin.load.call(this, id, options)
-          : rollupPlugin.load.call(this, id, options);
+        return (options?.ssr ? ssr : csr).load.call(this, id, options);
       } catch (e) {
         this.error(getError(e, id));
       }
@@ -87,9 +89,12 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        return options?.ssr
-          ? ssrPlugin.transform.call(this, code, id, options)
-          : rollupPlugin.transform.call(this, code, id, options);
+        return (options?.ssr ? ssr : csr).transform.call(
+          this,
+          code,
+          id,
+          options,
+        );
       } catch (e) {
         this.error(getError(e, id, code));
       }
@@ -196,6 +201,6 @@ function addErrorLocation(
 
 function addErrorId(id: string | undefined, rollupError: RollupError) {
   if (typeof id === "string") {
-    rollupError.id = `@${id}`;
+    rollupError.id = id;
   }
 }

@@ -6,7 +6,9 @@ const deps = ["lwc", "@lwc/engine-dom", "@lwc/synthetic-shadow", "@lwc/shared"];
 
 export default defineConfig({
   plugins: [
-    lwc(),
+    lwc({
+      rootDir: "./src",
+    }),
     process.env.INSPECT
       ? inspect({
           build: true,
