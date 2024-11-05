@@ -19,7 +19,12 @@ const noop = () => {
   /* do nothing */
 };
 
-const error = import.meta.env.DEV ? console.error : noop;
+const error = import.meta.env.DEV
+  ? console.error
+  : (/** @type {any[]} */ ...args) => {
+      throw new Error(args.join(" "));
+    };
+
 const log = import.meta.env.DEV ? console.log : noop;
 const warn = import.meta.env.DEV ? console.warn : noop;
 
@@ -31,30 +36,25 @@ export const createMount = ({
   hydrateComponent,
   createElement,
 }) => {
-  /**
-   * @param {HTMLElement} parent
-   */
-  const getElement = (parent) => {
-    const element = parent.getElementsByTagName(tagName).item(0);
-    if (element) {
-      return element;
-    }
-    error(`Element <${tagName}> not found.`);
-    warn(`Fallback to creating a new element <${tagName}>.`);
-    return parent.appendChild(
-      createElement(tagName, { is: App, mode: "open" }),
-    );
-  };
-
   return function mount(parent = document.body) {
     for (const feature of features) {
       log(`Enabling feature flag: ${feature}`);
       setFeatureFlag(feature, true);
     }
-    const element = getElement(parent);
-    hydrateComponent(element, App, props);
-    log(`Hydrated component <${tagName}>`);
-    return element;
+
+    const element = parent.getElementsByTagName(tagName).item(0);
+
+    if (element) {
+      hydrateComponent(element, App, props);
+      log(`Hydrated component <${tagName}>`);
+      return element;
+    }
+
+    error(`Element <${tagName}> not found.`);
+    warn(`Fallback to creating a new element <${tagName}>.`);
+    const newElement = createElement(tagName, { is: App, mode: "open" });
+    Object.assign(newElement, props);
+    return parent.appendChild(newElement);
   };
 };
 
