@@ -1,3 +1,6 @@
+# 0.3.3
+- update lwc to 8.7.0
+
 # 0.3.2
 - fix: resolve absolute source relative to absolute html importer
 
