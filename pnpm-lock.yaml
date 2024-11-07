@@ -7,32 +7,32 @@ settings:
 catalogs:
   default:
     '@lwc/engine-dom':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     '@lwc/engine-server':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     '@lwc/features':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     '@lwc/rollup-plugin':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     '@lwc/shared':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     '@lwc/ssr-runtime':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     '@lwc/synthetic-shadow':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     '@lwc/wire-service':
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     lwc:
-      specifier: ^8.6.0
-      version: 8.6.0
+      specifier: ^8.7.0
+      version: 8.7.0
     vite:
       specifier: ^5.4.10
       version: 5.4.10
@@ -70,19 +70,19 @@ importers:
     devDependencies:
       '@lwc/engine-dom':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/shared':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/ssr-runtime':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/synthetic-shadow':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/wire-service':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       components:
         specifier: workspace:*
         version: link:../../packages/components
@@ -91,7 +91,7 @@ importers:
         version: 1.22.3-alpha
       lwc:
         specifier: 'catalog:'
-        version: 8.6.0(@babel/core@7.26.0)(rollup@4.24.4)
+        version: 8.7.0(@babel/core@7.26.0)(rollup@4.24.4)
       vite-plugin-lwc:
         specifier: workspace:*
         version: link:../../packages/vite-plugin-lwc
@@ -110,25 +110,25 @@ importers:
     devDependencies:
       '@lwc/engine-dom':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/engine-server':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/features':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/shared':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/ssr-runtime':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/synthetic-shadow':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/wire-service':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@types/compression':
         specifier: ^1.7.5
         version: 1.7.5
@@ -140,7 +140,7 @@ importers:
         version: 7.0.3
       lwc:
         specifier: 'catalog:'
-        version: 8.6.0(@babel/core@7.26.0)(rollup@4.24.4)
+        version: 8.7.0(@babel/core@7.26.0)(rollup@4.24.4)
       vite-plugin-lwc:
         specifier: workspace:*
         version: link:../../packages/vite-plugin-lwc
@@ -151,7 +151,7 @@ importers:
     dependencies:
       '@lwc/rollup-plugin':
         specifier: 'catalog:'
-        version: 8.6.0(rollup@4.24.4)
+        version: 8.7.0(rollup@4.24.4)
     devDependencies:
       rollup:
         specifier: ^4.24.4
@@ -167,19 +167,19 @@ importers:
     devDependencies:
       '@lwc/engine-dom':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/shared':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/synthetic-shadow':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       '@lwc/wire-service':
         specifier: 'catalog:'
-        version: 8.6.0
+        version: 8.7.0
       lwc:
         specifier: 'catalog:'
-        version: 8.6.0(@babel/core@7.26.0)(rollup@4.24.4)
+        version: 8.7.0(@babel/core@7.26.0)(rollup@4.24.4)
       vite-plugin-inspect:
         specifier: ^0.8.7
         version: 0.8.7(rollup@4.24.4)(vite@5.4.10(@types/node@22.8.6))
@@ -905,66 +905,66 @@ packages:
   '@locker/babel-plugin-transform-unforgeables@0.22.0':
     resolution: {integrity: sha512-CH4vMYMY/VJlYzb6l+Xy1nHdXogrNxHNXf1cCPSJB1kBXJgkuw7E0X/IEyfCTuFh06ciI31s4qqyEeXqxPWBTg==}
 
-  '@lwc/aria-reflection@8.6.0':
-    resolution: {integrity: sha512-zbRfvvaL956XlJHlEmgFuejhj70gbQw7lIZxSJlIMjFj4d/mxVxlnyDx1CA0HmkRtuSl2qCC2dzrGyLdZbzKHQ==}
+  '@lwc/aria-reflection@8.7.0':
+    resolution: {integrity: sha512-t9nR+Wvqys6lhBpUsReDKG2MJUIQk6oKeg6wtkS+OMReWnhbE9dfuL9OrGmRnKDLlJOIYf4kl0BM5j93tSEmLg==}
 
-  '@lwc/babel-plugin-component@8.6.0':
-    resolution: {integrity: sha512-cNvq0S1y4oREPsI/jJD4pyc27S90bqHfqw8BIO2nCflCQTPlFQw3iOU4Wjxnay8jNRIUFxYPAHltNOCqodkXwg==}
+  '@lwc/babel-plugin-component@8.7.0':
+    resolution: {integrity: sha512-LIcpiV6NRYmSh8FM0c/1zvC5QXY76ZkBOXR/REvIDcPLXrt/PSyN40NnWgte/MyU0Dolwuk7kUerKfoI5EER6Q==}
     peerDependencies:
       '@babel/core': ^7
 
-  '@lwc/compiler@8.6.0':
-    resolution: {integrity: sha512-AvsiGOGGmJsCbnqFQyK0qAbsyjcq3WqKk9PhHFO0K08AGefYGFFaFTU0j1KVIvJX30wNZj26/3xq7aVgn7YsRw==}
+  '@lwc/compiler@8.7.0':
+    resolution: {integrity: sha512-Qb78psZGuHpba2qhg8KO32VesvArLVRMZLvBepYCI8KTTKa4P5ErDNYczMsgbz8gwd+zj0A4W5fxwd4ON9gi5g==}
 
-  '@lwc/engine-core@8.6.0':
-    resolution: {integrity: sha512-Nj34AHxaZPw+hCAbU5Uixu5YJSogbpy1EmegZnmfOEiBxO5g/es1gHLcG5WnZkhtIQBGSH6ddpYEcX3j5Ny7Vg==}
+  '@lwc/engine-core@8.7.0':
+    resolution: {integrity: sha512-sIVejEfKEl0P35QlkmRBzucMu+O07VcTcnZdAYxSHjynkXw5cd2PrbBzEUqxm3zFYESfB6BzheI8AG7e5/OtOQ==}
 
-  '@lwc/engine-dom@8.6.0':
-    resolution: {integrity: sha512-GeTdUaPRC+nAy8X4vAL02ITGl1TEc5EsmjaLUYamWSon+Tppg9sJwqRZ1/3DC5jXGcq4gRY4Wz+FirMKIWYqNQ==}
+  '@lwc/engine-dom@8.7.0':
+    resolution: {integrity: sha512-GOafWc4B+YGu5gvtFJRNO+Ta5NrjCbV7bv0rbtlmzeSpQdi9aVW3bO/OhUdRaqq1jy9zaTbBooFmLclaqbv0nQ==}
 
-  '@lwc/engine-server@8.6.0':
-    resolution: {integrity: sha512-mwXB+7mSPvjrSs8R6Umd3U1sZf+bqqkOvccam78Koyg3wAOdo9JU056aMNYjEz8FxWXifhR0dhLRU5xbHsAx6A==}
+  '@lwc/engine-server@8.7.0':
+    resolution: {integrity: sha512-Um6WHA+4BIeckVHHsqtlS3ZPL8AiN50r4KEe2eRBmZS78wosQRdubMgl2f0NmdBzgoAgyiX469ydu9kiNk+Ljg==}
 
-  '@lwc/errors@8.6.0':
-    resolution: {integrity: sha512-ctABSKqmEVYl2rWLWfnXL/BGTVycjwtf0HuVe8IPOOWrDG30AcYwoxAxLgg0Oa5dw8c5C7KirrarzcSdlFel5w==}
+  '@lwc/errors@8.7.0':
+    resolution: {integrity: sha512-MIIMjCDlYv7+pgVCMnS0k35ThWSg43TtP94FcA/JcUTmqVRsQvqmImMZkdd5+mv8L3mM89tF8fVBLt+R9uAn4g==}
 
-  '@lwc/features@8.6.0':
-    resolution: {integrity: sha512-nL5fvIJYuGl7LDjU0L4meLZLVrfJ6QQyy3RN4yTN1MTfZTCPD6mHbanyJeGtAj8Z4mBgsEH4SYDhD/VAxqu9dg==}
+  '@lwc/features@8.7.0':
+    resolution: {integrity: sha512-B9q+uHMFbbNnH5if0RegZJsPNgz7E3RzZDnNBqslb3lGJ1JbyFWkvKiphxNHAnDAfmCngFZ/hRyFLkq1zqKoEg==}
 
-  '@lwc/module-resolver@8.6.0':
-    resolution: {integrity: sha512-h7kMTXMPC3Y1VKvlcUE7FlUCaVBCFeWJ9b2j3rbXkniYRncBAlixlWIG8tfl0u2uI60+XBSpSO7QWJdI7gwT5g==}
+  '@lwc/module-resolver@8.7.0':
+    resolution: {integrity: sha512-dIRZvzg9QlsFHnFgmtNMKFuSIQTsSO9288EbTq6Zdk404/eHl51zhYDqt09/hdTCMtxfKNsDexQxDRX0eiuEEA==}
 
-  '@lwc/rollup-plugin@8.6.0':
-    resolution: {integrity: sha512-ki0G8kbvLsGEFc5BK8WwTw31rYboeZXFH3Wz1zGH7lJ/U4XZTjQ1RZLXRaL+GvlKE5rx95aw/fgNSZnFUCnSZQ==}
+  '@lwc/rollup-plugin@8.7.0':
+    resolution: {integrity: sha512-oP2OLmO8X6P1vE9y5xbaiAGfetyD7Nvye+MEyt7IrL+txOjuX39n7yv2xkKCE62+MwCMvdFQqGTBDFo7Wkm3vw==}
     peerDependencies:
       rollup: ^1.2.0||^2.0.0||^3.0.0||^4.0.0
 
-  '@lwc/shared@8.6.0':
-    resolution: {integrity: sha512-vK0mwsa8kUJT3VppiEGIdAsiQOP3DnAmYSzJAWJoAhwbKv0A6+PclQfLaZZ7aFzfp3yPy7iInM8wUJ0YMwP3SQ==}
+  '@lwc/shared@8.7.0':
+    resolution: {integrity: sha512-9b0OribasjOGj5LaLwaF7kGw6oghwLTKQ6JnmmlNYp7rtgWg/ZCecFGSySriCrYr2y/TFeL5G8K8C49Y8T+QLA==}
 
-  '@lwc/signals@8.6.0':
-    resolution: {integrity: sha512-QKiQT2hr5+xojiusER/hAOgp9wZ4NlbE8mgaye6hgti5ywT4c0/iz779ZbmS4tZxkybgE8qQH/+tOxfAcoeh6A==}
+  '@lwc/signals@8.7.0':
+    resolution: {integrity: sha512-sFBbkg8TFKNMdKYRL0LeKY2eyWtqqFGowqOItpNIjg2L2MMyOrnVaPoNpAFiPwJ6ojLnGFN4fcjHSuy3YT6h2Q==}
 
-  '@lwc/ssr-compiler@8.6.0':
-    resolution: {integrity: sha512-FgxJttt1VyXsPh3yhmfVrczyIpPzdjKR+Pv2gxKWvII3TJwS95gMeogt23KXNhchxrSm8cZk4P6/dMdiZBhaLQ==}
+  '@lwc/ssr-compiler@8.7.0':
+    resolution: {integrity: sha512-ze6WiT3WxuxPVIug/A+MNlm04wtw38zAm5Ow0SGI4VuKnbK8HDhPmulMZeh8Rf0wMnwLcAGXCTHHOeoUW6cs0w==}
 
-  '@lwc/ssr-runtime@8.6.0':
-    resolution: {integrity: sha512-Mz7lG3k5XoRz2T4irB0CJtZxWjGyUkoPpm27uTJn/zaSFjgblWnAMnS95jRZ72RpGgU8n9E6bGXpw0NJeSQ6zw==}
+  '@lwc/ssr-runtime@8.7.0':
+    resolution: {integrity: sha512-3CQI/DU7qj68tel2b0iRCgMrb779B1I3+OwmWD5kNQmwxo9bq8bwTJScLEJcRxC5/ooFUMDx6+oCLA/ilatkcg==}
 
-  '@lwc/style-compiler@8.6.0':
-    resolution: {integrity: sha512-jJ95k8mI8AQHn6gBYwDcV6h9xcBn4Bt5gHbBZ1sxdSqmVVL9xG74zvFzaLQ6/WosSBHobYPvqQa1n1TcfnsySQ==}
+  '@lwc/style-compiler@8.7.0':
+    resolution: {integrity: sha512-tZn26EMDielfJgFzXxBv60fBEuCQKzMAapjK8h9/pNnkJxFq68LXR9sZQMB7ICWq1uhnXWn10Rvlq7sAlfowSA==}
 
-  '@lwc/synthetic-shadow@8.6.0':
-    resolution: {integrity: sha512-YZpgnnphnG5LNmOI34lXkcYa3IW0USUqbntGdhnJXa/30zhN3IRT9xzGRLKUgw420I8Zth6Vrl38GNGDTdz7lQ==}
+  '@lwc/synthetic-shadow@8.7.0':
+    resolution: {integrity: sha512-lOxrNj0CgGQvE/MimjxFg1CPyLfvdA4Q+Z0DdI+JrStMkLzX32Xi20WW0sBUIsiUigvlScQ2TkTA6fcJwR8k/w==}
 
-  '@lwc/template-compiler@8.6.0':
-    resolution: {integrity: sha512-4tXL1Rp9eiInRBz3kjJsR2FzPixMTDoEaotkp4KOdVVjiQHexUe/IUBFfTJ7Un6QXgO6ZeM8wa/NEWXbvjDc1Q==}
+  '@lwc/template-compiler@8.7.0':
+    resolution: {integrity: sha512-lVApw9YnX8RWF1ZEMWgU8fNlldsN0u3v9Sqy1Jn1zRlVDPcU1JT6ZlLRaV1l4Tqx/aC6Ch0IXYDwN/h6TQN8qg==}
 
-  '@lwc/types@8.6.0':
-    resolution: {integrity: sha512-joSLAZvmQ0P+yILm9PQVPXOjX9Hhd+VNjerMeKynuUUgWlaZ9ob+IFakmz4cs8OAL7Y/YB1DX2ObeHIeO+Wbww==}
+  '@lwc/types@8.7.0':
+    resolution: {integrity: sha512-QhyPkH+6MfjyET2VmtKak4AkHo173tgq8HOqeNFgdQbY/6gn99ZPYdjBdBugGAWZT7mC65KO9PLWFNL/5aLvHg==}
 
-  '@lwc/wire-service@8.6.0':
-    resolution: {integrity: sha512-CEfqWRmh6cTEG1uevlj+RJSZCB68CoNZTKeX0pGjTXsGd3GaDFLZD3aCW4b+gqqVk+M4e3z8rB4n6Jl+hE9tcQ==}
+  '@lwc/wire-service@8.7.0':
+    resolution: {integrity: sha512-gt1k2O5DRP7bk16np7t59peJ4+G0I7gJR2lLQTYIs7sKSX0t2F/OXsQa23tt8EO+zwA1jIzorgSww1ppHLGu6w==}
 
   '@mswjs/interceptors@0.36.7':
     resolution: {integrity: sha512-sdx02Wlus5hv6Bx7uUDb25gb0WGjCuSgnJB2LVERemoSGuqkZMe3QI6nEXhieFGtYwPrZbYrT2vPbsFN2XfbUw==}
@@ -2032,8 +2032,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lwc@8.6.0:
-    resolution: {integrity: sha512-4yUWIu0fityoJdQOEjgT9rdc2i84xSIQnOZjO6KuYcmkN6jbFvRCwOvA2e+c5aPOqvJZ2dd6D//fkPkZY1+TaQ==}
+  lwc@8.7.0:
+    resolution: {integrity: sha512-pMpTK7yJ9V1qf+sZRI3SHrht15y6H7qENviUDvOM6KUj/IODM7oqfMVENTnTDpW30h+i7PRWHPbmOwOpGrLT1Q==}
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -3470,21 +3470,21 @@ snapshots:
       '@babel/generator': 7.22.10
       match-json: 1.3.7
 
-  '@lwc/aria-reflection@8.6.0': {}
+  '@lwc/aria-reflection@8.7.0': {}
 
-  '@lwc/babel-plugin-component@8.6.0(@babel/core@7.26.0)':
+  '@lwc/babel-plugin-component@8.7.0(@babel/core@7.26.0)':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/helper-module-imports': 7.25.9
       '@babel/traverse': 7.25.9
       '@babel/types': 7.26.0
-      '@lwc/errors': 8.6.0
-      '@lwc/shared': 8.6.0
+      '@lwc/errors': 8.7.0
+      '@lwc/shared': 8.7.0
       line-column: 1.0.2
     transitivePeerDependencies:
       - supports-color
 
-  '@lwc/compiler@8.6.0':
+  '@lwc/compiler@8.7.0':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-async-generator-functions': 7.25.9(@babel/core@7.26.0)
@@ -3492,83 +3492,83 @@ snapshots:
       '@babel/plugin-transform-class-properties': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-object-rest-spread': 7.25.9(@babel/core@7.26.0)
       '@locker/babel-plugin-transform-unforgeables': 0.22.0
-      '@lwc/babel-plugin-component': 8.6.0(@babel/core@7.26.0)
-      '@lwc/errors': 8.6.0
-      '@lwc/shared': 8.6.0
-      '@lwc/ssr-compiler': 8.6.0
-      '@lwc/style-compiler': 8.6.0
-      '@lwc/template-compiler': 8.6.0
+      '@lwc/babel-plugin-component': 8.7.0(@babel/core@7.26.0)
+      '@lwc/errors': 8.7.0
+      '@lwc/shared': 8.7.0
+      '@lwc/ssr-compiler': 8.7.0
+      '@lwc/style-compiler': 8.7.0
+      '@lwc/template-compiler': 8.7.0
     transitivePeerDependencies:
       - supports-color
 
-  '@lwc/engine-core@8.6.0':
+  '@lwc/engine-core@8.7.0':
     dependencies:
-      '@lwc/features': 8.6.0
-      '@lwc/shared': 8.6.0
-      '@lwc/signals': 8.6.0
+      '@lwc/features': 8.7.0
+      '@lwc/shared': 8.7.0
+      '@lwc/signals': 8.7.0
 
-  '@lwc/engine-dom@8.6.0': {}
+  '@lwc/engine-dom@8.7.0': {}
 
-  '@lwc/engine-server@8.6.0': {}
+  '@lwc/engine-server@8.7.0': {}
 
-  '@lwc/errors@8.6.0': {}
+  '@lwc/errors@8.7.0': {}
 
-  '@lwc/features@8.6.0':
+  '@lwc/features@8.7.0':
     dependencies:
-      '@lwc/shared': 8.6.0
+      '@lwc/shared': 8.7.0
 
-  '@lwc/module-resolver@8.6.0':
+  '@lwc/module-resolver@8.7.0':
     dependencies:
       resolve: 1.22.8
 
-  '@lwc/rollup-plugin@8.6.0(rollup@4.24.4)':
+  '@lwc/rollup-plugin@8.7.0(rollup@4.24.4)':
     dependencies:
-      '@lwc/compiler': 8.6.0
-      '@lwc/module-resolver': 8.6.0
-      '@lwc/shared': 8.6.0
+      '@lwc/compiler': 8.7.0
+      '@lwc/module-resolver': 8.7.0
+      '@lwc/shared': 8.7.0
       '@rollup/pluginutils': 5.1.3(rollup@4.24.4)
       rollup: 4.24.4
     transitivePeerDependencies:
       - supports-color
 
-  '@lwc/shared@8.6.0': {}
+  '@lwc/shared@8.7.0': {}
 
-  '@lwc/signals@8.6.0': {}
+  '@lwc/signals@8.7.0': {}
 
-  '@lwc/ssr-compiler@8.6.0':
+  '@lwc/ssr-compiler@8.7.0':
     dependencies:
-      '@lwc/shared': 8.6.0
-      '@lwc/template-compiler': 8.6.0
+      '@lwc/shared': 8.7.0
+      '@lwc/template-compiler': 8.7.0
       acorn: 8.14.0
       astring: 1.9.0
       estree-toolkit: 1.7.8
       immer: 10.1.1
       meriyah: 5.0.0
 
-  '@lwc/ssr-runtime@8.6.0': {}
+  '@lwc/ssr-runtime@8.7.0': {}
 
-  '@lwc/style-compiler@8.6.0':
+  '@lwc/style-compiler@8.7.0':
     dependencies:
-      '@lwc/shared': 8.6.0
+      '@lwc/shared': 8.7.0
       postcss: 8.4.47
       postcss-selector-parser: 7.0.0
       postcss-value-parser: 4.2.0
 
-  '@lwc/synthetic-shadow@8.6.0': {}
+  '@lwc/synthetic-shadow@8.7.0': {}
 
-  '@lwc/template-compiler@8.6.0':
+  '@lwc/template-compiler@8.7.0':
     dependencies:
-      '@lwc/errors': 8.6.0
-      '@lwc/shared': 8.6.0
+      '@lwc/errors': 8.7.0
+      '@lwc/shared': 8.7.0
       acorn: 8.14.0
       astring: 1.9.0
       he: 1.2.0
 
-  '@lwc/types@8.6.0':
+  '@lwc/types@8.7.0':
     dependencies:
-      '@lwc/engine-core': 8.6.0
+      '@lwc/engine-core': 8.7.0
 
-  '@lwc/wire-service@8.6.0': {}
+  '@lwc/wire-service@8.7.0': {}
 
   '@mswjs/interceptors@0.36.7':
     dependencies:
@@ -4636,26 +4636,26 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lwc@8.6.0(@babel/core@7.26.0)(rollup@4.24.4):
+  lwc@8.7.0(@babel/core@7.26.0)(rollup@4.24.4):
     dependencies:
-      '@lwc/aria-reflection': 8.6.0
-      '@lwc/babel-plugin-component': 8.6.0(@babel/core@7.26.0)
-      '@lwc/compiler': 8.6.0
-      '@lwc/engine-core': 8.6.0
-      '@lwc/engine-dom': 8.6.0
-      '@lwc/engine-server': 8.6.0
-      '@lwc/errors': 8.6.0
-      '@lwc/features': 8.6.0
-      '@lwc/module-resolver': 8.6.0
-      '@lwc/rollup-plugin': 8.6.0(rollup@4.24.4)
-      '@lwc/shared': 8.6.0
-      '@lwc/ssr-compiler': 8.6.0
-      '@lwc/ssr-runtime': 8.6.0
-      '@lwc/style-compiler': 8.6.0
-      '@lwc/synthetic-shadow': 8.6.0
-      '@lwc/template-compiler': 8.6.0
-      '@lwc/types': 8.6.0
-      '@lwc/wire-service': 8.6.0
+      '@lwc/aria-reflection': 8.7.0
+      '@lwc/babel-plugin-component': 8.7.0(@babel/core@7.26.0)
+      '@lwc/compiler': 8.7.0
+      '@lwc/engine-core': 8.7.0
+      '@lwc/engine-dom': 8.7.0
+      '@lwc/engine-server': 8.7.0
+      '@lwc/errors': 8.7.0
+      '@lwc/features': 8.7.0
+      '@lwc/module-resolver': 8.7.0
+      '@lwc/rollup-plugin': 8.7.0(rollup@4.24.4)
+      '@lwc/shared': 8.7.0
+      '@lwc/ssr-compiler': 8.7.0
+      '@lwc/ssr-runtime': 8.7.0
+      '@lwc/style-compiler': 8.7.0
+      '@lwc/synthetic-shadow': 8.7.0
+      '@lwc/template-compiler': 8.7.0
+      '@lwc/types': 8.7.0
+      '@lwc/wire-service': 8.7.0
     transitivePeerDependencies:
       - '@babel/core'
       - rollup

@@ -33,7 +33,6 @@ if (isProduction) {
   vite = await createServer({
     server: { middlewareMode: true },
     appType: "custom",
-
     base,
   });
   app.use(vite.middlewares);
