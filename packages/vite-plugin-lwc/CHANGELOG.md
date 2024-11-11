@@ -1,3 +1,6 @@
+# 0.3.4
+- fix typescript build
+
 # 0.3.3
 - update lwc to 8.7.0
 

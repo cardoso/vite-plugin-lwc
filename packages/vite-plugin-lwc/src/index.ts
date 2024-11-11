@@ -15,7 +15,6 @@ export default (options: ViteLwcOptions = {}): Plugin[] => [
   alias(),
   {
     ...lwc(options),
-    enforce: "pre",
     apply: "build",
   },
   {
