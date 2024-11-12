@@ -62,12 +62,21 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        return (options.ssr ? ssr : csr).resolveId.call(
+        const id = (options.ssr ? ssr : csr).resolveId.call(
           this,
           source,
           importer,
           options,
         );
+
+        if (!id) {
+          return;
+        }
+
+        return {
+          id,
+          meta: { lwc: true },
+        };
       } catch (e) {
         this.error(getError(e, source));
       }

@@ -7,7 +7,10 @@
     "rules": {
       "all": true,
       "style": { "noInferrableTypes": "off", "noDefaultExport": "off" },
-      "correctness": { "noUndeclaredDependencies": "off" }
+      "correctness": {
+        "noUndeclaredDependencies": "off",
+        "noNodejsModules": "off"
+      }
     },
     "ignore": ["public", "node_modules", "**/dist/**"]
   },

@@ -1,0 +1,34 @@
+{
+  "name": "cem-plugin-lwc",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Matheus Cardoso <matheus@cardo.so>",
+  "type": "module",
+  "files": ["dist"],
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cardoso/vite-plugin-lwc.git",
+    "directory": "packages/cem-plugin-lwc"
+  },
+  "bugs": {
+    "url": "https://github.com/cardoso/vite-plugin-lwc/issues"
+  },
+  "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/cem-plugin-lwc#readme",
+  "devDependencies": {
+    "unbuild": "^2.0.0",
+    "@custom-elements-manifest/analyzer": "^0.10.3"
+  }
+}

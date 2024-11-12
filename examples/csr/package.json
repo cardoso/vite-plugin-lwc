@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "pnpm -r --filter='./packages/*' run dev && vite",
-    "build": "pnpm -r --filter='./packages/*' run build && vite build",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "vitest"
   },
@@ -16,8 +16,11 @@
     "@lwc/ssr-runtime": "catalog:",
     "@lwc/synthetic-shadow": "catalog:",
     "@lwc/wire-service": "catalog:",
+    "vite-plugin-cem": "^0.8.1",
     "components": "workspace:*",
     "lightning-base-components": "^1.22.3-alpha",
-    "vite-plugin-lwc": "workspace:*"
+    "vite-plugin-lwc": "workspace:*",
+    "cem-plugin-lwc": "workspace:*",
+    "typescript": "catalog:"
   }
 }

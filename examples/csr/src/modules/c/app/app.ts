@@ -117,4 +117,29 @@ export default class App extends LightningElement {
       ],
     };
   }
+
+  get topMaxOpportunities() {
+    return {
+      columns: [
+        "Account Name",
+        "New or Upsell",
+        "RISE target account?",
+        "Plan for the quarter (strategy, activity, partner alignment, next steps)",
+      ],
+      rows: new Array(7).fill([
+        {
+          value: "-",
+        },
+        {
+          value: "-",
+        },
+        {
+          value: "-",
+        },
+        {
+          value: "-",
+        },
+      ]),
+    };
+  }
 }

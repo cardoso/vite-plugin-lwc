@@ -1,0 +1,13 @@
+{
+    "html.customData": [
+      "./src/web-components.html-data.json"
+    ],
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "custom-elements.json"
+            ],
+            "url": "https://raw.githubusercontent.com/webcomponents/custom-elements-manifest/main/schema.json"
+        }
+    ]
+  }
