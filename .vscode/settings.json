@@ -19,5 +19,13 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "biomejs.biome"
     },
-    "css.validate": false
+    "css.validate": false,
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "custom-elements.json"
+            ],
+            "url": "https://raw.githubusercontent.com/webcomponents/custom-elements-manifest/main/schema.json"
+        }
+    ]
 }
