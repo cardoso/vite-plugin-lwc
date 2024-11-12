@@ -1,6 +1,6 @@
 import { LightningElement } from "lwc";
 
-export default class App extends LightningElement {
+export default class extends LightningElement {
   get forecast() {
     return {
       columns: ["Quota", "Closed", "Worst Case", "Expected Case", "Best Case"],

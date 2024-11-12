@@ -8,7 +8,7 @@ export default {
     lwc(),
     cem({
       files: ["./src/modules/**/*.ts"],
-      plugins: [lwcPlugin()],
+      plugins: [...lwcPlugin()],
     }),
   ],
 } satisfies UserConfig;
