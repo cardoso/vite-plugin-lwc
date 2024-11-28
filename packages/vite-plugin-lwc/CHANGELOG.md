@@ -1,3 +1,6 @@
+# 1.0.0
+- feat: support vite 6
+
 # 0.3.4
 - fix typescript build
 

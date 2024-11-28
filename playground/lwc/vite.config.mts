@@ -7,7 +7,7 @@ const deps = ["lwc", "@lwc/engine-dom", "@lwc/synthetic-shadow", "@lwc/shared"];
 export default defineConfig({
   plugins: [
     lwc({
-      rootDir: "./src",
+      rootDir: import.meta.dirname
     }),
     process.env.INSPECT
       ? inspect({
@@ -26,6 +26,7 @@ export default defineConfig({
     target: "esnext",
   },
   test: {
+    root: import.meta.dirname,
     browser: {
       provider: "playwright", // or 'webdriverio'
       enabled: true,

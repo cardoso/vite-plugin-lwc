@@ -13,12 +13,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/node": "^22.8.6",
-    "@vitest/browser": "^2.1.4",
-    "prettier": "^3.3.3",
-    "playwright": "^1.48.2",
+    "@types/node": "^22.10.1",
+    "@vitest/browser": "^2.1.6",
+    "prettier": "^3.4.1",
+    "playwright": "^1.49.0",
     "typescript": "catalog:",
-    "vitest": "^2.1.4",
+    "vitest": "^2.1.6",
     "vite": "catalog:"
   }
 }

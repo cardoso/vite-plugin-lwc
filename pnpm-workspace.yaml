@@ -5,15 +5,17 @@ packages:
 
 
 catalog:
-  'typescript': ^5.6.3
-  'vite': ^5.4.10
-  'lwc': ^8.7.0
-  '@lwc/engine-core': ^8.7.0
-  '@lwc/engine-dom': ^8.7.0
-  '@lwc/engine-server': ^8.7.0
-  '@lwc/shared': ^8.7.0
-  '@lwc/ssr-runtime': ^8.7.0
-  '@lwc/synthetic-shadow': ^8.7.0
-  '@lwc/wire-service': ^8.7.0
-  '@lwc/rollup-plugin': ^8.7.0
-  '@lwc/features': ^8.7.0
+  'typescript': ^5.7.2
+  'vitest': ^2.1.6
+  '@vitest/browser': ^2.1.6
+  'vite': ^6.0.1
+  'lwc': ^8.11.0
+  '@lwc/engine-core': ^8.11.0
+  '@lwc/engine-dom': ^8.11.0
+  '@lwc/engine-server': ^8.11.0
+  '@lwc/shared': ^8.11.0
+  '@lwc/ssr-runtime': ^8.11.0
+  '@lwc/synthetic-shadow': ^8.11.0
+  '@lwc/wire-service': ^8.11.0
+  '@lwc/rollup-plugin': ^8.11.0
+  '@lwc/features': ^8.11.0

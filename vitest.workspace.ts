@@ -1,6 +1,6 @@
-import type { WorkspaceProjectConfiguration } from "vitest/config";
+import { defineWorkspace } from "vitest/config";
 
-export default [
+export default defineWorkspace([
   "playground/*/vite.config.mts",
-  "packages/cem-plugin-lwc",
-] satisfies WorkspaceProjectConfiguration[];
+  "packages/cem-plugin-lwc"
+]);
