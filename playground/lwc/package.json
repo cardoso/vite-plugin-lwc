@@ -13,7 +13,6 @@
   "dependencies": {},
   "devDependencies": {
     "vite-plugin-lwc": "workspace:*",
-    "vite-plugin-inspect": "^0.10.1",
     "lwc": "catalog:",
     "@lwc/engine-dom": "catalog:",
     "@lwc/shared": "catalog:",

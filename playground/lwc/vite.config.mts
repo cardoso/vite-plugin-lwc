@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import lwc from "vite-plugin-lwc";
-import inspect from "vite-plugin-inspect";
 
 const deps = ["lwc", "@lwc/engine-dom", "@lwc/synthetic-shadow", "@lwc/shared"];
 
@@ -8,14 +7,7 @@ export default defineConfig({
   plugins: [
     lwc({
       rootDir: import.meta.dirname
-    }),
-    process.env.INSPECT
-      ? inspect({
-          build: true,
-          open: true,
-          removeVersionQuery: true,
-        })
-      : null,
+    })
   ],
   optimizeDeps: {
     exclude: deps,
