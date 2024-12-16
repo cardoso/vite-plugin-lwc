@@ -1,3 +1,8 @@
+# 2.0.0
+- update lwc to 8.12.1
+- chore: fix tests
+- chore: update dependencies
+
 # 1.0.0
 - feat: support vite 6
 

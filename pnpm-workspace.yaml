@@ -9,13 +9,14 @@ catalog:
   'vitest': ^2.1.8
   '@vitest/browser': ^2.1.8
   'vite': ^5.4.11
-  'lwc': ^8.12.0
-  '@lwc/engine-core': ^8.12.0
-  '@lwc/engine-dom': ^8.12.0
-  '@lwc/engine-server': ^8.12.0
-  '@lwc/shared': ^8.12.0
-  '@lwc/ssr-runtime': ^8.12.0
-  '@lwc/synthetic-shadow': ^8.12.0
-  '@lwc/wire-service': ^8.12.0
-  '@lwc/rollup-plugin': ^8.12.0
-  '@lwc/features': ^8.12.0
+  'unbuild': ^3.0.1
+  'lwc': ^8.12.1
+  '@lwc/engine-core': ^8.12.1
+  '@lwc/engine-dom': ^8.12.1
+  '@lwc/engine-server': ^8.12.1
+  '@lwc/shared': ^8.12.1
+  '@lwc/ssr-runtime': ^8.12.1
+  '@lwc/synthetic-shadow': ^8.12.1
+  '@lwc/wire-service': ^8.12.1
+  '@lwc/rollup-plugin': ^8.12.1
+  '@lwc/features': ^8.12.1

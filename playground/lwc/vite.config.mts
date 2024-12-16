@@ -5,10 +5,9 @@ const deps = ["lwc", "@lwc/engine-dom", "@lwc/synthetic-shadow", "@lwc/shared"];
 
 export default defineConfig({
   plugins: [
-    lwc({
-      rootDir: import.meta.dirname
-    })
+    lwc(),
   ],
+  root: import.meta.dirname,
   optimizeDeps: {
     exclude: deps,
   },
@@ -18,7 +17,6 @@ export default defineConfig({
     target: "esnext",
   },
   test: {
-    root: import.meta.dirname,
     browser: {
       provider: "playwright", // or 'webdriverio'
       enabled: true,
