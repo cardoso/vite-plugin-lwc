@@ -1,3 +1,9 @@
+# 3.0.0
+- update vite to 6.0.11
+- update vitest to 3.0.4
+- update rollup to 4.32.0
+- update lwc to 8.12.6
+
 # 2.0.0
 
 - update lwc to 8.12.1
