@@ -20,9 +20,14 @@ export default defineConfig({
     browser: {
       provider: "playwright", // or 'webdriverio'
       enabled: true,
-      name: "chromium", // browser name is required
       testerHtmlPath: "./index.html",
       headless: true,
+      instances: [
+        {
+          browser: "chromium",
+
+        }
+      ]
     },
   },
 });

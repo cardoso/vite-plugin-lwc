@@ -4,7 +4,9 @@
   "license": "MIT",
   "author": "Matheus Cardoso <matheus@cardo.so>",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -31,10 +33,10 @@
     "@lwc/rollup-plugin": "catalog:"
   },
   "peerDependencies": {
-    "vite": "^5.4.11"
+    "vite": "catalog:"
   },
   "devDependencies": {
     "unbuild": "catalog:",
-    "rollup": "^4.28.1"
+    "rollup": "^4.32.0"
   }
 }
