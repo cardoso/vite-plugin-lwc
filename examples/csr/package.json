@@ -16,7 +16,7 @@
     "@lwc/ssr-runtime": "catalog:",
     "@lwc/synthetic-shadow": "catalog:",
     "@lwc/wire-service": "catalog:",
-    "vite-plugin-cem": "^0.8.1",
+    "vite-plugin-cem": "^0.8.2",
     "components": "workspace:*",
     "lightning-base-components": "^1.22.3-alpha",
     "vite-plugin-lwc": "workspace:*",
