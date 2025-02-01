@@ -37,6 +37,6 @@
   },
   "devDependencies": {
     "unbuild": "catalog:",
-    "rollup": "^4.32.0"
+    "rollup": "^4.32.1"
   }
 }
