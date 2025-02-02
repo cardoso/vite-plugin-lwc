@@ -1,0 +1,24 @@
+{
+  "name": "vite-plugin-lwc-repl",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "monaco-editor": "^0.52.2",
+    "monaco-editor-core": "^0.52.2",
+    "vscode-uri": "^3.0.8",
+    "volar-service-html": "^0.0.62",
+    "vscode-html-languageservice": "^5.3.1",
+    "@volar/monaco": "^2.4.11",
+    "@volar/language-service": "^2.4.11",
+    "@volar/jsdelivr": "^2.4.11",
+    "@rollup/plugin-replace": "^6.0.2",
+    "typescript": "catalog:"
+  }
+}

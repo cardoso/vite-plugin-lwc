@@ -12,6 +12,9 @@
 		"isolatedModules": true,
 		"moduleDetection": "force",
 		"noEmit": true,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
+    "verbatimModuleSyntax": true,
 
 		/* Linting */
 		"strict": true,

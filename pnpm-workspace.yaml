@@ -2,6 +2,7 @@ packages:
   - 'packages/*'
   - 'playground/*'
   - 'examples/*'
+  - 'apps/*'
 
 
 catalog:
