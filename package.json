@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "example:csr": "pnpm -r --filter='./examples/csr' run dev",
-    "example:ssr": "pnpm -r --filter='./examples/ssr' run dev"
+    "example:ssr": "pnpm -r --filter='./examples/ssr' run dev",
+    "repl:dev": "pnpm -r --filter='./apps/repl' run dev"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
