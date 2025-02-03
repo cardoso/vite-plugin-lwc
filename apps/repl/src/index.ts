@@ -13,15 +13,13 @@ class CodeViewMonaco extends HTMLElement {
   constructor() {
     super();
 
-    const shadowRoot = this.attachShadow({ mode: "open" });
-
     // Copy over editor styles
     const styles = document.querySelectorAll(
       "link[rel='stylesheet'][data-name^='vs/']",
     );
 
     for (const style of styles) {
-      shadowRoot.appendChild(style.cloneNode(true));
+      this.appendChild(style.cloneNode(true));
     }
 
     const template = document.getElementsByTagName("template")[0];
@@ -29,9 +27,9 @@ class CodeViewMonaco extends HTMLElement {
     if (!template) {
       throw new Error("Template not found");
     }
-    shadowRoot.appendChild(template.content.cloneNode(true));
+    this.appendChild(template.content.cloneNode(true));
 
-    const container = shadowRoot.querySelector("div");
+    const container = this.querySelector("div");
 
     if (!container) {
       throw new Error("Editor not found");
