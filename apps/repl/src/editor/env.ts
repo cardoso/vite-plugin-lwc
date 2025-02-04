@@ -33,23 +33,8 @@ languages.register({
   extensions: [".html"],
   mimetypes: ["text/html"],
 });
-// languages.register;
+
 languages.setMonarchTokensProvider("lwc", languageDef);
-languages.registerHoverProvider("lwc", {
-  provideHover(model, position, token, context) {
-    return {
-      contents: [{ value: "Hello" }],
-      range: {
-        endColumn: position.column,
-        startColumn: position.column,
-        endLineNumber: position.lineNumber,
-        startLineNumber: position.lineNumber,
-      },
-      canDecreaseVerbosity: true,
-      canIncreaseVerbosity: true,
-    };
-  },
-});
 
 languages.html.registerHTMLLanguageService(
   "lwc",

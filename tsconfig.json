@@ -7,7 +7,7 @@
 		"skipLibCheck": true,
 
 		/* Bundler mode */
-		"moduleResolution": "Bundler",
+		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
 		"isolatedModules": true,
 		"moduleDetection": "force",
@@ -15,6 +15,7 @@
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
     "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
 
 		/* Linting */
 		"strict": true,
