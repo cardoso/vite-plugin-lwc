@@ -15,9 +15,6 @@ catalogs:
     '@lwc/features':
       specifier: ^8.12.6
       version: 8.12.6
-    '@lwc/rollup-plugin':
-      specifier: ^8.12.6
-      version: 8.12.6
     '@lwc/shared':
       specifier: ^8.12.6
       version: 8.12.6
@@ -217,17 +214,14 @@ importers:
   packages/vite-plugin-lwc:
     dependencies:
       '@lwc/rollup-plugin':
-        specifier: 'catalog:'
+        specifier: '>= 8'
         version: 8.12.6(rollup@4.34.1)
       vite:
-        specifier: 'catalog:'
+        specifier: '>= 6'
         version: 6.0.11(@types/node@22.13.0)(jiti@2.4.2)
     devDependencies:
-      rollup:
-        specifier: ^4.34.1
-        version: 4.34.1
       unbuild:
-        specifier: 'catalog:'
+        specifier: ^3.3.1
         version: 3.3.1(typescript@5.7.3)
 
   playground/lwc:

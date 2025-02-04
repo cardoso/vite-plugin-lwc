@@ -4,9 +4,7 @@
   "license": "MIT",
   "author": "Matheus Cardoso <matheus@cardo.so>",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -29,14 +27,11 @@
     "url": "https://github.com/cardoso/vite-plugin-lwc/issues"
   },
   "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/vite-plugin-lwc#readme",
-  "dependencies": {
-    "@lwc/rollup-plugin": "catalog:"
-  },
   "peerDependencies": {
-    "vite": "catalog:"
+    "vite": ">= 6",
+    "@lwc/rollup-plugin": ">= 8"
   },
   "devDependencies": {
-    "unbuild": "catalog:",
-    "rollup": "^4.34.1"
+    "unbuild": "^3.3.1"
   }
 }

@@ -1,6 +1,5 @@
-import { createFilter, type Plugin } from "vite";
+import { createFilter, type Plugin, type Rollup } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
-import type { RollupError } from "rollup";
 import path from "node:path";
 
 export type ViteLwcOptions = RollupLwcOptions;
@@ -130,7 +129,7 @@ function getError(
   error: unknown,
   id?: string,
   src?: string,
-): RollupError | string {
+): Rollup.RollupError | string {
   if (typeof error === "string") {
     return error;
   }
@@ -139,7 +138,7 @@ function getError(
     return String(error);
   }
 
-  const rollupError: RollupError = {
+  const rollupError: Rollup.RollupError = {
     message: "An unknown error occurred.",
   };
 
@@ -151,13 +150,13 @@ function getError(
   return rollupError;
 }
 
-function addErrorCode(error: object, rollupError: RollupError) {
+function addErrorCode(error: object, rollupError: Rollup.RollupError) {
   if ("code" in error && typeof error.code === "number") {
     rollupError.pluginCode = error.code;
   }
 }
 
-function addErrorMessage(error: object, rollupError: RollupError) {
+function addErrorMessage(error: object, rollupError: Rollup.RollupError) {
   if ("message" in error && typeof error.message === "string") {
     rollupError.message = error.message;
   }
@@ -165,7 +164,7 @@ function addErrorMessage(error: object, rollupError: RollupError) {
 
 function addErrorLocation(
   error: object,
-  rollupError: RollupError,
+  rollupError: Rollup.RollupError,
   src?: string,
 ) {
   if ("filename" in error && typeof error.filename === "string") {
@@ -207,7 +206,7 @@ function addErrorLocation(
   }
 }
 
-function addErrorId(id: string | undefined, rollupError: RollupError) {
+function addErrorId(id: string | undefined, rollupError: Rollup.RollupError) {
   if (typeof id === "string") {
     rollupError.id = id;
   }
