@@ -22,5 +22,11 @@
     "typescript": "catalog:",
     "vite": "catalog:",
     "vitest": "^3.0.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
+      "nanoid@<3.3.8": ">=3.3.8"
+    }
   }
 }
