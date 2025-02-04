@@ -1,3 +1,8 @@
+# 4.0.0
+- move vite to peerDependencies
+- move @lwc/rollup-plugin to peerDependencies
+- remove rollup from dependencies
+
 # 3.0.0
 - update vite to 6.0.11
 - update vitest to 3.0.4
