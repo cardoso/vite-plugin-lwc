@@ -10,17 +10,17 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "lwc": "catalog:",
-    "@lwc/engine-dom": "catalog:",
-    "@lwc/shared": "catalog:",
-    "@lwc/ssr-runtime": "catalog:",
-    "@lwc/synthetic-shadow": "catalog:",
-    "@lwc/wire-service": "catalog:",
-    "vite-plugin-cem": "^0.8.2",
-    "components": "workspace:*",
-    "lightning-base-components": "^1.22.3-alpha",
-    "vite-plugin-lwc": "workspace:*",
+    "@lwc/engine-dom": "^8.13.0",
+    "@lwc/shared": "^8.13.0",
+    "@lwc/ssr-runtime": "^8.13.0",
+    "@lwc/synthetic-shadow": "^8.13.0",
+    "@lwc/wire-service": "^8.13.0",
     "cem-plugin-lwc": "workspace:*",
-    "typescript": "catalog:"
+    "components": "workspace:*",
+    "lightning-base-components": "1.22.3-alpha",
+    "lwc": "^8.13.0",
+    "typescript": "^5.7.3",
+    "vite-plugin-cem": "^0.8.2",
+    "vite-plugin-lwc": "workspace:*"
   }
 }
