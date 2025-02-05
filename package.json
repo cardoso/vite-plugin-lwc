@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.2.0",
   "scripts": {
     "dev": "pnpm -r --filter='./packages/*' run dev",
     "build": "pnpm -r --filter='./packages/*' run build",
