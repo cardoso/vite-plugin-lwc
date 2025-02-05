@@ -13,10 +13,10 @@
   "dependencies": {},
   "devDependencies": {
     "vite-plugin-lwc": "workspace:*",
-    "lwc": "catalog:",
-    "@lwc/engine-dom": "catalog:",
-    "@lwc/shared": "catalog:",
-    "@lwc/synthetic-shadow": "catalog:",
-    "@lwc/wire-service": "catalog:"
+    "lwc": "^8.13.0",
+    "@lwc/engine-dom": "^8.13.0",
+    "@lwc/shared": "^8.13.0",
+    "@lwc/synthetic-shadow": "^8.13.0",
+    "@lwc/wire-service": "^8.13.0"
   }
 }
