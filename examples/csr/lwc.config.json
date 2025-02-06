@@ -4,9 +4,6 @@
       "dir": "src/modules"
     },
     {
-      "npm": "components"
-    },
-    {
       "npm": "lightning-base-components"
     }
   ]
