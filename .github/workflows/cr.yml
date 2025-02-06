@@ -26,6 +26,9 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - run: pnpx pkg-pr-new publish './packages/vite-plugin-lwc'
+      - name: Test
+        run: pnpm test
+
+      - run: pnpx pkg-pr-new publish './packages/vite-plugin-lwc' --template './examples/*'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
