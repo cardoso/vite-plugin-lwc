@@ -15,12 +15,9 @@
     "@lwc/ssr-runtime": "^8.13.0",
     "@lwc/synthetic-shadow": "^8.13.0",
     "@lwc/wire-service": "^8.13.0",
-    "cem-plugin-lwc": "workspace:*",
-    "components": "workspace:*",
     "lightning-base-components": "1.22.3-alpha",
     "lwc": "^8.13.0",
     "typescript": "^5.7.3",
-    "vite-plugin-cem": "^0.8.2",
     "vite-plugin-lwc": "workspace:*"
   }
 }
