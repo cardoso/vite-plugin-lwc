@@ -5,21 +5,26 @@
   "type": "module",
   "packageManager": "pnpm@10.2.1",
   "scripts": {
+    "build": "pnpm -r run build",
     "dev": "pnpm -r --filter='./packages/*' run dev",
-    "build": "pnpm -r --filter='./packages/*' run build",
-    "preview": "vite preview",
     "test": "vitest",
+    "prepare": "npx simple-git-hooks",
+    "lint": "eslint .",
     "example:csr": "pnpm -r --filter='./examples/csr' run dev",
     "example:ssr": "pnpm -r --filter='./examples/ssr' run dev",
-    "repl:dev": "pnpm -r --filter='./apps/repl' run dev"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
+    "@eslint/js": "^9.19.0",
+    "typescript-eslint": "^8.23.0",
+    "lint-staged": "^15.4.3",
+    "simple-git-hooks": "^2.11.1",
     "@types/node": "^22.13.1",
     "@vitest/browser": "^3.0.5",
     "@vitest/ui": "^3.0.5",
     "playwright": "^1.50.1",
-    "prettier": "^3.4.2",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
     "vitest": "^3.0.5"
@@ -29,5 +34,11 @@
       "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
       "nanoid@<3.3.8": ">=3.3.8"
     }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }

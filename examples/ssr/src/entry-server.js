@@ -10,7 +10,7 @@ import Main, { tagName } from "./main.mjs";
 export async function render(url, ssrManifest) {
   const html = await renderComponent(
     tagName,
-    // @ts-ignore
+    // @ts-expect-error missing [SYMBOL_GENERATE_MARKUP]
     Main,
     { path: url, ssrManifest },
   );
