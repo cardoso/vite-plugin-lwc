@@ -5,7 +5,6 @@ import { isClassDeclaration, isJavaScriptExport } from "./manifest.ts";
 function apiDecorator(): Plugin {
   return {
     name: "cem-plugin-lwc:api-decorator",
-    // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
     analyzePhase({ moduleDoc, node, ts }) {
       if (!moduleDoc.path) {
         return;

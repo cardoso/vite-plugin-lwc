@@ -12,22 +12,22 @@
     "preview:dev": "cross-env NODE_ENV=development node server.mjs"
   },
   "dependencies": {
-    "express": "^5.0.1",
     "compression": "^1.7.5",
+    "express": "^5.0.1",
     "sirv": "^3.0.0"
   },
   "devDependencies": {
+    "@lwc/engine-dom": "^8.13.1",
+    "@lwc/engine-server": "^8.13.1",
+    "@lwc/features": "^8.13.1",
+    "@lwc/shared": "^8.13.1",
+    "@lwc/ssr-runtime": "^8.13.1",
+    "@lwc/synthetic-shadow": "^8.13.1",
+    "@lwc/wire-service": "^8.13.1",
     "@types/compression": "^1.7.5",
     "@types/express": "^5.0.0",
-    "@lwc/features": "^8.13.0",
-    "@lwc/engine-dom": "^8.13.0",
-    "@lwc/engine-server": "^8.13.0",
-    "@lwc/shared": "^8.13.0",
-    "@lwc/ssr-runtime": "^8.13.0",
-    "@lwc/synthetic-shadow": "^8.13.0",
-    "@lwc/wire-service": "^8.13.0",
-    "lwc": "^8.13.0",
     "cross-env": "^7.0.3",
+    "lwc": "^8.13.1",
     "vite-plugin-lwc": "workspace:*"
   }
 }
