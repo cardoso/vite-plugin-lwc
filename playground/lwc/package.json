@@ -11,7 +11,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.13.1",
+    "@lwc/engine-dom": "^8.13.3",
     "@lwc/shared": "^8.13.1",
     "@lwc/synthetic-shadow": "^8.13.1",
     "@lwc/wire-service": "^8.13.1",

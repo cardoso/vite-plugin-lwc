@@ -17,7 +17,7 @@
     "sirv": "^3.0.0"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.13.1",
+    "@lwc/engine-dom": "^8.13.3",
     "@lwc/engine-server": "^8.13.1",
     "@lwc/features": "^8.13.1",
     "@lwc/shared": "^8.13.1",

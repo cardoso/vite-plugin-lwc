@@ -58,8 +58,8 @@ importers:
   examples/csr:
     devDependencies:
       '@lwc/engine-dom':
-        specifier: ^8.13.1
-        version: 8.13.1
+        specifier: ^8.13.3
+        version: 8.13.3
       '@lwc/shared':
         specifier: ^8.13.1
         version: 8.13.1
@@ -98,8 +98,8 @@ importers:
         version: 3.0.0
     devDependencies:
       '@lwc/engine-dom':
-        specifier: ^8.13.1
-        version: 8.13.1
+        specifier: ^8.13.3
+        version: 8.13.3
       '@lwc/engine-server':
         specifier: ^8.13.1
         version: 8.13.1
@@ -164,8 +164,8 @@ importers:
   playground/lwc:
     devDependencies:
       '@lwc/engine-dom':
-        specifier: ^8.13.1
-        version: 8.13.1
+        specifier: ^8.13.3
+        version: 8.13.3
       '@lwc/shared':
         specifier: ^8.13.1
         version: 8.13.1
@@ -647,6 +647,9 @@ packages:
 
   '@lwc/engine-dom@8.13.1':
     resolution: {integrity: sha512-Cctw5J18MbfLRN5BOSV6hOopmUgRv8GvjsrsDszmGZ/0xEIjvfS1Mx+n5yhNuk3U7sg6uMNRQzEeoLzCFeViIg==}
+
+  '@lwc/engine-dom@8.13.3':
+    resolution: {integrity: sha512-2NulXHbRvD+AebASeZy33nyxcWWK1+zCacUBo4EgTUd3fbr2Pp0AKhsl5A06X3IA/g/e7048DXRjb1mILpCGyQ==}
 
   '@lwc/engine-server@8.13.1':
     resolution: {integrity: sha512-UjsLEpfsMPwFNQGWpJR6VQQhXp4GO9rsh8Lu1EQDFUcr7iFVaMrVsJEzNuusrBBfnQ80uYud2Onz72Q0edA7mw==}
@@ -3441,6 +3444,8 @@ snapshots:
       '@lwc/signals': 8.13.1
 
   '@lwc/engine-dom@8.13.1': {}
+
+  '@lwc/engine-dom@8.13.3': {}
 
   '@lwc/engine-server@8.13.1': {}
 
