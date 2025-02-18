@@ -70,8 +70,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       '@lwc/wire-service':
-        specifier: ^8.13.1
-        version: 8.13.1
+        specifier: ^8.13.3
+        version: 8.13.3
       lightning-base-components:
         specifier: 1.22.3-alpha
         version: 1.22.3-alpha
@@ -116,8 +116,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       '@lwc/wire-service':
-        specifier: ^8.13.1
-        version: 8.13.1
+        specifier: ^8.13.3
+        version: 8.13.3
       '@types/compression':
         specifier: ^1.7.5
         version: 1.7.5
@@ -173,8 +173,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       '@lwc/wire-service':
-        specifier: ^8.13.1
-        version: 8.13.1
+        specifier: ^8.13.3
+        version: 8.13.3
       lwc:
         specifier: ^8.13.1
         version: 8.13.1(@babel/core@7.26.8)(rollup@4.34.6)
@@ -691,6 +691,9 @@ packages:
 
   '@lwc/wire-service@8.13.1':
     resolution: {integrity: sha512-Y5THNGXAtVeQ5BtqoofBn7oUppiwst1U/fBcGEmjXh3YaudHynlDzIVP/Km7ra+XrfL6yIJvdjNA33rq45VxCQ==}
+
+  '@lwc/wire-service@8.13.3':
+    resolution: {integrity: sha512-bq27XFQZ2owu7iBAluVuQBDkIpE81aNEntgTz715exY8Ov+RAwfJj337K0qwIkC7UIIXCtPdk2VzDOmCPV3hFQ==}
 
   '@mswjs/interceptors@0.37.6':
     resolution: {integrity: sha512-wK+5pLK5XFmgtH3aQ2YVvA3HohS3xqV/OxuVOdNx9Wpnz7VE/fnC+e1A7ln6LFYeck7gOJ/dsZV6OLplOtAJ2w==}
@@ -3504,6 +3507,8 @@ snapshots:
       '@lwc/engine-core': 8.13.1
 
   '@lwc/wire-service@8.13.1': {}
+
+  '@lwc/wire-service@8.13.3': {}
 
   '@mswjs/interceptors@0.37.6':
     dependencies:

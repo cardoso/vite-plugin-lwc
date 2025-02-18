@@ -14,7 +14,7 @@
     "@lwc/engine-dom": "^8.13.1",
     "@lwc/shared": "^8.13.1",
     "@lwc/synthetic-shadow": "^8.13.1",
-    "@lwc/wire-service": "^8.13.1",
+    "@lwc/wire-service": "^8.13.3",
     "lwc": "^8.13.1",
     "vite-plugin-lwc": "workspace:*"
   }
