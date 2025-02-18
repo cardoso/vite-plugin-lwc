@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@lwc/engine-dom": "^8.13.1",
-    "@lwc/engine-server": "^8.13.1",
+    "@lwc/engine-server": "^8.13.3",
     "@lwc/features": "^8.13.1",
     "@lwc/shared": "^8.13.1",
     "@lwc/ssr-runtime": "^8.13.1",

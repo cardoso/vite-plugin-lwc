@@ -101,8 +101,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       '@lwc/engine-server':
-        specifier: ^8.13.1
-        version: 8.13.1
+        specifier: ^8.13.3
+        version: 8.13.3
       '@lwc/features':
         specifier: ^8.13.1
         version: 8.13.1
@@ -650,6 +650,9 @@ packages:
 
   '@lwc/engine-server@8.13.1':
     resolution: {integrity: sha512-UjsLEpfsMPwFNQGWpJR6VQQhXp4GO9rsh8Lu1EQDFUcr7iFVaMrVsJEzNuusrBBfnQ80uYud2Onz72Q0edA7mw==}
+
+  '@lwc/engine-server@8.13.3':
+    resolution: {integrity: sha512-yFIRuO/ICHbNC4RXYTwOsKyImoqc+qvfUXKPDVLLDcBfiEROpz5K7jIL/xmD7N5Z9zI2zxh65Ii16ng/z7NWXw==}
 
   '@lwc/errors@8.13.1':
     resolution: {integrity: sha512-KfsDjpMsgtxIzrop3LyCUo8NgCN7JmwFdwkS85Tv5opTLt2FoebNhC73+QAiwtfCxt3z74rs/Ke5fMq1qSn8/g==}
@@ -3443,6 +3446,8 @@ snapshots:
   '@lwc/engine-dom@8.13.1': {}
 
   '@lwc/engine-server@8.13.1': {}
+
+  '@lwc/engine-server@8.13.3': {}
 
   '@lwc/errors@8.13.1': {}
 
