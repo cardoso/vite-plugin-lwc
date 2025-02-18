@@ -14,20 +14,20 @@
   "dependencies": {
     "compression": "^1.8.0",
     "express": "^5.0.1",
-    "sirv": "^3.0.0"
+    "sirv": "^3.0.1"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.13.1",
-    "@lwc/engine-server": "^8.13.1",
-    "@lwc/features": "^8.13.1",
-    "@lwc/shared": "^8.13.1",
-    "@lwc/ssr-runtime": "^8.13.1",
-    "@lwc/synthetic-shadow": "^8.13.1",
-    "@lwc/wire-service": "^8.13.1",
+    "@lwc/engine-dom": "^8.13.3",
+    "@lwc/engine-server": "^8.13.3",
+    "@lwc/features": "^8.13.3",
+    "@lwc/shared": "^8.13.3",
+    "@lwc/ssr-runtime": "^8.13.3",
+    "@lwc/synthetic-shadow": "^8.13.3",
+    "@lwc/wire-service": "^8.13.3",
     "@types/compression": "^1.7.5",
     "@types/express": "^5.0.0",
     "cross-env": "^7.0.3",
-    "lwc": "^8.13.1",
+    "lwc": "^8.13.3",
     "vite-plugin-lwc": "workspace:*"
   }
 }
