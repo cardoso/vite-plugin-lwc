@@ -18,12 +18,7 @@
   },
   "devDependencies": {
     "@lwc/engine-dom": "^8.13.3",
-    "@lwc/engine-server": "^8.13.3",
-    "@lwc/features": "^8.13.3",
-    "@lwc/shared": "^8.13.3",
     "@lwc/ssr-runtime": "^8.13.3",
-    "@lwc/synthetic-shadow": "^8.13.3",
-    "@lwc/wire-service": "^8.13.3",
     "@types/compression": "^1.7.5",
     "@types/express": "^5.0.0",
     "cross-env": "^7.0.3",
