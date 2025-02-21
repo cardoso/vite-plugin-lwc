@@ -1,16 +1,24 @@
 {
   "name": "vite-plugin-lwc",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "license": "MIT",
   "author": "Matheus Cardoso <matheus@cardo.so>",
+  "maintainers": [
+    {
+      "email": "matheus@cardo.so",
+      "name": "Matheus Cardoso",
+      "url": "https://cardo.so"
+    }
+  ],
+  "description": "Vite plugin for Lightning Web Components (LWC)",
   "type": "module",
   "files": ["dist"],
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     }
   },
   "scripts": {
