@@ -2,6 +2,9 @@ name: Publish Any Commit
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
 
 jobs:
   build:
