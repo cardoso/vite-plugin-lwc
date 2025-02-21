@@ -15,6 +15,6 @@
     "lightning-base-components": "1.22.3-alpha",
     "lwc": "^8.13.3",
     "typescript": "^5.7.3",
-    "vite-plugin-lwc": "workspace:*"
+    "vite-plugin-lwc": "*"
   }
 }
