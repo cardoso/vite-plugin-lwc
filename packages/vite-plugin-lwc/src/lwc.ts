@@ -8,6 +8,7 @@ function createRollupPlugin(options: RollupLwcOptions) {
   const plugin = lwc(options);
 
   return {
+    version: plugin.version,
     buildStart: getHook(plugin, "buildStart"),
     resolveId: getHook(plugin, "resolveId"),
     load: getHook(plugin, "load"),

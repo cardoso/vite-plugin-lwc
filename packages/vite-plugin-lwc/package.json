@@ -10,6 +10,13 @@
       "url": "https://cardo.so"
     }
   ],
+  "keywords": [
+    "vite",
+    "lwc",
+    "lightning",
+    "web",
+    "components"
+  ],
   "description": "Vite plugin for Lightning Web Components (LWC)",
   "type": "module",
   "files": ["dist"],
