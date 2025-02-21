@@ -1,7 +1,7 @@
-# vite-plugin-lwc [![npm](https://img.shields.io/npm/v/vite-plugin-lwc.svg)](https://npmjs.com/package/vite-plugin-lwc) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz_small.svg)](https://stackblitz.com/github/cardoso/vite-plugin-lwc-example?file=src%2Fmodules%2Fc%2Fapp%2Fapp.html)
+# vite-plugin-lwc [![npm](https://img.shields.io/npm/v/vite-plugin-lwc.svg)](https://npmjs.com/package/vite-plugin-lwc) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz_small.svg)](https://stackblitz.com/github/cardoso/vite-plugin-lwc/tree/main/examples/csr?file=src%2Fmodules%2Fc%2Fapp%2Fapp.html)
 
 
-Unofficial Vite plugin for LWC projects.
+Vite plugin for LWC projects.
 
 ```js
 // vite.config.js
