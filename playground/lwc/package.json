@@ -16,6 +16,6 @@
     "@lwc/synthetic-shadow": "^8.13.3",
     "@lwc/wire-service": "^8.13.3",
     "lwc": "^8.13.3",
-    "vite-plugin-lwc": "*"
+    "vite-plugin-lwc": "workspace:*"
   }
 }
