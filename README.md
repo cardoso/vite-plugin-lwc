@@ -1,6 +1,7 @@
 # Vite Plugin LWC
 
 [![npm](https://img.shields.io/npm/v/vite-plugin-lwc.svg)](https://www.npmjs.com/package/vite-plugin-lwc)
+![NPM Downloads](https://img.shields.io/npm/d18m/vite-plugin-lwc)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/cardoso/vite-plugin-lwc/cr.yml)](https://github.com/cardoso/vite-plugin-lwc/actions/workflows/cr.yml)
 
 ## Examples
