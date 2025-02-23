@@ -6,7 +6,11 @@ import tseslint from 'typescript-eslint';
 import gitignore from 'eslint-config-flat-gitignore';
 
 export default tseslint.config(
-  gitignore(),
+  gitignore(
+    {
+      files: ['.gitignore', '.eslintignore'],
+    }
+  ),
   eslint.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   {

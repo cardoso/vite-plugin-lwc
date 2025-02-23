@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { red, green } from 'kolorist';
 import prompts from 'prompts';
-import type { Answers, NormalizedProjectMetadata, AnswersWithMetadata, ProjectMetadata, ProjectType } from './types';
+import type { NormalizedProjectMetadata, AnswersWithMetadata, ProjectMetadata, ProjectType } from './types';
 
 export const PROJECTS = [
     {
@@ -78,14 +78,15 @@ export function pkgFromUserAgent(userAgent: string | undefined): {
 }
 // Gather project information from the user in the terminal
 export async function promptForAnswers(metadata: ProjectMetadata): Promise<AnswersWithMetadata> {
-    const results: Answers = await prompts([
+    const results = await prompts([
         {
             // Get the project name, used as the LWC project directory and saved as metadata.targetDir
             type: metadata.targetDir ? null : 'text',
+
             name: 'projectName',
             message: 'Project directory name:',
             initial: metadata.defaultProjectName,
-            onState: (state) => (metadata.targetDir = state.value.trim() || metadata.defaultProjectName),
+            onState: ({ value }: { value: string }) => (metadata.targetDir = value.trim() || metadata.defaultProjectName),
         },
         {
             // If the targetDir is not empty, ask if the current contents should be deleted (i.e. overwritten)
@@ -114,7 +115,7 @@ export async function promptForAnswers(metadata: ProjectMetadata): Promise<Answe
             name: 'packageName',
             message: 'Package name (used in package.json):',
             initial: () => toValidPackageName(metadata.targetDir!),
-            validate: (dir) => isValidPackageName(dir) || 'Invalid package.json name',
+            validate: (dir: string) => isValidPackageName(dir) || 'Invalid package.json name',
         },
         {
             // Select a project type, if the user has not passed in a "--template"

@@ -29,6 +29,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Lint
+        run: pnpm lint
+
       - name: Install Playwright
         run: pnpm exec playwright install chromium
 
