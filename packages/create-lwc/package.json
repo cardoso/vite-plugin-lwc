@@ -1,0 +1,64 @@
+{
+  "name": "create-lwc",
+  "version": "0.0.1-alpha.4",
+  "license": "MIT",
+  "author": "Matheus Cardoso <matheus@cardo.so>",
+  "maintainers": [
+    {
+      "email": "matheus@cardo.so",
+      "name": "Matheus Cardoso",
+      "url": "https://cardo.so"
+    }
+  ],
+  "keywords": [
+    "vite",
+    "lwc",
+    "lightning",
+    "web",
+    "components"
+  ],
+  "description": "Create a Vite-powered Lightning Web Component (LWC) project in seconds",
+  "type": "module",
+  "bin": {
+    "create-lwc": "dist/index.mjs"
+  },
+  "files": ["dist", "template-*"],
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cardoso/vite-plugin-lwc.git",
+    "directory": "packages/create-lwc"
+  },
+  "bugs": {
+    "url": "https://github.com/cardoso/vite-plugin-lwc/issues"
+  },
+  "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/create-lwc#readme",
+  "dependencies": {
+    "kolorist": "^1.8.0",
+    "prompts": "^2.4.2",
+    "minimist": "^1.2.8"
+},
+"engines": {
+    "node": ">=20.0.0"
+},
+
+  "devDependencies": {
+    "unbuild": "^3.3.1",
+    "@types/prompts": "^2.4.9",
+    "@types/minimist": "^1.2.5"
+  }
+}

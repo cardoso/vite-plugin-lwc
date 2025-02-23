@@ -11,8 +11,6 @@
   },
   "devDependencies": {
     "@lwc/engine-dom": "^8.13.3",
-    "@lwc/synthetic-shadow": "^8.13.3",
-    "lightning-base-components": "1.22.3-alpha",
     "lwc": "^8.13.3",
     "typescript": "^5.7.3",
     "vite-plugin-lwc": "*"
