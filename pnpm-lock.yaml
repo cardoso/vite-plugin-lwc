@@ -63,7 +63,7 @@ importers:
         version: 8.13.3
       lwc:
         specifier: ^8.13.3
-        version: 8.13.3(@babel/core@7.26.8)(rollup@4.34.8)
+        version: 8.13.3(@babel/core@7.26.9)(rollup@4.34.8)
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
@@ -4780,31 +4780,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lwc@8.13.3(@babel/core@7.26.8)(rollup@4.34.8):
-    dependencies:
-      '@lwc/aria-reflection': 8.13.3
-      '@lwc/babel-plugin-component': 8.13.3(@babel/core@7.26.8)
-      '@lwc/compiler': 8.13.3
-      '@lwc/engine-core': 8.13.3
-      '@lwc/engine-dom': 8.13.3
-      '@lwc/engine-server': 8.13.3
-      '@lwc/errors': 8.13.3
-      '@lwc/features': 8.13.3
-      '@lwc/module-resolver': 8.13.3
-      '@lwc/rollup-plugin': 8.13.3(rollup@4.34.8)
-      '@lwc/shared': 8.13.3
-      '@lwc/ssr-compiler': 8.13.3
-      '@lwc/ssr-runtime': 8.13.3
-      '@lwc/style-compiler': 8.13.3
-      '@lwc/synthetic-shadow': 8.13.3
-      '@lwc/template-compiler': 8.13.3
-      '@lwc/types': 8.13.3
-      '@lwc/wire-service': 8.13.3
-    transitivePeerDependencies:
-      - '@babel/core'
-      - rollup
-      - supports-color
 
   lwc@8.13.3(@babel/core@7.26.9)(rollup@4.34.8):
     dependencies:

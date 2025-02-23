@@ -1,4 +1,5 @@
 // @ts-check
+
 import { hydrateComponent } from "lwc";
 import Main, { tagName } from "./main.mjs";
 

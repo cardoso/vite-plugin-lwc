@@ -24,7 +24,8 @@
 		"resolveJsonModule": true,
 		"allowJs": true,
 		"strictFunctionTypes": true,
-		"strictBindCallApply": true
+		"strictBindCallApply": true,
+    "noImplicitAny": true
 	},
-	
+
 }
