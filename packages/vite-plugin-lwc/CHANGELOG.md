@@ -1,3 +1,7 @@
+# 5.0.0
+
+-
+
 # 4.0.0
 - move vite to peerDependencies
 - move @lwc/rollup-plugin to peerDependencies
