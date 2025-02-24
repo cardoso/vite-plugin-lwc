@@ -7,8 +7,6 @@ export interface ViteLwcOptions extends RollupLwcOptions {
   exclude?: FilterPattern;
 }
 
-
-
 function createRollupPlugin(options: RollupLwcOptions) {
   const plugin = lwc(options);
 

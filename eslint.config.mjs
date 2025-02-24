@@ -6,11 +6,10 @@ import tseslint from 'typescript-eslint';
 import gitignore from 'eslint-config-flat-gitignore';
 
 export default tseslint.config(
-  gitignore(
-    {
-      files: ['.gitignore', '.eslintignore'],
-    }
-  ),
+  gitignore(),
+  {
+    ignores: ['packages/create-lwc/template-*']
+  },
   eslint.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   {
