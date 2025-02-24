@@ -1,27 +1,29 @@
 #!/usr/bin/env node
-import fs from 'fs';
-import path from 'path';
-import minimist from 'minimist';
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { parseArgs } from 'node:util';
 import { emptyDir, copy, pkgFromUserAgent, promptForAnswers } from './utils.js';
-import { dirname } from 'path';
+import { dirname } from 'node:path';
 import { fileURLToPath } from 'url';
 import { dim } from 'kolorist';
 import type { ProjectMetadata } from './types.js';
+import pkg from 'create-lwc/package.json' with { type: 'json' };
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const cwd = process.cwd();
-const rooDir = path.join(__dirname, '../');
-const rootPkg = JSON.parse(fs.readFileSync(path.join(rooDir, `package.json`), 'utf-8'));
-const LWC_VERSION = rootPkg.version;
-const argv = minimist(process.argv.slice(2), { string: ['_'] });
+const argv = parseArgs({args: process.argv.slice(2), allowPositionals: true, strict: true, options: { template: {type: 'string', short: 't'} }});
+
 const renameFiles = {
     _gitignore: '.gitignore',
 } as Record<string, string>;
+
 export async function init(): Promise<void> {
-    console.log(dim(`create-lwc v${LWC_VERSION}`));
-    const targetDir = argv._[0];
+    console.log(dim(`${pkg.name} v${pkg.version}`));
+    const targetDir = argv.positionals[0];
     const metadata: ProjectMetadata = {
         targetDir,
-        template: argv.template || argv.t,
+        template: argv.values.template,
         defaultProjectName: !targetDir ? 'lwc-project' : targetDir,
     };
     let userFeedback;
@@ -38,9 +40,10 @@ export async function init(): Promise<void> {
     createRootDir(projectRoot, revisedMetadata, overwrite, template);
     const templateDir = path.join(__dirname, '../', `template-${revisedMetadata.template}`);
     writeFiles(projectRoot, templateDir);
-    const pkgManager = writePackageFile(projectRoot, templateDir, packageName, revisedMetadata);
+    const pkgManager = await writePackageFile(projectRoot, templateDir, packageName, revisedMetadata);
     logResult(projectRoot, pkgManager);
 }
+
 function createRootDir(projectRoot: string, metadata: Required<ProjectMetadata>, overwrite: boolean, template: string) {
     if (overwrite) {
         emptyDir(projectRoot);
@@ -52,6 +55,7 @@ function createRootDir(projectRoot: string, metadata: Required<ProjectMetadata>,
     metadata.template = template || metadata.template;
     console.log(`\nScaffolding project in ${projectRoot}...`);
 }
+
 const write = (projectRoot: string, templateDir: string, file: string, content?: string) => {
     const targetPath = renameFiles[file]
         ? path.join(projectRoot, renameFiles[file])
@@ -63,24 +67,38 @@ const write = (projectRoot: string, templateDir: string, file: string, content?:
         copy(path.join(templateDir, file), targetPath);
     }
 };
+
 function writeFiles(projectRoot: string, templateDir: string) {
     const files = fs.readdirSync(templateDir);
     for (const file of files.filter((f) => f !== 'package.json')) {
         write(projectRoot, templateDir, file);
     }
 }
-function writePackageFile(projectRoot: string, templateDir: string, packageName: string, metadata: Required<ProjectMetadata>) {
+async function writePackageFile(projectRoot: string, templateDir: string, packageName: string, metadata: Required<ProjectMetadata>) {
     // modify package json name
-    const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'));
-    pkg.name = packageName || metadata.targetDir;
+    const pkg_json_dir = path.join(templateDir, `package.json`);
+    const pkg_json = await fs.promises.readFile(pkg_json_dir, 'utf-8')
+    const pkg: unknown = JSON.parse(pkg_json);
+
+    if (typeof pkg !== 'object' || pkg === null) {
+        throw new Error(`Failed to parse package.json`);
+    }
+
+    Object.assign(pkg, {
+        name: packageName || metadata.targetDir,
+    });
+
     write(projectRoot, templateDir, 'package.json', JSON.stringify(pkg, null, 2));
+
     const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
     const pkgManager = pkgInfo ? pkgInfo.name : 'npm';
+
     if (pkgManager === 'yarn') {
         // Set nodeLinker in .yarnrc.yml if yarn is the selected package manager.
         // LWC does not work when included in yarn pnp.
         write(projectRoot, templateDir, '.yarnrc.yml', 'nodeLinker: node-modules');
     }
+
     return pkgManager;
 }
 function logResult(projectRoot: string, pkgManager: string) {
@@ -100,6 +118,7 @@ function logResult(projectRoot: string, pkgManager: string) {
     }
     console.log();
 }
+
 init().catch((e) => {
     console.error(e);
 });

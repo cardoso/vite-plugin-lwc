@@ -1,4 +1,6 @@
-import fs from 'node:fs/promises'
+import process from 'process'
+import fs from 'fs/promises'
+import console from 'console';
 import express from 'express'
 
 // Constants
@@ -39,16 +41,17 @@ app.use('*all', async (req, res) => {
 
     /** @type {string} */
     let template
-    /** @type {import('./src/entry-server.js').render} */
+    /** @type {import('./src/entry-server.js').default} */
     let render
     if (!isProduction) {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      render = (await vite.ssrLoadModule('/src/entry-server.js')).render
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      render = (await vite.ssrLoadModule('/src/entry-server.js')).default;
     } else {
       template = templateHtml
-      render = (await import('./dist/server/entry-server.js')).render
+      render = (await import('./dist/server/entry-server.js')).default;
     }
 
     const rendered = await render(url)

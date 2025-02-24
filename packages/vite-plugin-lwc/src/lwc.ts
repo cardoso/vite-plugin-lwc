@@ -1,18 +1,26 @@
-import { createFilter, type Plugin, type Rollup } from "vite";
+import { createFilter, type FilterPattern, type Plugin, type Rollup } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import path from "node:path";
 
-export type ViteLwcOptions = RollupLwcOptions;
+export interface ViteLwcOptions extends RollupLwcOptions {
+  include?: FilterPattern;
+  exclude?: FilterPattern;
+}
 
 function createRollupPlugin(options: RollupLwcOptions) {
   const plugin = lwc(options);
 
+  const buildStart = plugin.buildStart ? 'handler' in plugin.buildStart ? plugin.buildStart.handler : plugin.buildStart : () => {};
+  const resolveId = plugin.resolveId ? 'handler' in plugin.resolveId ? plugin.resolveId.handler : plugin.resolveId : () => {};
+  const load = plugin.load ? 'handler' in plugin.load ? plugin.load.handler : plugin.load : () => {};
+  const transform = plugin.transform ? 'handler' in plugin.transform ? plugin.transform.handler : plugin.transform : () => {};
+
   return {
     version: plugin.version,
-    buildStart: getHook(plugin, "buildStart"),
-    resolveId: getHook(plugin, "resolveId"),
-    load: getHook(plugin, "load"),
-    transform: getHook(plugin, "transform"),
+    buildStart,
+    resolveId,
+    load,
+    transform,
   };
 }
 
@@ -21,30 +29,28 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
   const csr = createRollupPlugin(config);
   const ssr = createRollupPlugin({ ...config, targetSSR: true });
 
+  const exclude = [config.exclude].flat().filter(e => e !== undefined && e !== null);
+
   const filter = createFilter(config.include, [
     "**/vite/**",
     "**/@vitest/**",
     "**/.vite/**",
     "index.html",
     "/__vitest_test__/**",
-    ...(config.exclude
-      ? Array.isArray(config.exclude)
-        ? config.exclude
-        : [config.exclude]
-      : []),
+    ...exclude,
   ]);
 
   return {
     name: "lwc:vite-plugin",
-    buildStart(options) {
+    async buildStart(options) {
       try {
-        csr.buildStart.call(this, options);
-        ssr.buildStart.call(this, options);
+        await csr.buildStart.call(this, options);
+        await ssr.buildStart.call(this, options);
       } catch (e) {
         this.error(getError(e));
       }
     },
-    resolveId(source, importer, options) {
+    async resolveId(source, importer, options) {
       if (!filter(source)) {
         return;
       }
@@ -61,7 +67,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        const id = (options.ssr ? ssr : csr).resolveId.call(
+        const id = await (options.ssr ? ssr : csr).resolveId.call(
           this,
           source,
           importer,
@@ -72,10 +78,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
           return;
         }
 
-        return {
-          id,
-          meta: { lwc: true },
-        };
+        return id;
       } catch (e) {
         this.error(getError(e, source));
       }
@@ -86,7 +89,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        return (options?.ssr ? ssr : csr).load.call(this, id, options);
+        return (options?.ssr ? ssr : csr).load.call(this, id);
       } catch (e) {
         this.error(getError(e, id));
       }
@@ -100,30 +103,13 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
         return (options?.ssr ? ssr : csr).transform.call(
           this,
           code,
-          id,
-          options,
+          id
         );
       } catch (e) {
         this.error(getError(e, id, code));
       }
     },
   };
-}
-
-function getHook<T, K extends keyof T>(rollupPlugin: T, hookName: K) {
-  const hook = rollupPlugin[hookName];
-
-  if (typeof hook === "undefined") {
-    throw new Error(
-      `The hook "${String(hookName)}" is not supported by the LWC plugin.`,
-    );
-  }
-
-  if (typeof hook !== "function") {
-    throw new Error(`The hook "${String(hookName)}" is not a function.`);
-  }
-
-  return hook;
 }
 
 function getError(
