@@ -76,6 +76,7 @@ export function pkgFromUserAgent(userAgent: string | undefined): {
         version: pkgSpecArr[1],
     };
 }
+
 // Gather project information from the user in the terminal
 export async function promptForAnswers(metadata: ProjectMetadata): Promise<AnswersWithMetadata> {
     const results = await prompts([

@@ -118,6 +118,7 @@ function logResult(projectRoot: string, pkgManager: string) {
     }
     console.log();
 }
+
 init().catch((e) => {
     console.error(e);
 });
