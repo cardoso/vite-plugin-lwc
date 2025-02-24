@@ -47,10 +47,11 @@ app.use('*all', async (req, res) => {
       // Always read fresh template in development
       template = await fs.readFile('./index.html', 'utf-8')
       template = await vite.transformIndexHtml(url, template)
-      render = await vite.ssrLoadModule('/src/entry-server.js');
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      render = (await vite.ssrLoadModule('/src/entry-server.js')).default;
     } else {
       template = templateHtml
-      render = (await import('./dist/server/entry-server.js'));
+      render = (await import('./dist/server/entry-server.js')).default;
     }
 
     const rendered = await render(url)
