@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+
 import fs from 'node:fs';
 import path from 'node:path';
 import { parseArgs } from 'node:util';
-// import minimist from 'minimist';
 import { emptyDir, copy, pkgFromUserAgent, promptForAnswers } from './utils.js';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'url';
@@ -12,10 +12,6 @@ import pkg from 'create-lwc/package.json' with { type: 'json' };
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const cwd = process.cwd();
-// const rooDir = path.join(__dirname, '../');
-// const rootPkg = JSON.parse(fs.readFileSync(path.join(rooDir, `package.json`), 'utf-8'));
-
-// const argv = minimist(process.argv.slice(2), { string: ['_'] });
 const argv = parseArgs({args: process.argv.slice(2), allowPositionals: true, strict: true, options: { template: {type: 'string', short: 't'} }});
 
 const renameFiles = {
