@@ -63,12 +63,12 @@ importers:
         version: 8.13.3
       lwc:
         specifier: ^8.13.3
-        version: 8.13.3(@babel/core@7.26.9)(rollup@4.34.8)
+        version: 8.13.3(@babel/core@7.26.8)(rollup@4.34.8)
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
       vite-plugin-lwc:
-        specifier: workspace:^
+        specifier: ^4.0.0
         version: link:../../packages/vite-plugin-lwc
 
   examples/ssr:
@@ -100,9 +100,9 @@ importers:
         version: 7.0.3
       lwc:
         specifier: ^8.13.3
-        version: 8.13.3(@babel/core@7.26.8)(rollup@4.34.8)
+        version: 8.13.3(@babel/core@7.26.9)(rollup@4.34.8)
       vite-plugin-lwc:
-        specifier: workspace:^
+        specifier: ^4.0.0
         version: link:../../packages/vite-plugin-lwc
 
   packages/cem-plugin-lwc:

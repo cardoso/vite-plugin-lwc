@@ -23,6 +23,6 @@
     "@types/express": "^5.0.0",
     "cross-env": "^7.0.3",
     "lwc": "^8.13.3",
-    "vite-plugin-lwc": "workspace:^"
+    "vite-plugin-lwc": "^4.0.0"
   }
 }
