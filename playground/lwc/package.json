@@ -11,11 +11,11 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.13.3",
-    "@lwc/shared": "^8.13.3",
-    "@lwc/synthetic-shadow": "^8.13.3",
-    "@lwc/wire-service": "^8.13.3",
-    "lwc": "^8.13.3",
+    "@lwc/engine-dom": "^8.14.0",
+    "@lwc/shared": "^8.14.0",
+    "@lwc/synthetic-shadow": "^8.14.0",
+    "@lwc/wire-service": "^8.14.0",
+    "lwc": "^8.14.0",
     "vite-plugin-lwc": "^4.0.0"
   }
 }

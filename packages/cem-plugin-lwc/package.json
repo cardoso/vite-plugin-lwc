@@ -4,7 +4,9 @@
   "license": "MIT",
   "author": "Matheus Cardoso <matheus@cardo.so>",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -28,8 +30,8 @@
   },
   "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/cem-plugin-lwc#readme",
   "devDependencies": {
-    "unbuild": "^3.3.1",
     "@custom-elements-manifest/analyzer": "^0.10.4",
-    "custom-elements-manifest": "^2.1.0"
+    "custom-elements-manifest": "^2.1.0",
+    "unbuild": "^3.5.0"
   }
 }

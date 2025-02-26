@@ -17,12 +17,12 @@
     "sirv": "^3.0.1"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.13.3",
-    "@lwc/ssr-runtime": "^8.13.3",
+    "@lwc/engine-dom": "^8.14.0",
+    "@lwc/ssr-runtime": "^8.14.0",
     "@types/compression": "^1.7.5",
     "@types/express": "^5.0.0",
     "cross-env": "^7.0.3",
-    "lwc": "^8.13.3",
+    "lwc": "^8.14.0",
     "vite-plugin-lwc": "^4.0.0"
   }
 }
