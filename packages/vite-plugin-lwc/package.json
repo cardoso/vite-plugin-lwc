@@ -19,7 +19,9 @@
   ],
   "description": "Vite plugin for Lightning Web Components (LWC)",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -43,10 +45,10 @@
   },
   "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/vite-plugin-lwc#readme",
   "peerDependencies": {
-    "vite": ">= 6",
-    "@lwc/rollup-plugin": ">= 8"
+    "@lwc/rollup-plugin": ">= 8",
+    "vite": ">= 6"
   },
   "devDependencies": {
-    "unbuild": "^3.3.1"
+    "unbuild": "^3.5.0"
   }
 }

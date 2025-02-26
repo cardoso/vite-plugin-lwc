@@ -10,8 +10,8 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.13.3",
-    "lwc": "^8.13.3",
+    "@lwc/engine-dom": "^8.14.0",
+    "lwc": "^8.14.0",
     "typescript": "^5.7.3",
     "vite-plugin-lwc": "^4.0.0"
   }
