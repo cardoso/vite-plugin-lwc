@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@10.5.1",
+  "packageManager": "pnpm@10.5.2",
   "scripts": {
     "build": "pnpm -r run build",
     "dev": "pnpm -r --filter='./packages/*' run dev",
@@ -32,7 +32,6 @@
   },
   "pnpm": {
     "overrides": {
-      "vite-plugin-lwc": "workspace:*",
       "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
       "nanoid@<3.3.8": ">=3.3.8",
       "esbuild@<=0.24.2": ">=0.25.0"
