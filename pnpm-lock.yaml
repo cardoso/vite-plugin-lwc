@@ -67,6 +67,9 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+      vite:
+        specifier: ^6.2.0
+        version: 6.2.0(@types/node@22.13.5)(jiti@2.4.2)(yaml@2.7.0)
       vite-plugin-lwc:
         specifier: ^4.0.0
         version: link:../../packages/vite-plugin-lwc
