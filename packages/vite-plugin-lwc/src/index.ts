@@ -53,7 +53,9 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
     name: "lwc:vite-plugin",
     enforce: "post",
     // apply: "serve",
-    config(config, env) {
+    config: {
+      order: "pre",
+      handler(config, env) {
       state.env = env;
       state.config = config;
       return {
@@ -70,6 +72,7 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
           ]
         }
       }
+    },
     },
     configResolved(config) {
       state.resolvedConfig = config;
