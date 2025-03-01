@@ -56,8 +56,10 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
     config(config, env) {
       state.env = env;
       state.config = config;
-
       return {
+        optimizeDeps: {
+          exclude: ["lwc"],
+        },
         resolve: {
           alias: [
             {
@@ -146,9 +148,6 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
           id
         );
       } catch (e) {
-        if (process.env.NODE_ENV === "development") {
-          throw e;
-        }
         this.error(getError(e, id, code));
       }
     },
