@@ -51,6 +51,7 @@ app.use('*all', async (req, res) => {
       render = (await vite.ssrLoadModule('/src/entry-server.js')).default;
     } else {
       template = templateHtml
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       render = (await import('./dist/server/entry-server.js')).default;
     }
 

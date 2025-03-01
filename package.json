@@ -8,6 +8,7 @@
     "build": "pnpm -r run build",
     "dev": "pnpm -r --filter='./packages/*' run dev",
     "test": "vitest",
+    "ci": "pnpm install --frozen-lockfile && pnpm run lint && pnpm run test --no-cache --run",
     "prepare": "npx simple-git-hooks",
     "lint": "eslint .",
     "example:csr": "pnpm -r --filter='./examples/csr' run dev",
@@ -28,7 +29,8 @@
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.25.0",
     "vite": "^6.2.0",
-    "vitest": "^3.0.7"
+    "vitest": "^3.0.7",
+    "unbuild": "^3.5.0"
   },
   "pnpm": {
     "overrides": {
