@@ -10,10 +10,10 @@ export interface ViteLwcOptions extends RollupLwcOptions {
 function createRollupPlugin(options: RollupLwcOptions) {
   const plugin = lwc({ ...options, defaultModules: [] } as RollupLwcOptions);
 
-  const buildStart = plugin.buildStart ? 'handler' in plugin.buildStart ? plugin.buildStart.handler : plugin.buildStart : () => {};
-  const resolveId = plugin.resolveId ? 'handler' in plugin.resolveId ? plugin.resolveId.handler : plugin.resolveId : () => {};
-  const load = plugin.load ? 'handler' in plugin.load ? plugin.load.handler : plugin.load : () => {};
-  const transform = plugin.transform ? 'handler' in plugin.transform ? plugin.transform.handler : plugin.transform : () => {};
+  const buildStart = plugin.buildStart ? 'handler' in plugin.buildStart ? plugin.buildStart.handler : plugin.buildStart : () => { };
+  const resolveId = plugin.resolveId ? 'handler' in plugin.resolveId ? plugin.resolveId.handler : plugin.resolveId : () => { };
+  const load = plugin.load ? 'handler' in plugin.load ? plugin.load.handler : plugin.load : () => { };
+  const transform = plugin.transform ? 'handler' in plugin.transform ? plugin.transform.handler : plugin.transform : () => { };
 
   return {
     version: plugin.version,
@@ -51,28 +51,29 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
 
   return {
     name: "lwc:vite-plugin",
-    enforce: "post",
+    // enforce: "post",
     // apply: "serve",
     config: {
       order: "pre",
       handler(config, env) {
-      state.env = env;
-      state.config = config;
-      return {
-        optimizeDeps: {
-          exclude: ["lwc"],
-        },
-        resolve: {
-          alias: [
-            {
-              // Find all html imports and add ?import to the end of the import
-              find: /^(?!.*index)(.*)\.html$/,
-              replacement: "$1.html?import",
-            },
-          ]
+        state.env = env;
+        state.config = config;
+        return {
+          optimizeDeps: {
+            exclude: ["lwc"],
+          },
+
+          resolve: {
+            alias: [
+              {
+                // Find all html imports and add ?import to the end of the import
+                find: /^(?!.*index)(.*)\.html$/,
+                replacement: "$1.html?import",
+              },
+            ]
+          }
         }
-      }
-    },
+      },
     },
     configResolved(config) {
       state.resolvedConfig = config;
@@ -95,38 +96,41 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
         this.error(getError(e));
       }
     },
-    async resolveId(source, importer, options) {
-      if (!filter(source)) {
-        return;
-      }
-
-      if (
-        importer &&
-        path.extname(importer) === ".html" &&
-        path.isAbsolute(importer) &&
-        path.extname(source) !== "" &&
-        path.isAbsolute(source)
-      ) {
-        const dir = path.dirname(importer);
-        return path.join(dir, source);
-      }
-
-      try {
-        const id = await (options.ssr ? ssr : csr).resolveId.call(
-          this,
-          source,
-          importer,
-          options,
-        );
-
-        if (!id) {
+    resolveId: {
+      order: "post",
+      async handler(source, importer, options) {
+        if (!filter(source)) {
           return;
         }
 
-        return id;
-      } catch (e) {
-        this.error(getError(e, source));
-      }
+        if (
+          importer &&
+          path.extname(importer) === ".html" &&
+          path.isAbsolute(importer) &&
+          path.extname(source) !== "" &&
+          path.isAbsolute(source)
+        ) {
+          const dir = path.dirname(importer);
+          return path.join(dir, source);
+        }
+
+        try {
+          const id = await (options.ssr ? ssr : csr).resolveId.call(
+            this,
+            source,
+            importer,
+            options,
+          );
+
+          if (!id) {
+            return;
+          }
+
+          return id;
+        } catch (e) {
+          this.error(getError(e, source));
+        }
+      },
     },
     load(id, options) {
       if (!filter(id)) {
