@@ -26,8 +26,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Dev
-        run: pnpm dev
+      - name: Build
+        run: pnpm build
 
       - name: Lint
         run: pnpm lint
@@ -37,9 +37,6 @@ jobs:
 
       - name: Test
         run: pnpm test
-
-      - name: Build
-        run: pnpm build
 
       - run: pnpx pkg-pr-new publish --compact './packages/vite-plugin-lwc' './packages/create-lwc' --template './examples/*'
         env:
