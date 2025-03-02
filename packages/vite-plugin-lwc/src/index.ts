@@ -60,9 +60,9 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
         state.config = config;
         return {
           optimizeDeps: {
+            entries: ["index.html"],
             exclude: ["lwc"],
           },
-
           resolve: {
             alias: [
               {
@@ -132,15 +132,18 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
         }
       },
     },
-    load(id, options) {
-      if (!filter(id)) {
-        return;
-      }
 
-      try {
-        return (options?.ssr ? ssr : csr).load.call(this, id);
-      } catch (e) {
-        this.error(getError(e, id));
+    load: {
+     handler(id, options) {
+        if (!filter(id)) {
+          return;
+        }
+
+        try {
+          return (options?.ssr ? ssr : csr).load.call(this, id);
+        } catch (e) {
+          this.error(getError(e, id));
+        }
       }
     },
     transform(code, id, options) {
@@ -158,6 +161,7 @@ export default function lwcVite(config: ViteLwcOptions = {}): Plugin {
         this.error(getError(e, id, code));
       }
     },
+
   };
 }
 
