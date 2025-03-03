@@ -71,7 +71,7 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
       vite-plugin-lwc:
-        specifier: workspace:^
+        specifier: ^4.0.0
         version: link:../../packages/vite-plugin-lwc
 
   examples/ssr:
@@ -105,7 +105,7 @@ importers:
         specifier: ^8.14.0
         version: 8.14.0(@babel/core@7.26.9)(rollup@4.34.9)
       vite-plugin-lwc:
-        specifier: workspace:^
+        specifier: ^4.0.0
         version: link:../../packages/vite-plugin-lwc
 
   packages/cem-plugin-lwc:
