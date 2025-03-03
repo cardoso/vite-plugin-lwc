@@ -90,7 +90,7 @@ async function writePackageFile(projectRoot: string, templateDir: string, packag
 
     write(projectRoot, templateDir, 'package.json', JSON.stringify(pkg, null, 2));
 
-    const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
+    const pkgInfo = pkgFromUserAgent(process.env['npm_config_user_agent']);
     const pkgManager = pkgInfo ? pkgInfo.name : 'npm';
 
     if (pkgManager === 'yarn') {
