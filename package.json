@@ -15,6 +15,7 @@
     "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
     "@eslint/js": "^9.21.0",
     "@types/node": "^22.13.8",
     "@vitest/browser": "^3.0.7",

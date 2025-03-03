@@ -7,6 +7,10 @@ export interface ViteLwcOptions extends RollupLwcOptions {
   exclude?: FilterPattern;
 }
 
+interface Options extends ViteLwcOptions {
+  [key: string]: unknown;
+}
+
 function createRollupPlugin(options: RollupLwcOptions) {
   const plugin = lwc(options);
 
@@ -24,8 +28,8 @@ function createRollupPlugin(options: RollupLwcOptions) {
   };
 }
 
-export default function lwcVite(config: ViteLwcOptions): Plugin {
-  config.rootDir ??= ".";
+export default function lwcVite(rawConfig: ViteLwcOptions): Plugin {
+  const config = createConfig(rawConfig);
   const csr = createRollupPlugin(config);
   const ssr = createRollupPlugin({ ...config, targetSSR: true });
 
@@ -110,6 +114,13 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
     },
   };
+}
+
+function createConfig(rawConfig: ViteLwcOptions): Options {
+  const config = rawConfig as Options;
+  config.rootDir ??= ".";
+  config['defaultModules'] ??= [];
+  return config;
 }
 
 function getError(

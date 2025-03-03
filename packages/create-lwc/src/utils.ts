@@ -64,16 +64,21 @@ function copyDir(srcDir: string, destDir: string) {
     }
 }
 export function pkgFromUserAgent(userAgent: string | undefined): {
-  name: string;
-  version: string;
+  name: string | undefined;
+  version: string | undefined;
 } | undefined {
     if (!userAgent)
         return undefined;
+
     const pkgSpec = userAgent.split(' ')[0];
-    const pkgSpecArr = pkgSpec.split('/');
+
+    const pkgSpecArr = pkgSpec?.split('/');
+
+
+
     return {
-        name: pkgSpecArr[0],
-        version: pkgSpecArr[1],
+        name: pkgSpecArr?.[0],
+        version: pkgSpecArr?.[1],
     };
 }
 
