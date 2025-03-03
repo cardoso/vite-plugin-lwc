@@ -101,7 +101,7 @@ async function writePackageFile(projectRoot: string, templateDir: string, packag
 
     return pkgManager;
 }
-function logResult(projectRoot: string, pkgManager: string) {
+function logResult(projectRoot: string, pkgManager?: string) {
     console.log(`\nDone. Now run:\n`);
     if (projectRoot !== cwd) {
         console.log(`  cd ${path.relative(cwd, projectRoot)}`);
