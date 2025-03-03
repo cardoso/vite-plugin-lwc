@@ -8,7 +8,8 @@
     "build": "vite build",
     "debug": "node --inspect-brk vite",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@lwc/engine-dom": "^8.14.0",

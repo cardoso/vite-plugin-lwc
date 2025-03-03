@@ -1,21 +1,26 @@
 {
 	"compilerOptions": {
+    /* Language and Environment */
 		"target": "ESNext",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
 		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"skipLibCheck": true,
+    "libReplacement": false,
+
+    /* Interop Constraints */
+    "erasableSyntaxOnly": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
 
 		/* Bundler mode */
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
-		"isolatedModules": true,
 		"moduleDetection": "force",
 		"noEmit": true,
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
-    "verbatimModuleSyntax": true,
-    "esModuleInterop": true,
 
 		/* Linting */
 		"strict": true,
@@ -27,5 +32,5 @@
 		"allowJs": true,
 		"strictFunctionTypes": true
 	},
-	"include": ["."]
+	"include": []
 }

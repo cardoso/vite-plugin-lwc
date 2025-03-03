@@ -1,5 +1,5 @@
 {
-    "extends": "../../tsconfig.json",
+    "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "types": ["@vitest/browser/providers/playwright"],
         "paths": {
@@ -7,4 +7,5 @@
             "x/counter": ["./src/modules/x/counter/counter.ts"]
         }
     },
+    "include": ["."]
 }

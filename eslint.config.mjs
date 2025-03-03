@@ -1,5 +1,5 @@
 // @ts-check
-import globals from 'globals';
+import globals from 'globals/globals.json' with { type: "json" };
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 
@@ -15,8 +15,12 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        projectService: {
+          defaultProject: 'tsconfig.lint.json',
+          allowDefaultProject: ['eslint.config.mjs', 'build.config.ts', 'vitest.workspace.ts'],
+        },
         tsconfigRootDir: import.meta.dirname,
+
       },
       globals: {
         ...globals.node,

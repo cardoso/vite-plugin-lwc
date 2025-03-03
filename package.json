@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "example:csr": "pnpm -r --filter='./examples/csr' run dev",
     "example:ssr": "pnpm -r --filter='./examples/ssr' run dev",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
@@ -32,6 +32,9 @@
     "vite-plugin-lwc": "workspace:^"
   },
   "pnpm": {
+    "requiredScripts": [
+      "typecheck"
+    ],
     "overrides": {
       "cross-spawn@>=7.0.0 <7.0.5": ">=7.0.5",
       "nanoid@<3.3.8": ">=3.3.8",

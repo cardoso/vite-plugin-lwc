@@ -120,7 +120,11 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0(typescript@5.8.2)
 
-  packages/components: {}
+  packages/components:
+    dependencies:
+      lwc:
+        specifier: '>=8'
+        version: 8.14.0(@babel/core@7.26.9)(rollup@4.34.9)
 
   packages/create-lwc:
     dependencies:
@@ -5286,7 +5290,7 @@ snapshots:
 
   send@1.1.0:
     dependencies:
-      debug: 4.4.0
+      debug: 4.3.6
       destroy: 1.2.0
       encodeurl: 2.0.0
       escape-html: 1.0.3
