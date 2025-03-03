@@ -9,7 +9,8 @@
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
     "preview": "cross-env NODE_ENV=production node server.mjs",
-    "preview:dev": "cross-env NODE_ENV=development node server.mjs"
+    "preview:dev": "cross-env NODE_ENV=development node server.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "compression": "^1.8.0",

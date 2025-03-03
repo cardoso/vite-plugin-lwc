@@ -3,11 +3,17 @@
   "version": "2.0.0",
   "type": "module",
   "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "lwc": ">=8"
+  },
   "lwc": {
     "modules": [
       {
         "name": "ui/button",
-        "path": "src/modules/ui/button/button.ts"
+        "path": "ui/button/button.ts"
       }
     ],
     "expose": ["ui/button"]

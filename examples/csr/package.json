@@ -7,12 +7,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@lwc/engine-dom": "^8.14.0",
     "lwc": "^8.14.0",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.2",
     "vite-plugin-lwc": "^4.0.0"
   }
 }

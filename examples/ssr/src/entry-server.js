@@ -1,6 +1,6 @@
 // @ts-check
-import { renderComponent } from "lwc";
-import Main, { tagName } from "./main.mjs";
+import { renderComponent } from "@lwc/ssr-runtime";
+import Main, { tagName } from "./main.js";
 
 /**
  * @param {string} url
@@ -10,7 +10,7 @@ import Main, { tagName } from "./main.mjs";
 export default async function render(url, ssrManifest) {
   const html = await renderComponent(
     tagName,
-    // @ts-expect-error missing [SYMBOL_GENERATE_MARKUP]
+    // @ts-expect-error ssr runtimee
     Main,
     { path: url, ssrManifest },
   );

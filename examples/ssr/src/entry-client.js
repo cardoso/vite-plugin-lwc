@@ -1,7 +1,6 @@
 // @ts-check
-
 import { hydrateComponent } from "lwc";
-import Main, { tagName } from "./main.mjs";
+import Main, { tagName } from "./main.js";
 
 const element = document.body.getElementsByTagName(tagName).item(0);
 

@@ -1,31 +1,4 @@
 {
-	"include": ["src"],
-	"compilerOptions": {
-		"outDir": "dist",
-		"target": "ESNext",
-		"useDefineForClassFields": true,
-		"module": "ESNext",
-		"lib": ["ESNext"],
-		"skipLibCheck": true,
-
-		/* Bundler mode */
-		"moduleResolution": "Bundler",
-		"allowImportingTsExtensions": true,
-		"isolatedModules": true,
-		"moduleDetection": "force",
-		"noEmit": true,
-
-		/* Linting */
-		"strict": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noFallthroughCasesInSwitch": true,
-		"noUncheckedSideEffectImports": true,
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"strictFunctionTypes": true,
-		"strictBindCallApply": true,
-    "noImplicitAny": true
-	},
-
+	"extends": "../../tsconfig.base.json",
+  "include": ["."]
 }

@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,26 +22,31 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
-      - name: Install dependencies
+      - name: Install
         run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
 
+      - name: Typecheck
+        run: pnpm typecheck
+
       - name: Lint
         run: pnpm lint
 
-      - name: Install Playwright
+      - name: Playwright
         run: pnpm exec playwright install chromium
 
       - name: Test
         run: pnpm test
 
-      - run: pnpx pkg-pr-new publish --compact './packages/vite-plugin-lwc' './packages/create-lwc' --template './examples/*'
+      - name: Publish
+        run: pnpm dlx pkg-pr-new publish --compact './packages/vite-plugin-lwc' './packages/create-lwc' --template './examples/*' --packageManager="pnpm"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

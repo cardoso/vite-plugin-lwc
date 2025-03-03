@@ -8,7 +8,8 @@
     "build": "vite build",
     "debug": "node --inspect-brk vite",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@lwc/engine-dom": "^8.14.0",
@@ -16,6 +17,6 @@
     "@lwc/synthetic-shadow": "^8.14.0",
     "@lwc/wire-service": "^8.14.0",
     "lwc": "^8.14.0",
-    "vite-plugin-lwc": "^4.0.0"
+    "vite-plugin-lwc": "workspace:^"
   }
 }
