@@ -12,11 +12,11 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.14.0",
-    "@lwc/shared": "^8.14.0",
-    "@lwc/synthetic-shadow": "^8.14.0",
-    "@lwc/wire-service": "^8.14.0",
-    "lwc": "^8.14.0",
+    "@lwc/engine-dom": "^8.15.0",
+    "@lwc/shared": "^8.15.0",
+    "@lwc/synthetic-shadow": "^8.15.0",
+    "@lwc/wire-service": "^8.15.0",
+    "lwc": "^8.15.0",
     "vite-plugin-lwc": "workspace:^"
   }
 }
