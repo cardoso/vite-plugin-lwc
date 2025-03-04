@@ -1,5 +1,11 @@
 # 4.0.0
 
+## 4.0.2
+
+### Patch Changes
+
+- c03d3d1: Fix process undefined error in lwc 8.15.0
+
 ## 4.0.1
 
 ### Patch Changes
