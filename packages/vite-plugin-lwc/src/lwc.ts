@@ -46,6 +46,13 @@ export default function lwcVite(rawConfig: ViteLwcOptions): Plugin {
 
   return {
     name: "lwc:vite-plugin",
+    config() {
+      return {
+        define: {
+          'process.env.SKIP_LWC_VERSION_MISMATCH_CHECK': 'false',
+        },
+      }
+    },
     async buildStart(options) {
       try {
         await csr.buildStart.call(this, options);
