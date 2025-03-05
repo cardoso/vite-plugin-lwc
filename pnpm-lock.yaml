@@ -80,6 +80,30 @@ importers:
         specifier: ^4.0.2
         version: link:../../packages/vite-plugin-lwc
 
+  examples/csr-with-base-components:
+    devDependencies:
+      '@lwc/engine-dom':
+        specifier: ^8.15.1
+        version: 8.15.1
+      '@lwc/synthetic-shadow':
+        specifier: ^8.15.1
+        version: 8.15.1
+      lightning-base-components:
+        specifier: ^1.22.3-alpha
+        version: 1.22.3-alpha
+      lwc:
+        specifier: ^8.15.1
+        version: 8.15.1(@babel/core@7.26.9)(rollup@4.34.9)
+      typescript:
+        specifier: ^5.8.2
+        version: 5.8.2
+      vite:
+        specifier: ^6.2.0
+        version: 6.2.0(@types/node@22.13.9)(jiti@2.4.2)(yaml@2.7.0)
+      vite-plugin-lwc:
+        specifier: ^4.0.2
+        version: link:../../packages/vite-plugin-lwc
+
   examples/ssr:
     dependencies:
       compression:
@@ -2026,6 +2050,11 @@ packages:
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
+
+  lightning-base-components@1.22.3-alpha:
+    resolution: {integrity: sha512-aKeYTnBLxs96330nf1hivGKha/0Sq3FwRISCBQTMyET7wUghnSan2apuKZmJyHNIUcZx/eTG1REt2TyqDemhpg==}
+    engines: {node: '>=14.18.2'}
+    deprecated: Publishing of the package has been paused. Salesforce employees should use the internal package.
 
   lilconfig@3.1.3:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
@@ -5147,6 +5176,8 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
+
+  lightning-base-components@1.22.3-alpha: {}
 
   lilconfig@3.1.3: {}
 
