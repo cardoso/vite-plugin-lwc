@@ -4,5 +4,5 @@
    * Disable to prevent Stackblitz to format LWC components template files.
    */
   "editor.formatOnSave": false,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
 }
