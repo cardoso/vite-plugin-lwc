@@ -1,12 +1,17 @@
 <template>
-    <lightning-button label="Hello"></lightning-button>
-    <lightning-tabset variant="scoped">
-        <lightning-tab label="Tab 1">
-            Tab 1
-        </lightning-tab>
-        <lightning-tab label="Tab 2">
-            Tab 2
-        </lightning-tab>
-    </lightning-tabset>
-    <c-counter label="Counter"></c-counter>
+  <lightning-layout multiple-rows="true">
+      <lightning-layout-item padding="around-small" size="12">
+          <c-header title="Vite + LWC" sub-title="csr with base components"></c-header>
+      </lightning-layout-item>
+      <lightning-layout-item padding="around-small" size="12">
+          <lightning-tabset variant="scoped">
+              <lightning-tab label="Counter">
+                  <c-counter label="Counter"></c-counter>
+              </lightning-tab>
+              <lightning-tab label="Tab 2">
+                  Tab 2
+              </lightning-tab>
+          </lightning-tabset>
+      </lightning-layout-item>
+  </lightning-layout>
 </template>

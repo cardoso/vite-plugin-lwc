@@ -1,7 +1,7 @@
 <template>
-    {label} {counter}
-    &nbsp;
-    <button onclick={decrement}>&minus;</button>
-    &nbsp;
-    <button onclick={increment}>+</button>
+  {label} {counter} &nbsp;
+  <lightning-button-group>
+  <lightning-button-icon icon-name="utility:dash" onclick={decrement}></lightning-button-icon>
+  <lightning-button-icon icon-name="utility:add" onclick={increment}></lightning-button-icon>
+  </lightning-button-group>
 </template>
