@@ -33,6 +33,9 @@
     "vitest": "^3.0.7"
   },
   "pnpm": {
+    "allowedDeprecatedVersions": {
+      "lightning-base-components": "1.22.3-alpha"
+    },
     "requiredScripts": [
       "typecheck"
     ],

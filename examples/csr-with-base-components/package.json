@@ -1,0 +1,22 @@
+{
+  "name": "csr-with-base-components",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@lwc/engine-dom": "^8.15.1",
+    "@lwc/synthetic-shadow": "^8.15.1",
+    "lightning-base-components": "^1.22.3-alpha",
+    "lwc": "^8.15.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "vite-plugin-lwc": "^4.0.2"
+  }
+}
