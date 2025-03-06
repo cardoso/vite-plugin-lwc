@@ -11,8 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.15.1",
-    "lwc": "^8.15.1",
+    "@lwc/engine-dom": "^8.16.0",
+    "lwc": "^8.16.0",
     "typescript": "^5.8.2",
     "vite": "^6.2.0",
     "vite-plugin-lwc": "^4.0.2"
