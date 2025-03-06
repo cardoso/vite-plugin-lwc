@@ -1,6 +1,8 @@
-import { createFilter, type FilterPattern, type Plugin, type Rollup } from "vite";
-import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
+import { createFilter, type FilterPattern, type Plugin } from "vite";
+import { type RollupLwcOptions } from "@lwc/rollup-plugin";
 import path from "node:path";
+import { createRollupPlugin } from "./utils/createRollupPlugin";
+import { getError } from "./utils/getError";
 
 export interface ViteLwcOptions extends RollupLwcOptions {
   include?: FilterPattern;
@@ -11,25 +13,15 @@ interface Options extends ViteLwcOptions {
   [key: string]: unknown;
 }
 
-function createRollupPlugin(options: RollupLwcOptions) {
-  const plugin = lwc(options);
-
-  const buildStart = plugin.buildStart ? 'handler' in plugin.buildStart ? plugin.buildStart.handler : plugin.buildStart : () => {};
-  const resolveId = plugin.resolveId ? 'handler' in plugin.resolveId ? plugin.resolveId.handler : plugin.resolveId : () => {};
-  const load = plugin.load ? 'handler' in plugin.load ? plugin.load.handler : plugin.load : () => {};
-  const transform = plugin.transform ? 'handler' in plugin.transform ? plugin.transform.handler : plugin.transform : () => {};
-
-  return {
-    version: plugin.version,
-    buildStart,
-    resolveId,
-    load,
-    transform,
-  };
+export default function lwc(config: ViteLwcOptions): Plugin {
+  return createVitePlugin({
+    ...config,
+    rootDir: config.rootDir ?? '.',
+    defaultModules: config.defaultModules ?? []
+  })
 }
 
-export default function lwcVite(rawConfig: ViteLwcOptions): Plugin {
-  const config = createConfig(rawConfig);
+function createVitePlugin(config: Options) {
   const csr = createRollupPlugin(config);
   const ssr = createRollupPlugin({ ...config, targetSSR: true });
 
@@ -120,99 +112,5 @@ export default function lwcVite(rawConfig: ViteLwcOptions): Plugin {
         this.error(getError(e, id, code));
       }
     },
-  };
-}
-
-function createConfig(rawConfig: ViteLwcOptions): Options {
-  const config = rawConfig as Options;
-  config.rootDir ??= ".";
-  config['defaultModules'] ??= [];
-  return config;
-}
-
-function getError(
-  error: unknown,
-  id?: string,
-  src?: string,
-): Rollup.RollupError | string {
-  if (typeof error === "string") {
-    return error;
-  }
-
-  if (typeof error !== "object" || error === null) {
-    return String(error);
-  }
-
-  const rollupError: Rollup.RollupError = {
-    message: "An unknown error occurred.",
-  };
-
-  addErrorCode(error, rollupError);
-  addErrorMessage(error, rollupError);
-  addErrorLocation(error, rollupError, src);
-  addErrorId(id, rollupError);
-
-  return rollupError;
-}
-
-function addErrorCode(error: object, rollupError: Rollup.RollupError) {
-  if ("code" in error && typeof error.code === "number") {
-    rollupError.pluginCode = error.code;
-  }
-}
-
-function addErrorMessage(error: object, rollupError: Rollup.RollupError) {
-  if ("message" in error && typeof error.message === "string") {
-    rollupError.message = error.message;
-  }
-}
-
-function addErrorLocation(
-  error: object,
-  rollupError: Rollup.RollupError,
-  src?: string,
-) {
-  if ("filename" in error && typeof error.filename === "string") {
-    rollupError.loc = {
-      file: error.filename,
-      line: 1,
-      column: 1,
-    };
-  }
-
-  if (
-    "location" in error &&
-    typeof error.location === "object" &&
-    error.location !== null
-  ) {
-    rollupError.loc = {
-      ...rollupError.loc,
-      line:
-        "line" in error.location && typeof error.location.line === "number"
-          ? error.location.line
-          : 1,
-      column:
-        "column" in error.location && typeof error.location.column === "number"
-          ? error.location.column
-          : 1,
-    };
-
-    if (
-      "start" in error.location &&
-      typeof error.location.start === "number" &&
-      "length" in error.location &&
-      typeof error.location.length === "number"
-    ) {
-      rollupError.frame = src?.substring(
-        error.location.start,
-        error.location.start + error.location.length,
-      );
-    }
-  }
-}
-
-function addErrorId(id: string | undefined, rollupError: Rollup.RollupError) {
-  if (typeof id === "string") {
-    rollupError.id = id;
-  }
+  } as const satisfies Plugin;
 }

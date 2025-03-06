@@ -202,6 +202,9 @@ importers:
       lwc:
         specifier: ^8.15.1
         version: 8.15.1(@babel/core@7.26.9)(rollup@4.34.9)
+      vite:
+        specifier: ^6.2.0
+        version: 6.2.0(@types/node@22.13.9)(jiti@2.4.2)(yaml@2.7.0)
       vite-plugin-lwc:
         specifier: workspace:^
         version: link:../../packages/vite-plugin-lwc

@@ -8,6 +8,14 @@
 		"skipLibCheck": true,
     "libReplacement": false,
 
+    /* Modules */
+    "rootDir": ".",
+
+    /* Emit */
+    "noEmit": true,
+    "outDir": "./dist",
+    "stripInternal": true,
+
     /* Interop Constraints */
     "erasableSyntaxOnly": true,
     "isolatedModules": true,
@@ -22,7 +30,6 @@
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
 		"moduleDetection": "force",
-		"noEmit": true,
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
 

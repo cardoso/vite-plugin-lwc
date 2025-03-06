@@ -37,6 +37,7 @@
       "lightning-base-components": "1.22.3-alpha"
     },
     "requiredScripts": [
+      "build",
       "typecheck"
     ],
     "onlyBuiltDependencies": [
