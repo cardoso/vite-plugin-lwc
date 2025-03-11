@@ -6,6 +6,7 @@
   "packageManager": "pnpm@10.6.1",
   "scripts": {
     "build": "pnpm -r run build",
+    "bump": "pnpm changeset version",
     "dev": "pnpm -r --filter='./packages/*' run dev",
     "test": "vitest",
     "prepare": "npx simple-git-hooks",
