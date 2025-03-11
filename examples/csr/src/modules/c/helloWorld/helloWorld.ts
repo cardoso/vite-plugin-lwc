@@ -3,27 +3,24 @@ import { LightningElement, api } from "lwc";
 export default class HelloWorld extends LightningElement {
   @api msg = "Hello, World!!";
 
-  count = 1;
+  count = 2;
 
   handleClick() {
-    this.count += 3;
+    this.count += 1;
   }
 }
 
 if (import.meta.hot) {
   const { swapComponent, isComponentConstructor } = await import('lwc');
   import.meta.hot.accept(jsModule => {
-    if (jsModule) {
-      if (jsModule.default) {
-        const { default: newComponent } = jsModule;
-        if (isComponentConstructor(newComponent)) {
-          if (swapComponent(HelloWorld, newComponent)) {
-            console.info("Hot update successful");
-            return;
-          } else {
-            console.error("Could not swap component")
-          }
+    if (jsModule && isComponentConstructor(jsModule.default)) {
+      try {
+        if (!swapComponent(HelloWorld, jsModule.default)) {
+          import.meta.hot?.invalidate();
         }
+      } catch (err) {
+        const message = String(err);
+        import.meta.hot?.invalidate(message)
       }
     }
   })
