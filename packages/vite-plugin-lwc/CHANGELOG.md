@@ -1,5 +1,11 @@
 # 4.0.0
 
+## 4.1.0
+
+### Minor Changes
+
+- 4184aa3: Support HMR
+
 ## 4.0.2
 
 ### Patch Changes

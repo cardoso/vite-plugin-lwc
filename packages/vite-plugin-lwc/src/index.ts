@@ -1,9 +1,14 @@
 import patch from "./patch.ts";
-import lwc, { type ViteLwcOptions } from "./lwc.ts";
+import lwc from "./lwc.ts";
 import alias from "./alias.ts";
 import type { Plugin } from "vite";
+import hmr from "./hmr.ts";
+import type { ViteLwcOptions } from "./types.ts";
+import { normalizeOptions } from "./options.ts";
 
-export default (options: ViteLwcOptions = {}): Plugin[] => [
+export default (options: ViteLwcOptions = {}): Plugin[] => {
+  options = normalizeOptions(options);
+  return [
   patch({
     "vite:css": (p) => {
       p.transform = undefined;
@@ -22,4 +27,6 @@ export default (options: ViteLwcOptions = {}): Plugin[] => [
     enforce: "post",
     apply: "serve",
   },
-];
+  hmr()
+]
+};
