@@ -11,6 +11,7 @@
     "prepare": "npx simple-git-hooks",
     "lint": "eslint .",
     "example:csr": "pnpm -r --filter='./examples/csr' run dev",
+    "example:csr-with-base-components": "pnpm -r --filter='./examples/csr-with-base-components' run dev",
     "example:ssr": "pnpm -r --filter='./examples/ssr' run dev",
     "typecheck": "pnpm -r typecheck"
   },
