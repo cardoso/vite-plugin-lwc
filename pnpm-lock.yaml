@@ -77,7 +77,7 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@22.13.10)(jiti@2.4.2)(yaml@2.7.0)
       vite-plugin-lwc:
-        specifier: ^4.0.2
+        specifier: ^4.1.0
         version: link:../../packages/vite-plugin-lwc
 
   examples/csr-with-base-components:
@@ -101,7 +101,7 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@22.13.10)(jiti@2.4.2)(yaml@2.7.0)
       vite-plugin-lwc:
-        specifier: ^4.0.2
+        specifier: ^4.1.0
         version: link:../../packages/vite-plugin-lwc
 
   examples/ssr:
@@ -135,7 +135,7 @@ importers:
         specifier: ^8.16.1
         version: 8.16.1(@babel/core@7.26.9)(rollup@4.35.0)
       vite-plugin-lwc:
-        specifier: ^4.0.2
+        specifier: ^4.1.0
         version: link:../../packages/vite-plugin-lwc
 
   packages/cem-plugin-lwc:

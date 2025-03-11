@@ -17,6 +17,6 @@
     "lwc": "^8.16.1",
     "typescript": "^5.8.2",
     "vite": "^6.2.1",
-    "vite-plugin-lwc": "^4.0.2"
+    "vite-plugin-lwc": "^4.1.0"
   }
 }
