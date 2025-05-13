@@ -14,16 +14,16 @@
   },
   "dependencies": {
     "compression": "^1.8.0",
-    "express": "^5.0.1",
+    "express": "^5.1.0",
     "sirv": "^3.0.1"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.16.3",
-    "@lwc/ssr-runtime": "^8.16.3",
+    "@lwc/engine-dom": "^8.19.0",
+    "@lwc/ssr-runtime": "^8.19.0",
     "@types/compression": "^1.7.5",
     "@types/express": "^5.0.1",
     "cross-env": "^7.0.3",
-    "lwc": "^8.16.3",
+    "lwc": "^8.19.0",
     "vite-plugin-lwc": "^4.1.0"
   }
 }
