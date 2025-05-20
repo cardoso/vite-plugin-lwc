@@ -30,7 +30,7 @@
     "simple-git-hooks": "^2.12.1",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0",
-    "vite": "^6.2.2",
+    "vite": "^6.2.7",
     "vite-plugin-lwc": "workspace:^",
     "vitest": "^3.0.9"
   },
