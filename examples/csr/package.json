@@ -11,10 +11,10 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@lwc/engine-dom": "^8.16.3",
-    "lwc": "^8.16.3",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.2",
+    "@lwc/engine-dom": "^8.19.1",
+    "lwc": "^8.19.1",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
     "vite-plugin-lwc": "^4.1.0"
   }
 }
