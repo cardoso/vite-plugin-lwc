@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.4",
-    "@eslint/js": "^9.28.0",
+    "@eslint/js": "^9.29.0",
     "@types/node": "^22.15.30",
     "@vitest/browser": "^3.1.4",
     "@vitest/ui": "^3.1.4",
