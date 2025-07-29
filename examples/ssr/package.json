@@ -22,7 +22,7 @@
     "@lwc/ssr-runtime": "^8.19.1",
     "@types/compression": "^1.8.0",
     "@types/express": "^5.0.2",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "lwc": "^8.19.1",
     "vite-plugin-lwc": "^4.1.0"
   }
