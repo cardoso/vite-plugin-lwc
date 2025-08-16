@@ -5,7 +5,8 @@ const deps = ["lwc", "@lwc/engine-dom", "@lwc/synthetic-shadow", "@lwc/shared"];
 
 export default defineConfig({
   plugins: [
-    lwc(),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    lwc() as any,
   ],
   root: import.meta.dirname,
   optimizeDeps: {

@@ -50,6 +50,6 @@
     "vite": ">= 6"
   },
   "devDependencies": {
-    "unbuild": "^3.5.0"
+    "unbuild": "^3.6.1"
   }
 }
