@@ -16,7 +16,7 @@
     "lightning-base-components": "1.22.3-alpha",
     "lwc": "^8.19.1",
     "typescript": "^5.8.3",
-    "vite": "^6.3.5",
+    "vite": "^7.0.6",
     "vite-plugin-lwc": "^4.1.0"
   }
 }
