@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/cem-plugin-lwc#readme",
   "devDependencies": {
-    "@custom-elements-manifest/analyzer": "^0.10.4",
+    "@custom-elements-manifest/analyzer": "^0.10.5",
     "custom-elements-manifest": "^2.1.0",
-    "unbuild": "^3.5.0"
+    "unbuild": "^3.6.1"
   }
 }

@@ -47,8 +47,10 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
     },
     async buildStart(options) {
       try {
-        await csr.buildStart.call(this, options);
-        await ssr.buildStart.call(this, options);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+        await csr.buildStart.call(this as any, options as any);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+        await ssr.buildStart.call(this as any, options as any);
       } catch (e) {
         this.error(getError(e));
       }
@@ -71,7 +73,8 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
 
       try {
         const id = await (options.ssr ? ssr : csr).resolveId.call(
-          this,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+          this as any,
           source,
           importer,
           options,
@@ -92,7 +95,8 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
       }
 
       try {
-        return (options?.ssr ? ssr : csr).load.call(this, id);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+        return (options?.ssr ? ssr : csr).load.call(this as any, id);
       } catch (e) {
         this.error(getError(e, id));
       }
@@ -104,7 +108,8 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
 
       try {
         return (options?.ssr ? ssr : csr).transform.call(
-          this,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+          this as any,
           code,
           id
         );
@@ -112,7 +117,7 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
         this.error(getError(e, id, code));
       }
     },
-  };
+  } as Plugin;
 }
 
 function getError(
