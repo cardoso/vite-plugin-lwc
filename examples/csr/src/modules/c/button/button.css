@@ -1,0 +1,5 @@
+@import 'c/cssShared';
+
+button {
+  background-color: var(--theme-primary-color, salmon);
+}

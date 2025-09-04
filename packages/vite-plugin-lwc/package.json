@@ -47,6 +47,7 @@
   "homepage": "https://github.com/cardoso/vite-plugin-lwc/tree/main/packages/vite-plugin-lwc#readme",
   "peerDependencies": {
     "@lwc/rollup-plugin": ">= 8",
+    "rollup": ">= 4",
     "vite": ">= 6"
   },
   "devDependencies": {

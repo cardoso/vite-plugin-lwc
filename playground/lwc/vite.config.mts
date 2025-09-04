@@ -3,9 +3,13 @@ import lwc from "vite-plugin-lwc";
 
 const deps = ["lwc", "@lwc/engine-dom", "@lwc/synthetic-shadow", "@lwc/shared"];
 
+import LWC_CONFIG from './lwc.config.json'
+
 export default defineConfig({
   plugins: [
-    lwc(),
+    lwc({
+      modules: LWC_CONFIG.modules
+    }),
   ],
   root: import.meta.dirname,
   optimizeDeps: {

@@ -1,7 +1,9 @@
 import { createFilter, type Plugin, type Rollup } from "vite";
 import lwc, { type RollupLwcOptions } from "@lwc/rollup-plugin";
+import fs from "node:fs";
 import path from "node:path";
 import type { ViteLwcOptions } from "./types";
+import { IMPLICIT_DEFAULT_HTML_PATH } from "./constants";
 
 function createRollupPlugin(options: RollupLwcOptions) {
   const plugin = lwc(options);
@@ -56,6 +58,32 @@ export default function lwcVite(config: ViteLwcOptions): Plugin {
     async resolveId(source, importer, options) {
       if (!filter(source)) {
         return;
+      }
+
+      /**
+       * When attempting to import HTML from a JS file, double check
+       * the file exists.
+       *
+       * Somewhat mimics the `@lwc/rollup-plugin` logic to prevent
+       * the assumption of a `.html` file for all LWCs.
+       */
+      if (
+        importer &&
+        path.extname(importer) === '.js' &&
+        path.isAbsolute(importer) &&
+        (path.extname(source) === '.html' || source.endsWith('html?import'))
+      ) {
+        const dir = path.dirname(importer)
+        let filePath = path.join(dir, source)
+
+        if (path.isAbsolute(source)) {
+          filePath = source
+        }
+
+        if (!fs.existsSync(filePath)) {
+          // taken from `@lwc/rollup-plugin`
+          return IMPLICIT_DEFAULT_HTML_PATH
+        }
       }
 
       if (
